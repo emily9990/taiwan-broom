@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臺灣掃帚</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --off-white: #f4f2ed;
+      --black: #111111;
+      --mid-gray: #888;
+      --light-gray: #dedad3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--black);
+      font-family: 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      overflow-x: hidden;
+    }
+
+    /* ─── SECTION 1: Hero ─── */
+    #section1 {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #section1 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ─── SECTION 2: Text ─── */
+    #section2 {
+      padding: 48px 80px;
+      text-align: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    #section2 h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 56px;
+      line-height: 1.5;
+    }
+
+    #section2 p {
+      font-size: clamp(14px, 1.3vw, 17px);
+      line-height: 2.2;
+      color: #444;
+      margin-bottom: 22px;
+    }
+
+    /* ─── SECTION 3: Gallery ─── */
+    #section3 {
+      border-top: 1px solid var(--light-gray);
+      padding: 80px 0 60px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      padding: 0 60px;
+      margin-bottom: 60px;
+      display: block;
+    }
+
+    .gallery-outer {
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .gallery-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+      will-change: transform;
+    }
+
+    .gallery-track:hover {
+      animation-play-state: paused;
+    }
+
+    .gallery-item {
+      flex: 0 0 25vw;
+      width: 25vw;
+      padding: 0 2px;
+      cursor: pointer;
+    }
+
+    .gallery-item-inner {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-item-inner img {
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease, filter 0.5s ease;
+      filter: grayscale(15%);
+    }
+
+    .gallery-item:hover .gallery-item-inner img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .gallery-item-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      padding: 14px 4px 0;
+      color: var(--black);
+    }
+
+    /* ─── SECTION 4: Introductions ─── */
+    #section4 {
+      border-top: 1px solid var(--light-gray);
+      padding-top: 80px;
+    }
+
+    #section4 > .eyebrow {
+      margin-bottom: 60px;
+    }
+
+    .broom-entry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 2px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .broom-entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .broom-entry.reverse .broom-image { order: 2; }
+    .broom-entry.reverse .broom-text  { order: 1; }
+
+    /* ─── Slideshow ─── */
+    .broom-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 72vh;
+    }
+
+    .slideshow {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.9s ease;
+    }
+
+    .broom-entry:hover .slideshow {
+      transform: scale(1.03);
+    }
+
+    .slideshow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    /* ─── Broom Text ─── */
+    .broom-text {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--off-white);
+    }
+
+    .broom-num {
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .broom-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--black);
+      margin-bottom: 28px;
+    }
+
+    .broom-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 2.2vw, 32px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+
+    .broom-desc {
+      font-size: 14px;
+      line-height: 2.2;
+      color: #505050;
+      max-width: 460px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--light-gray);
+      padding: 36px 60px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 60px;
+      font-size: 13px;
+      line-height: 2;
+      color: var(--mid-gray);
+    }
+
+    .footer-col { flex: 1; }
+
+    .footer-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .footer-section {
+      margin-bottom: 28px;
+    }
+
+    .footer-section-title {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .footer-names {
+      font-size: 13px;
+      line-height: 2;
+      color: var(--mid-gray);
+    }
+
+    .footer-right {
+      text-align: right;
+      flex: 0 0 auto;
+      max-width: 360px;
+    }
+
+    .footer-right a {
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .footer-right a:hover {
+      border-color: var(--black);
+    }
+
+    .footer-address {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--mid-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── SECTION 1: Hero Banner ─── -->
+  <section id="section1">
+    <img src="區段1_大福橫幅BN/掃把主視覺圖(橫)_.jpg" alt="臺灣掃帚主視覺" />
+    <p class="hero-caption">Taiwan Broom — Tokyo Exhibition</p>
+  </section>
+
+  <!-- ─── SECTION 2: Text Introduction ─── -->
+  <section id="section2">
+    <h1>臺灣掃帚所述說的故事</h1>
+    <p>這個臺灣掃帚的蒐集計畫，源自於我們長期在臺灣各地作田野，突然發現許多鄉鎮不使用都市中便宜耐用的塑膠掃帚，而是會就地取材用當地盛產植物，做出「不那麼耐用」的「自然掃帚」：有的曾經是當地產業；更多是自用或送人的簡單日用品。</p>
+    <p>無論是否有商業價值，這些掃帚都能說出很多當地故事，我們這些外地人，可以騎著這些掃帚飛進當地的脈絡，一窺當地的植物、人文、歷史各種面向。因為這樣，所以我們展開了全臺掃帚蒐集，並藉著這些掃帚展開當地故事，成為進入各個鄉村的藉口。</p>
+    <p>這個在2017年提出的構想，沉澱多年之後被日本知名的採購人山田遊先生提出邀請去他在東京所經營的畫廊展出。很感謝因為這個邀約，我們重訪了所有掃帚師傅。許多師傅其實都已經不再製作，但因為這次非常特別的邀請而重新拿出工具、重新步入山林採集植物、再次為展覽製作掃帚。讓這些原本只存在於臺灣鄉間、生命短暫、簡單但美麗的日用品重新被人看見。</p>
+  </section>
+
+  <!-- ─── SECTION 3: Thumbnail Gallery ─── -->
+  <section id="section3">
+    <div class="gallery-outer" id="galleryOuter">
+      <div class="gallery-track" id="galleryTrack">
+
+        <div class="gallery-item" onclick="scrollToBroom('broom1')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_槺榔.jpg" alt="槺榔掃帚" />
+          </div>
+          <p class="gallery-item-label">01 &mdash; 槺榔掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom2')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_稻草.jpg" alt="稻草掃帚" />
+          </div>
+          <p class="gallery-item-label">02 &mdash; 稻草掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom3')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_高粱.jpg" alt="高粱掃帚" />
+          </div>
+          <p class="gallery-item-label">03 &mdash; 高粱掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom4')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_地膚草.jpg" alt="地膚草掃帚" />
+          </div>
+          <p class="gallery-item-label">04 &mdash; 地膚草掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom5')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_貴黍.jpg" alt="貴黍掃帚" />
+          </div>
+          <p class="gallery-item-label">05 &mdash; 貴黍掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom6')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_山棕.jpg" alt="山棕掃帚" />
+          </div>
+          <p class="gallery-item-label">06 &mdash; 山棕掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom7')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_山棕嫩葉.jpg" alt="山棕嫩葉掃帚" />
+          </div>
+          <p class="gallery-item-label">07 &mdash; 山棕嫩葉掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom8')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_蘆竹.jpg" alt="蘆竹掃帚" />
+          </div>
+          <p class="gallery-item-label">08 &mdash; 蘆竹掃帚</p>
+        </div>
+
+        <div class="gallery-item" onclick="scrollToBroom('broom9')">
+          <div class="gallery-item-inner">
+            <img src="區段3_臺灣掃帚縮圖展示/展示_芒草.jpg" alt="芒草掃帚" />
+          </div>
+          <p class="gallery-item-label">09 &mdash; 芒草掃帚</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4: Detailed Introductions ─── -->
+  <section id="section4">
+    <span class="eyebrow">臺灣各類掃帚介紹 — Taiwan Brooms</span>
+
+    <!-- 01 槺榔 -->
+    <div class="broom-entry" id="broom1">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/槺榔掃把.JPG"  alt="槺榔掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/DSC01973.JPG"   alt="槺榔掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/TUS_5592.JPG"   alt="槺榔掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/TUS_5562.JPG"   alt="槺榔掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/DSC01917.JPG"   alt="槺榔掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 01</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">槺榔掃帚</h2>
+        <p class="broom-desc">槺榔是臺灣特有種，據稱可以追溯自冰河時期，臺灣各地都有同音或類似發音的地名，都是因為是槺榔這種植物生長地。這種植物做出來的掃帚，都被視為有法力，可以清除不好的東西。臺灣各地廟內的清潔、神明出巡、神明護體都會用槺榔掃帚。</p>
+      </div>
+    </div>
+
+    <!-- 02 稻草 -->
+    <div class="broom-entry reverse" id="broom2">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/IMG_6389.JPG"                                                                           alt="稻草掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/07工具、材料：鋸、剪、鉗、斜口鉗、尖嘴鉗，麻繩、鐵絲P4120026.jpg"                        alt="稻草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/05材料：稻草_4120093.jpg"                                                               alt="稻草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/17工序09捆繞到掃把柄稍，打結紮緊_4120593.jpg"                                            alt="稻草掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 02</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">稻草掃帚</h2>
+        <p class="broom-desc">臺灣農村文化象徵，全臺各地只要有生產稻米，都會在農閒時用無用的稻桿製作成掃帚。<br><br>稻草掃帚主要用在曬稻穀的「埕」，用去除了稻穀的稻桿製成。掃帚主要用在戶外，不是為了將晒穀場清除乾淨、一塵不染，而是為了將石頭、雜草、稻殼與有價值的稻穀，區分開。說是為了清潔不如說是用於分類。</p>
+      </div>
+    </div>
+
+    <!-- 03 高粱 -->
+    <div class="broom-entry" id="broom3">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1509.JPG" alt="高粱掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1530.JPG" alt="高粱掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1525.JPG" alt="高粱掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 03</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">高粱掃帚</h2>
+        <p class="broom-desc">高粱掃帚是台灣金門與東部的特產，只要有高粱產地總會見到，顯示「就地去材」製作生活用品的核心生活法則。有趣的是，東部的臺灣原住民愛用的是色彩鮮艷的紙箱束帶組成掃帚，金門當地來自中國大陸（外省人）的移民喜歡採用另一種更常見、便宜的塑膠繩。展現兩個族群不同的美學觀。另一個差別是，來自外島金門的掃帚目前都是滿滿結實不會將高粱子清除，已經是純粹用來觀賞，非實用價值。</p>
+      </div>
+    </div>
+
+    <!-- 04 地膚草 -->
+    <div class="broom-entry reverse" id="broom4">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/04地膚草掃把成品_4181468.jpg"                                                                                   alt="地膚草掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/10工序01-1備料：將曬乾地膚草在板凳上摔打，去掉草籽，以免做成掃把掃地時掉落_4181454.jpg"                          alt="地膚草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/07工具02：鍘刀_4181021.jpg"                                                                                      alt="地膚草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/08材料01堆放屋外曬乾的地膚草_4181244.jpg"                                                                         alt="地膚草掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 04</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">地膚草掃帚</h2>
+        <p class="broom-desc">一度為臺灣彰化西勢一地的從日本時代就存在的主要產業，跟其他大部分只限於當地使用的掃帚不同。從書籍出版到來日本展覽不到五年時間，這個村落世代相傳的產業幾乎已經消失，完全被來自更便宜人工或工業塑膠掃帚代。</p>
+      </div>
+    </div>
+
+    <!-- 05 貴黍 -->
+    <div class="broom-entry" id="broom5">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/42各種長短、造型的貴黍掃把_4170662.jpg"                                        alt="貴黍掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/IMG_1101.JPG"                                                               alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/IMG_1107.JPG"                                                               alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/21工序13繞回第一束（大束）繼續跳目_4171681.jpg"                                alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/09工具02倒置的木板凳及綁在板凳腿上的粗尼龍繩（帶竹管手把）_4171046.jpg"       alt="貴黍掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 05</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">貴黍掃帚</h2>
+        <p class="broom-desc">也是來自日本的掃帚，不只技術甚至連植物都是，據稱是一位來自茨城的商人帶著技術與種子要將整個掃帚生產基地帶來臺灣，因此訓練了一批專業師傅。這種掃帚跟其他我們調查的掃帚全然不同：1. 技術偏向細緻地編織而非捆榜而已；2. 主要用在榻榻米這種臺灣一般生活不常用的空間設置。是一個全然的代工代表。</p>
+      </div>
+    </div>
+
+    <!-- 06 山棕 -->
+    <div class="broom-entry reverse" id="broom6">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/P1001483.JPG"   alt="山棕掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/山棕材料-3.JPG" alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/山棕材料-6.JPG" alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/工具-3.JPG"     alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/P1001423.JPG"   alt="山棕掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 06</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">山棕掃帚</h2>
+        <p class="broom-desc">山棕掃帚只存在台灣東部，由於屬於深山植物，因此跟臺灣原住民文化密切相關，又因為大而重，只適合大而廣的空間使用，不可能在都市中使用，只會在鄉村中才實用。在原住民文化復興活動中，製作這類掃帚經常是入門課程。也會在臺灣歷史相關的博物館收藏及展出。</p>
+      </div>
+    </div>
+
+    <!-- 07 山棕嫩葉 -->
+    <div class="broom-entry" id="broom7">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/掃把完成品.jpg" alt="山棕嫩葉掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/IMG_7928.JPG"   alt="山棕嫩葉掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/材料與工具.jpg" alt="山棕嫩葉掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/IMG_7829.JPG"   alt="山棕嫩葉掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 07</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">山棕嫩葉掃帚</h2>
+        <p class="broom-desc">山棕嫩葉掃帚屬於山棕掃帚的一個子類，只是師傅不取全植物、成熟植物製作，而是只取其中剛拔出的嫩葉製作，是我們在田野調查中無意發現的獨特精緻路線。雖然用同樣植物，嫩葉較難取得；但成果使用更順手，也需要較細緻的手工。目前只有發現一位具備各種原住民文化技藝、語言的老師傅在製作。</p>
+      </div>
+    </div>
+
+    <!-- 08 蘆竹 -->
+    <div class="broom-entry reverse" id="broom8">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹掃把.jpg"                                                                                                                                           alt="蘆竹掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹工具.jpg"                                                                                                                                           alt="蘆竹掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/02臺灣蘆竹_4150032.jpg"                                                                                                                                 alt="蘆竹掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/16工序06加入第二束已紮好的蘆竹，重複工序03-05_5012749.jpg"                                                                                               alt="蘆竹掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/08工序01-3備料：取一截約30-35cm竹管劈開，劈成寬約2cm的長竹片，將竹片削薄，一端三面削尖（竹皮那面不削）_5013350.jpg"                                     alt="蘆竹掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 08</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">蘆竹掃帚</h2>
+        <p class="broom-desc">蘆竹也是台灣常見植物，全台各地都有。蘆竹掃帚則是現在以前東勢庄（現在的桃園平鎮）的主要產業，甚至因此曾被稱為掃把庄。雖然這個產業已經沒落，但當地仍有師傅空閒時會製作、以地方特產在當地的商店販賣。這次因為東京展再次去跟師傅下訂單才發現，現在雖然訂單已經大量減少，但師傅為了確保掃帚送到日本時色澤、型態都要維持「好看」，因此提出了許多建議。這才讓我們知道師傅並不是將這些掃帚當作用過即丟的工具，而是一個本身具有美感的物件。</p>
+      </div>
+    </div>
+
+    <!-- 09 芒草 -->
+    <div class="broom-entry" id="broom9">
+      <div class="broom-image">
+        <div class="slideshow">
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/芒草掃把.jpg"              alt="芒草掃帚" class="active" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_1027.JPG"             alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_0997.JPG"             alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/P1070237.JPG"             alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_1033.JPG"             alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/20191031 捲子0218.jpg"    alt="芒草掃帚" />
+        </div>
+      </div>
+      <div class="broom-text">
+        <p class="broom-num">No. 09</p>
+        <div class="broom-rule"></div>
+        <h2 class="broom-title">芒草掃帚</h2>
+        <p class="broom-desc">到了冬天，臺灣山邊海邊，甚至河川邊都會出現芒草以及衍生出來的芒花觀賞活動，芒草掃帚也是這些芒草產地的重要產物。我們在臺灣發現有許多地方，都發現仍有師傅使用芒草作掃帚。從漢人、客家人到原住民，這地方的住民都受自然啟發，忍不住動手讓芒草變成家中用品。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-col">
+      <span class="footer-label">臺灣掃帚 &mdash; Taiwan Broom</span>
+
+      <div class="footer-section">
+        <span class="footer-section-title">特別感謝</span>
+        <p class="footer-names">臺灣在地師傅（依臺灣地理從北到南，從西到東，開頭字筆畫排序）<br>
+        曾宏凱、曾義深、田俊雄、田煥禎、張煥金、Sa Vungaz (伍阿現)、林振棟、黃張環、呂保宜、呂春梅、涂梅花、楊福藏、簡黃秀切、林秋女、藍豐穆、林統山、黃貴明、黃新玉、莊扶</p>
+      </div>
+
+      <div class="footer-section">
+        <span class="footer-section-title">企劃團隊</span>
+        <p class="footer-names">
+          支流有限公司<br>
+          採訪　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>
+          攝影　劉鎮豪、曾雅鈺<br>
+          特約撰文　林雅雯<br>
+          美術設計　黃瑪琍<br>
+          總編輯　周易正
+        </p>
+        <p class="footer-names" style="margin-top:12px; font-size:10px; letter-spacing:0.05em;">
+          2018年文化部推動國家文化記憶庫計畫補助專案
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <span class="footer-label">東京展覽 &mdash; Tokyo Exhibition</span>
+      <p><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a></p>
+      <p class="footer-address">〒150-0011<br>東京都渋谷区東1-3-1<br>カミニート14号</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Section 3: Infinite marquee — clone items for seamless loop ──
+    const track = document.getElementById('galleryTrack');
+    const origItems = Array.from(track.querySelectorAll('.gallery-item'));
+    origItems.forEach(item => {
+      const clone = item.cloneNode(true);
+      // cloned items only serve visual loop; disable their click anchor
+      clone.setAttribute('onclick', '');
+      clone.style.pointerEvents = 'none';
+      track.appendChild(clone);
+    });
+    // track now holds 16 items (8 orig + 8 clone)
+    // CSS animation moves -50% (= width of 8 items) for seamless loop
+
+    function scrollToBroom(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ── Section 4: Scroll fade-in ──
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.broom-entry').forEach(el => io.observe(el));
+
+    // ── Section 4: Slideshow auto-rotate ──
+    // Each .slideshow cycles its images: fade out current, fade in next
+    // Interval: 5000ms display, 1500ms CSS transition
+    document.querySelectorAll('.slideshow').forEach(show => {
+      const imgs = Array.from(show.querySelectorAll('img'));
+      if (imgs.length <= 1) return;
+
+      let current = 0;
+
+      setInterval(() => {
+        imgs[current].classList.remove('active');
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.add('active');
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
