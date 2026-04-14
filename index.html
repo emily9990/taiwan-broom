@@ -62,7 +62,7 @@
 
     /* ─── SECTION 2: Text ─── */
     #section2 {
-      padding: 48px 80px;
+      padding: 28px 80px;
       text-align: center;
       max-width: 1280px;
       margin: 0 auto;
@@ -86,7 +86,7 @@
 
     /* ─── SECTION 3: Gallery ─── */
     #section3 {
-      padding: 80px 0 60px;
+      padding: 32px 0 60px;
     }
 
     .eyebrow {
@@ -283,6 +283,23 @@
       margin-right: 14px;
     }
 
+    .card-open-btn {
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--black);
+      padding: 0 0 2px;
+      cursor: pointer;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-family: 'Noto Sans TC', sans-serif;
+      transition: opacity 0.2s;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .card-open-btn:hover { opacity: 0.5; }
+
     /* ─── Map image (maintain aspect ratio) ─── */
     .broom-image.map-image {
       background: var(--off-white);
@@ -299,6 +316,7 @@
       object-fit: contain;
       display: block;
     }
+
 
     /* ─── FOOTER ─── */
     footer {
@@ -366,6 +384,262 @@
       font-size: 13px;
       line-height: 1.9;
       color: var(--mid-gray);
+    }
+
+    /* ─── BROOM LIST ─── */
+    .broom-list {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 60px 100px;
+    }
+
+    .broom-list-item {
+      display: flex;
+      align-items: baseline;
+      gap: 28px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--light-gray);
+      cursor: default;
+      transition: background 0.2s;
+    }
+
+    .broom-list-item:first-child {
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .broom-list-item[onclick] {
+      cursor: pointer;
+    }
+
+    .broom-list-item[onclick]:hover .bl-name {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .broom-list-item[onclick]:hover .bl-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .bl-num {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--mid-gray);
+      flex: 0 0 36px;
+    }
+
+    .bl-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(17px, 1.8vw, 22px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      flex: 1;
+    }
+
+    .bl-meta {
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--mid-gray);
+      flex: 0 0 auto;
+    }
+
+    .bl-arrow {
+      font-size: 18px;
+      color: var(--black);
+      flex: 0 0 auto;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+
+    /* ─── MODAL CARD OVERLAY ─── */
+    .card-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(17, 17, 17, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: 32px;
+    }
+
+    .card-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .card-panel {
+      background: var(--off-white);
+      width: 100%;
+      max-width: 1160px;
+      max-height: 90vh;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.35s ease;
+    }
+
+    .card-overlay.open .card-panel {
+      transform: translateY(0);
+    }
+
+    .card-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      z-index: 10;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--black);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+
+    .card-close:hover { opacity: 1; }
+
+    /* ─── Card: Left image gallery ─── */
+    .card-gallery {
+      flex: 0 0 50%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .card-main-img {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-main-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+
+    .card-img-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.8);
+      font-size: 26px;
+      line-height: 1;
+      padding: 14px 18px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .card-img-nav:hover { color: #fff; }
+    .card-img-nav.prev { left: 0; }
+    .card-img-nav.next { right: 0; }
+
+    .card-thumbs {
+      display: flex;
+      gap: 3px;
+      background: var(--off-white);
+      padding: 8px;
+      flex: 0 0 auto;
+    }
+
+    .card-thumb {
+      flex: 1;
+      height: 72px;
+      object-fit: cover;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+
+    .card-thumb.active,
+    .card-thumb:hover {
+      opacity: 1;
+    }
+
+    /* ─── Card: Right text panel ─── */
+    .card-info {
+      flex: 1;
+      padding: 56px 52px 56px 48px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-num {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(22px, 2.4vw, 34px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.35;
+      margin-bottom: 28px;
+    }
+
+    .card-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .card-meta-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 20px;
+      margin-bottom: 28px;
+    }
+
+    .card-meta-grid dt {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    .card-meta-grid dd {
+      font-size: 13px;
+      color: var(--mid-gray);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      font-size: 14px;
+      line-height: 2.2;
+      color: #505050;
+      margin-bottom: 18px;
+    }
+
+    .card-body p:last-child { margin-bottom: 0; }
+
+    .card-subtitle {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin: 24px 0 14px;
     }
   </style>
 </head>
@@ -482,87 +756,85 @@
       </div>
     </div>
 
-    <!-- 01 槺榔 -->
+    <!-- 01 槺榔掃帚 -->
     <div class="broom-entry" id="broom1">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/展示_槺榔1.jpg" alt="槺榔掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/DSC01973.JPG"   alt="槺榔掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/TUS_5592.JPG"   alt="槺榔掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/TUS_5562.JPG"   alt="槺榔掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/DSC01917.JPG"   alt="槺榔掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/1植物_槺榔.JPG"  class="active" alt="槺榔植物" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/2展示_槺榔1.jpg" alt="槺榔掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/3掃把_槺榔.JPG"  alt="槺榔掃帚成品" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 01</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">槺榔掃帚</h2>
-        <p class="broom-desc">槺榔是臺灣特有種，據稱可以追溯自冰河時期，臺灣各地都有同音或類似發音的地名，都是因為是槺榔這種植物生長地。這種植物做出來的掃帚，都被視為有法力，可以清除不好的東西。臺灣各地廟內的清潔、神明出巡、神明護體都會用槺榔掃帚。</p>
+        <p class="broom-desc">槺榔是臺灣特有種，據稱可以追溯自冰河時期，臺灣各地都有同音或類似發音的地名，都是因為槺榔這種植物的生長地。這種植物做出來的掃帚，都被視為有法力，可以清除不好的東西。臺灣各地廟內的清潔、神明出巡、神明護體都會用槺榔掃帚。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>嘉義縣朴子市</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>涂梅花</p>
+          <button class="card-open-btn" onclick="openCard('card-kanlang')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
 
-    <!-- 02 稻草 -->
+    <!-- 02 稻草掃帚 -->
     <div class="broom-entry reverse" id="broom2">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/展示_稻草1.jpg" alt="稻草掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/07工具、材料：鋸、剪、鉗、斜口鉗、尖嘴鉗，麻繩、鐵絲P4120026.jpg"                        alt="稻草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/05材料：稻草_4120093.jpg"                                                               alt="稻草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/17工序09捆繞到掃把柄稍，打結紮緊_4120593.jpg"                                            alt="稻草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/1植物_稻草.JPG"   class="active" alt="稻草植物" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/2展示_稻草1.jpg"  alt="稻草掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/3掃把_稻草.jpg"   alt="稻草掃帚成品" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 02</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">稻草掃帚</h2>
-        <p class="broom-desc">臺灣農村文化象徵，全臺各地只要有生產稻米，都會在農閒時用無用的稻桿製作成掃帚。<br><br>稻草掃帚主要用在曬稻穀的「埕」，用去除了稻穀的稻桿製成。掃帚主要用在戶外，不是為了將晒穀場清除乾淨、一塵不染，而是為了將石頭、雜草、稻殼與有價值的稻穀，區分開。說是為了清潔不如說是用於分類。</p>
+        <p class="broom-desc">臺灣農村文化象徵，全臺各地只要有生產稻米，都會在農閒時用無用的稻桿製作成掃帚。稻草掃帚主要用在曬稻穀的「埕」，不是為了清除乾淨、一塵不染，而是為了將石頭、雜草、稻殼與有價值的稻穀區分開——說是為了清潔，不如說是用於分類。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>宜蘭縣冬山鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>林秋女、藍豐穆</p>
+          <button class="card-open-btn" onclick="openCard('card-ricestraw')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
 
-    <!-- 03 高粱 -->
+    <!-- 03 高粱掃帚 -->
     <div class="broom-entry" id="broom3">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1509.JPG" alt="高粱掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1530.JPG" alt="高粱掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1509.JPG" class="active" alt="高粱掃帚" />
           <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1525.JPG" alt="高粱掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1530.JPG" alt="高粱掃帚" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 03</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">高粱掃帚</h2>
-        <p class="broom-desc">高粱掃帚是台灣金門與東部的特產，只要有高粱產地總會見到，顯示「就地去材」製作生活用品的核心生活法則。有趣的是，東部的臺灣原住民愛用的是色彩鮮艷的紙箱束帶組成掃帚，金門當地來自中國大陸（外省人）的移民喜歡採用另一種更常見、便宜的塑膠繩。展現兩個族群不同的美學觀。另一個差別是，來自外島金門的掃帚目前都是滿滿結實不會將高粱子清除，已經是純粹用來觀賞，非實用價值。</p>
+        <p class="broom-desc">高粱掃帚是臺灣金門與東部的特產，只要有高粱產地總會見到，顯示「就地取材」製作生活用品的核心生活法則。有趣的是，東部臺灣原住民愛用色彩鮮艷的紙箱束帶組成掃帚，金門來自中國大陸的移民喜歡採用更常見的塑膠繩，展現兩個族群不同的美學觀。</p>
         <div class="broom-meta">
-          <p class="broom-meta-item"><span class="broom-meta-label">產地</span>臺東縣東河鄉／金門烈嶼</p>
-          <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>（臺東）林統山、黃貴明、黃新玉／（金門）莊扶</p>
+          <p class="broom-meta-item"><span class="broom-meta-label">產地</span>臺東縣東河鄉 / 金門烈嶼</p>
+          <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>林統山、黃貴明、黃新玉 / 莊扶</p>
         </div>
       </div>
     </div>
 
-    <!-- 04 地膚草 -->
+    <!-- 04 地膚草掃帚 -->
     <div class="broom-entry reverse" id="broom4">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/展示_地膚草1.jpg" alt="地膚草掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/10工序01-1備料：將曬乾地膚草在板凳上摔打，去掉草籽，以免做成掃把掃地時掉落_4181454.jpg"                          alt="地膚草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/07工具02：鍘刀_4181021.jpg"                                                                                      alt="地膚草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/08材料01堆放屋外曬乾的地膚草_4181244.jpg"                                                                         alt="地膚草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/展示_地膚草1.jpg" class="active" alt="地膚草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/04地膚草掃把成品_4181468.jpg" alt="地膚草掃帚成品" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/08材料01堆放屋外曬乾的地膚草_4181244.jpg" alt="地膚草材料" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 04</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">地膚草掃帚</h2>
-        <p class="broom-desc">一度為臺灣彰化西勢一地的從日本時代就存在的主要產業，跟其他大部分只限於當地使用的掃帚不同。從書籍出版到來日本展覽不到五年時間，這個村落世代相傳的產業幾乎已經消失，完全被來自更便宜人工或工業塑膠掃帚代。</p>
+        <p class="broom-desc">一度為彰化西勢一地從日本時代就存在的主要產業，跟其他大部分只限當地使用的掃帚不同。從書籍出版到來日本展覽不到五年時間，這個村落世代相傳的產業幾乎已經消失，完全被更便宜的人工或工業塑膠掃帚所取代。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>彰化縣福興鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>林振棟、黃張環</p>
@@ -570,22 +842,20 @@
       </div>
     </div>
 
-    <!-- 05 貴黍 -->
+    <!-- 05 貴黍掃帚 -->
     <div class="broom-entry" id="broom5">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/展示_貴黍1.jpg" alt="貴黍掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/IMG_1101.JPG"                                                               alt="貴黍掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/IMG_1107.JPG"                                                               alt="貴黍掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/21工序13繞回第一束（大束）繼續跳目_4171681.jpg"                                alt="貴黍掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/09工具02倒置的木板凳及綁在板凳腿上的粗尼龍繩（帶竹管手把）_4171046.jpg"       alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/展示_貴黍1.jpg" class="active" alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/IMG_1101.JPG" alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/42各種長短、造型的貴黍掃把_4170662.jpg" alt="各式貴黍掃帚" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 05</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">貴黍掃帚</h2>
-        <p class="broom-desc">也是來自日本的掃帚，不只技術甚至連植物都是，據稱是一位來自茨城的商人帶著技術與種子要將整個掃帚生產基地帶來臺灣，因此訓練了一批專業師傅。這種掃帚跟其他我們調查的掃帚全然不同：1. 技術偏向細緻地編織而非捆榜而已；2. 主要用在榻榻米這種臺灣一般生活不常用的空間設置。是一個全然的代工代表。</p>
+        <p class="broom-desc">也是來自日本的掃帚，不只技術甚至連植物都是，據稱是一位來自茨城的商人帶著技術與種子，要將整個掃帚生產基地帶來臺灣，因此訓練了一批專業師傅。這種掃帚技術偏向細緻編織，主要用於榻榻米空間，是一個全然的代工代表。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>嘉義縣六腳鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>呂保宜、呂春梅、楊福藏</p>
@@ -593,22 +863,20 @@
       </div>
     </div>
 
-    <!-- 06 山棕 -->
+    <!-- 06 山棕掃帚 -->
     <div class="broom-entry reverse" id="broom6">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/展示_山棕1.jpg" alt="山棕掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/山棕材料-3.JPG" alt="山棕掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/山棕材料-6.JPG" alt="山棕掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/工具-3.JPG"     alt="山棕掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/P1001423.JPG"   alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/展示_山棕1.jpg" class="active" alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/P1001423.JPG" alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/山棕材料-3.JPG" alt="山棕材料" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 06</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">山棕掃帚</h2>
-        <p class="broom-desc">山棕廣泛分布於臺灣全島平地至低海拔山區，跟臺灣原住民以及鄉村文化都密切相關。幾乎各民族都會充分利用山棕莖部上所包覆著的黑褐色纖維（也就是「棕毛」），是臺灣文化中雨具的主要材料，有些地方會用來製作掃帚。更多地方是直接用其巨大的葉柄製成掃帚，非常用來清潔大而廣的公共空間。在原住民文化復興活動中，全株利用山棕經常是基本課程，在臺灣的歷史博物館也經常出現。</p>
+        <p class="broom-desc">山棕廣泛分布於臺灣全島平地至低海拔山區，跟臺灣原住民以及鄉村文化都密切相關。幾乎各民族都會充分利用山棕莖幹上所包覆的黑褐色纖維（棕毛），是臺灣文化中雨具的主要材料；有些地方則直接用巨大的葉柄製成掃帚，用來清潔大而廣的公共空間。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>高雄市美濃區</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>羅元鴻、蔡佳蓉</p>
@@ -616,21 +884,20 @@
       </div>
     </div>
 
-    <!-- 07 山棕嫩葉 -->
+    <!-- 07 山棕嫩葉掃帚 -->
     <div class="broom-entry" id="broom7">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/展示_山棕嫩葉1.jpg" alt="山棕嫩葉掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/IMG_7928.JPG"   alt="山棕嫩葉掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/材料與工具.jpg" alt="山棕嫩葉掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/IMG_7829.JPG"   alt="山棕嫩葉掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/展示_山棕嫩葉1.jpg" class="active" alt="山棕嫩葉掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/IMG_7829.JPG" alt="山棕嫩葉掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/掃把完成品.jpg" alt="山棕嫩葉掃帚完成品" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 07</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">山棕嫩葉掃帚</h2>
-        <p class="broom-desc">山棕嫩葉掃帚屬於山棕掃帚的一個子類，只是師傅不取全植物、成熟植物製作，而是只取其中剛拔出的嫩葉製作，是我們在田野調查中無意發現的獨特精緻路線。雖然用同樣植物，嫩葉較難取得；但成果使用更順手，也需要較細緻的手工。目前只有發現一位具備各種原住民文化技藝、語言的老師傅在製作。</p>
+        <p class="broom-desc">山棕嫩葉掃帚屬於山棕掃帚的子類，師傅不取全植物、成熟植物製作，而是只取剛拔出的嫩葉，是田野調查中無意發現的獨特精緻路線。雖然用同樣植物，嫩葉較難取得，但成果使用更順手，也需要較細緻的手工。目前只發現一位具備各種原住民文化技藝、語言的老師傅在製作。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>南投縣信義鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>Sa Vungaz（伍阿現）</p>
@@ -638,22 +905,20 @@
       </div>
     </div>
 
-    <!-- 08 蘆竹 -->
+    <!-- 08 蘆竹掃帚 -->
     <div class="broom-entry reverse" id="broom8">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/展示_蘆竹1.jpg" alt="蘆竹掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹工具.jpg"                                                                                                                                           alt="蘆竹掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/02臺灣蘆竹_4150032.jpg"                                                                                                                                 alt="蘆竹掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/16工序06加入第二束已紮好的蘆竹，重複工序03-05_5012749.jpg"                                                                                               alt="蘆竹掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/08工序01-3備料：取一截約30-35cm竹管劈開，劈成寬約2cm的長竹片，將竹片削薄，一端三面削尖（竹皮那面不削）_5013350.jpg"                                     alt="蘆竹掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/展示_蘆竹1.jpg" class="active" alt="蘆竹掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹掃把.jpg" alt="蘆竹掃帚成品" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹工具.jpg" alt="蘆竹掃帚工具" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 08</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">蘆竹掃帚</h2>
-        <p class="broom-desc">蘆竹也是台灣常見植物，全台各地都有。蘆竹掃帚則是現在以前東勢庄（現在的桃園平鎮）的主要產業，甚至因此曾被稱為掃把庄。雖然這個產業已經沒落，但當地仍有師傅空閒時會製作、以地方特產在當地的商店販賣。這次因為東京展再次去跟師傅下訂單才發現，現在雖然訂單已經大量減少，但師傅為了確保掃帚送到日本時色澤、型態都要維持「好看」，因此提出了許多建議。這才讓我們知道師傅並不是將這些掃帚當作用過即丟的工具，而是一個本身具有美感的物件。</p>
+        <p class="broom-desc">蘆竹也是臺灣常見植物，全臺各地都有。蘆竹掃帚則是以前東勢庄（現在的桃園平鎮）的主要產業，甚至因此曾被稱為「掃把庄」。雖然這個產業已經沒落，師傅仍堅持讓掃帚送到日本時色澤、型態都要維持「好看」——這才讓我們知道師傅並不是將掃帚當作用過即丟的工具，而是一個本身具有美感的物件。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>桃園縣平鎮區</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>曾宏凱、曾義深</p>
@@ -661,22 +926,20 @@
       </div>
     </div>
 
-    <!-- 09 芒草 -->
+    <!-- 09 芒草掃帚 -->
     <div class="broom-entry" id="broom9">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/展示_芒草1.jpg" alt="芒草掃帚" class="active" />
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_1027.JPG"             alt="芒草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_0997.JPG"             alt="芒草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/P1070237.JPG"             alt="芒草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_1033.JPG"             alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/展示_芒草1.jpg" class="active" alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/芒草掃把.jpg" alt="芒草掃帚成品" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_0997.JPG" alt="芒草掃帚" />
         </div>
       </div>
       <div class="broom-text">
         <p class="broom-num">No. 09</p>
         <div class="broom-rule"></div>
         <h2 class="broom-title">芒草掃帚</h2>
-        <p class="broom-desc">到了冬天，臺灣山邊海邊，甚至河川邊都會出現芒草以及衍生出來的芒花觀賞活動，芒草掃帚也是這些芒草產地的重要產物。我們在臺灣發現有許多地方，都發現仍有師傅使用芒草作掃帚。從漢人、客家人到原住民，這地方的住民都受自然啟發，忍不住動手讓芒草變成家中用品。</p>
+        <p class="broom-desc">到了冬天，臺灣山邊海邊，甚至河川邊都會出現芒草以及衍生出來的芒花觀賞活動，芒草掃帚也是這些芒草產地的重要產物。從漢人、客家人到原住民，這地方的住民都受自然啟發，忍不住動手讓芒草變成家中用品。</p>
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>嘉義縣樟樹湖</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>簡黃秀切</p>
@@ -686,7 +949,95 @@
 
   </section>
 
-  <footer>
+  <!-- ─── MODAL: 槺榔掃帚 ─── -->
+  <div class="card-overlay" id="card-kanlang" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-kanlang')" aria-label="關閉">&#x2715;</button>
+
+      <!-- Left: Image Gallery -->
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/小卡_槺榔掃帚/1.JPG" alt="槺榔掃帚" id="kanlang-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-kanlang',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-kanlang', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/小卡_槺榔掃帚/1.JPG"           alt="" class="card-thumb active" onclick="switchImg(this,'kanlang-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/小卡_槺榔掃帚/2師傅_涂梅花.JPG" alt="" class="card-thumb"        onclick="switchImg(this,'kanlang-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/小卡_槺榔掃帚/3工具.JPG"        alt="" class="card-thumb"        onclick="switchImg(this,'kanlang-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/小卡_槺榔掃帚/4材料.JPG"        alt="" class="card-thumb"        onclick="switchImg(this,'kanlang-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/1槺榔掃帚/小卡_槺榔掃帚/5工藝.JPG"        alt="" class="card-thumb"        onclick="switchImg(this,'kanlang-main')" />
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="card-info">
+        <h2 class="card-title">槺榔掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>涂梅花</dd>
+          <dt>產地</dt><dd>嘉義縣朴子市</dd>
+          <dt>材料</dt><dd>槺榔葉、竹子、乾稻草</dd>
+          <dt>工具</dt><dd>鐵絲線、老虎鉗、鐵釘製成的鐵梳、鍛造柴刀</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>槺榔是一種台灣原生的棕櫚科植物，本名為「臺灣海棗」。全臺多處留有以槺榔為名的地方，在日本時期的《臺灣樹木誌》中亦曾記載，槺榔是「臺灣全島低地皆屬常見」的植物，可窺見槺榔深入常民生活的痕跡。</p>
+          <p>槺榔的用途廣泛，幾乎全身上下都能充分利用，不僅可做景觀樹，木材可製作各類器皿，嫩芽及果實亦可加工食用，葉片曬乾後再經匠人巧手則成為一支支具有清潔及避邪意涵的掃帚。</p>
+          <p>槺榔掃帚又稱「天地掃」，顧名思義，天掃掃天，地掃掃地，天地掃需成對出現且不可混用。在臺灣習俗中，農曆十二月二十四日為送神日，也是「清屯日」——一年一度打掃神龕及祖先牌位的日子——天地掃即在此時發揮最大效用。</p>
+          <p>早在清朝時期，臺灣人就以槺榔葉製帚，《重修臺灣府志》（一七四七年）中有記載：「槺榔：幹直無枝，其顛生葉不過數十，結子作穗生木端，其葉臺人以為帚。」直到一九六〇年代，臺灣各地仍有不少村莊以綁槺榔掃帚為業。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>嘉義縣朴子市的手作師傅涂梅花所製作的槺榔掃帚有三層結構，掃毛由槺榔葉主要擔當，以竹子做為骨架，再以乾稻草包覆製成掃柄。槺榔樹莖幹高大，有些能長到七、八公尺高，加上葉片有刺，採割並不容易。槺榔葉採割下來後必須曝曬多日風乾後，才能進行掃帚的製作。</p>
+          <p>製作槺榔掃帚的工具相當簡要：一捲鐵絲線、一把老虎鉗、一支鐵釘製成的鐵梳，再加上經歲月磨蝕的鍛造柴刀。散落一地的槺榔葉在涂梅花的揀選、收緊、綑綁、修剪之下，逐漸有了掃毛的樣子；接著，再將一根筆直的竹竿固定在掃毛上，以稻草包覆，一節一節地以鐵絲線圈綁固定，做成掃帚柄。最後，用柴刀將掃毛修剪整齊，再以鐵梳梳理，一把純手工打造的槺榔掃帚才算大功告成。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: 稻草掃帚 ─── -->
+  <div class="card-overlay" id="card-ricestraw" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-ricestraw')" aria-label="關閉">&#x2715;</button>
+
+      <!-- Left: Image Gallery -->
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/小卡_稻草掃帚/1場景.JPG" alt="稻草掃帚" id="ricestraw-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-ricestraw',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-ricestraw', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/小卡_稻草掃帚/1場景.JPG"  alt="" class="card-thumb active" onclick="switchImg(this,'ricestraw-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/小卡_稻草掃帚/2師傅.jpg"  alt="" class="card-thumb"        onclick="switchImg(this,'ricestraw-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/小卡_稻草掃帚/3工具.jpg"  alt="" class="card-thumb"        onclick="switchImg(this,'ricestraw-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/小卡_稻草掃帚/4材料.jpg"  alt="" class="card-thumb"        onclick="switchImg(this,'ricestraw-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/2稻草掃帚/小卡_稻草掃帚/5工藝.jpg"  alt="" class="card-thumb"        onclick="switchImg(this,'ricestraw-main')" />
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="card-info">
+        <h2 class="card-title">稻草掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>林秋女、藍豐穆</dd>
+          <dt>產地</dt><dd>宜蘭縣冬山鄉</dd>
+          <dt>材料</dt><dd>稻草</dd>
+          <dt>工具</dt><dd>鋸、剪、鉗、斜口鉗、尖嘴鉗，麻繩、鐵絲</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>稻米，是養活臺灣千萬人口的主要作物，也是出口外銷的重要農產品，曾讓臺灣獲得「稻米王國」的美稱。稻米餵飽了臺灣人，稻草則搖身一變成為農業社會裡，家家戶戶再利用的重要材料。</p>
+          <p>收割後的農田常見一束一束呈錐形站立的稻草束，這是農民「掌草」後的景觀，再經過大約二到五天的曝曬，等稻草曬乾後，堆成草垺做為儲備，形成另一幅農村風景。這些稻草的用途廣泛，不僅可以當作燃料、鋪設屋頂，或化身成守護農田的稻草人；也可以用來編織成草繩、草蓆、草鞋等生活用品，亦能綁成掃帚，成為居家必備的清掃工具。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>宜蘭縣冬山鄉珍珠社區的手作師傅林秋女、藍豐穆，製作掃帚先以鐵絲或麻繩將稻草綑成數束，每束約十餘支。稻草掃帚是一體成型的，脫掉稻粒後的稻草前端為掃毛，沿著稻稈取一節一節綁成綑紮成掃柄。為了避免掃柄過粗，需修剪掉約二分之一的稻稈，調整成適合手握的寬度，再將五束稻草綑成一把，並將掃毛整理成扇狀，即成掃帚雛形。</p>
+          <p>接著，將麻繩一端固定在柱子上，一端則固定在方才綑好的稻草束上，雙手用力拉緊，再藉著柱子穩定的拉力，以掃毛上端為起點，將麻繩一圈一圈地綑上掃柄。綑的圈數越多，掃柄則越長，可根據使用者身高或需求彈性調整。最後再將掃柄頂端、掃毛末端分別修剪整齊，掃帚就大功告成。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer>
     <div class="footer-col">
       <span class="footer-label">臺灣掃帚 &mdash; Taiwan Broom</span>
 
@@ -766,6 +1117,64 @@
         current = (current + 1) % imgs.length;
         imgs[current].classList.add('active');
       }, 5000);
+    });
+
+    // ── Modal card functions ──
+    function openCard(id) {
+      const overlay = document.getElementById(id);
+      if (!overlay) return;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCard(id) {
+      const overlay = document.getElementById(id);
+      if (!overlay) return;
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeCardOutside(event) {
+      // Only close if the click was directly on the overlay, not on the panel inside
+      if (event.target === event.currentTarget) {
+        event.currentTarget.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function stepImg(cardId, direction) {
+      const overlay = document.getElementById(cardId);
+      const thumbs = Array.from(overlay.querySelectorAll('.card-thumb'));
+      const currentIdx = thumbs.findIndex(t => t.classList.contains('active'));
+      const nextIdx = (currentIdx + direction + thumbs.length) % thumbs.length;
+      const mainImg = overlay.querySelector('.card-main-img img');
+      switchImg(thumbs[nextIdx], mainImg.id);
+    }
+
+    function switchImg(thumb, mainId) {
+      // Update main image
+      const main = document.getElementById(mainId);
+      if (main) {
+        main.style.opacity = '0';
+        setTimeout(() => {
+          main.src = thumb.src;
+          main.style.opacity = '1';
+        }, 200);
+      }
+      // Update active thumbnail state
+      const allThumbs = thumb.closest('.card-thumbs').querySelectorAll('.card-thumb');
+      allThumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+
+    // Close modals on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.card-overlay.open').forEach(overlay => {
+          overlay.classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
     });
   </script>
 

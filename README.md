@@ -22,7 +22,8 @@ This project documents 9 types of handcrafted natural brooms from across Taiwan 
 | **區段 1** | 全版主視覺橫幅 |
 | **區段 2** | 計劃理念文字介紹 |
 | **區段 3** | 9 種掃帚縮圖無縫橫移輪播；滑鼠移入換顯細部圖（淡入＋微放大），點擊跳至對應介紹 |
-| **區段 4** | 臺灣傳統手工掃帚地理分佈圖；各類掃帚圖文詳細介紹（含產地、手作師傅），圖片自動慢速輪替 |
+| **區段 4** | 臺灣傳統手工掃帚地理分佈圖；各類掃帚圖文詳細介紹（含產地、手作師傅），圖片依數字命名順序自動慢速輪替；點擊「詳細介紹 ↗」開啟掃帚小卡 |
+| **小卡** | 全版遮罩彈出卡片：左側圖片集（左右箭頭＋縮圖切換），右側含手作師傅、產地、材料、工具及完整文字介紹 |
 
 ---
 
@@ -49,6 +50,7 @@ This project documents 9 types of handcrafted natural brooms from across Taiwan 
 - **字型**：Noto Serif TC（標題）、Noto Sans TC（內文）via Google Fonts
 - **區段 3**：CSS `@keyframes` 無縫 marquee；JS 動態複製節點；hover 淡入細部圖（`opacity` transition）＋微放大（`scale`）；click 平滑滾動至對應掃帚介紹
 - **區段 4**：`IntersectionObserver` 滾動淡入；每個掃帚的多張圖片以 `setInterval` 慢速淡入淡出輪替；地理分佈圖以 `object-fit: contain` 保持原始比例
+- **小卡系統**：CSS `opacity` + `pointer-events` 控制遮罩顯示隱藏；左右箭頭以 index 循環切換圖片；縮圖點擊與箭頭共用同一 `switchImg` 函式；`Escape` 鍵關閉
 - **視覺風格**：參考 Maison Margiela Folders 美學——奶白底色、極簡排版、大量留白
 
 ---
