@@ -847,9 +847,9 @@
     <div class="broom-entry" id="broom5">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/展示_貴黍1.jpg" class="active" alt="貴黍掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/IMG_1101.JPG" alt="貴黍掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/42各種長短、造型的貴黍掃把_4170662.jpg" alt="各式貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/1.jpg"          class="active" alt="貴黍掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/2展示_貴黍1.jpg" alt="貴黍掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/3.jpg"           alt="貴黍掃帚成品" />
         </div>
       </div>
       <div class="broom-text">
@@ -860,6 +860,7 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>嘉義縣六腳鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>呂保宜、呂春梅、楊福藏</p>
+          <button class="card-open-btn" onclick="openCard('card-guishu')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
@@ -868,9 +869,9 @@
     <div class="broom-entry reverse" id="broom6">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/展示_山棕1.jpg" class="active" alt="山棕掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/P1001423.JPG" alt="山棕掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/山棕材料-3.JPG" alt="山棕材料" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/1.JPG"          class="active" alt="山棕掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/2展示_山棕1.jpg" alt="山棕掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/3山棕材料-6.JPG" alt="山棕材料" />
         </div>
       </div>
       <div class="broom-text">
@@ -881,6 +882,7 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>高雄市美濃區</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>羅元鴻、蔡佳蓉</p>
+          <button class="card-open-btn" onclick="openCard('card-shanzong')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
@@ -995,6 +997,42 @@
     </div>
   </div>
 
+  <!-- ─── MODAL: 山棕掃帚 ─── -->
+  <div class="card-overlay" id="card-shanzong" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-shanzong')" aria-label="關閉">&#x2715;</button>
+
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/小卡_山棕掃帚/1場景.JPG" alt="山棕掃帚" id="shanzong-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-shanzong',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-shanzong', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/小卡_山棕掃帚/1場景.JPG"   alt="" class="card-thumb active" onclick="switchImg(this,'shanzong-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/小卡_山棕掃帚/2山棕.jpg"   alt="" class="card-thumb"        onclick="switchImg(this,'shanzong-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/6山棕掃帚/小卡_山棕掃帚/3山棕成品.jpg" alt="" class="card-thumb"        onclick="switchImg(this,'shanzong-main')" />
+        </div>
+      </div>
+
+      <div class="card-info">
+        <h2 class="card-title">山棕掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>羅元鴻、蔡佳蓉</dd>
+          <dt>產地</dt><dd>高雄市美濃區</dd>
+          <dt>材料</dt><dd>山棕、鐵線</dd>
+          <dt>工具</dt><dd>美工刀、老虎鉗、鋸子</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>山棕是一種叢生的棕櫚科灌木植物，生長在潮濕溫暖的山麓或溪谷，因為常見且容易取材，與早期台灣的常民生活息息相關。山棕的嫩芽可入菜，葉柄可製糖；樹葉呈羽狀，成葉葉片多且葉面大，曬乾後可用來製作刷子或掃帚。</p>
+          <p>山棕掃帚是戶外掃除時常用的工具，以山棕葉製作的掃帚可分兩種：曬乾的成葉以及未出鞘的嫩葉。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── MODAL: 高粱掃帚 ─── -->
   <div class="card-overlay" id="card-sorghum" onclick="closeCardOutside(event)">
     <div class="card-panel">
@@ -1074,6 +1112,48 @@
           <h3 class="card-subtitle">製作方式</h3>
           <p>宜蘭縣冬山鄉珍珠社區的手作師傅林秋女、藍豐穆，製作掃帚先以鐵絲或麻繩將稻草綑成數束，每束約十餘支。稻草掃帚是一體成型的，脫掉稻粒後的稻草前端為掃毛，沿著稻稈取一節一節綁成綑紮成掃柄。為了避免掃柄過粗，需修剪掉約二分之一的稻稈，調整成適合手握的寬度，再將五束稻草綑成一把，並將掃毛整理成扇狀，即成掃帚雛形。</p>
           <p>接著，將麻繩一端固定在柱子上，一端則固定在方才綑好的稻草束上，雙手用力拉緊，再藉著柱子穩定的拉力，以掃毛上端為起點，將麻繩一圈一圈地綑上掃柄。綑的圈數越多，掃柄則越長，可根據使用者身高或需求彈性調整。最後再將掃柄頂端、掃毛末端分別修剪整齊，掃帚就大功告成。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: 貴黍掃帚 ─── -->
+  <div class="card-overlay" id="card-guishu" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-guishu')" aria-label="關閉">&#x2715;</button>
+
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/小卡_貴黍掃帚/1場景.jpg" alt="貴黍掃帚" id="guishu-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-guishu',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-guishu', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/小卡_貴黍掃帚/1場景.jpg" alt="" class="card-thumb active" onclick="switchImg(this,'guishu-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/小卡_貴黍掃帚/2.jpg"    alt="" class="card-thumb"        onclick="switchImg(this,'guishu-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/小卡_貴黍掃帚/3工具.jpg" alt="" class="card-thumb"        onclick="switchImg(this,'guishu-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/小卡_貴黍掃帚/4.JPG"    alt="" class="card-thumb"        onclick="switchImg(this,'guishu-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/5貴黍掃帚/小卡_貴黍掃帚/5工藝.jpg" alt="" class="card-thumb"        onclick="switchImg(this,'guishu-main')" />
+        </div>
+      </div>
+
+      <div class="card-info">
+        <h2 class="card-title">貴黍掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>呂保宜、呂春梅、楊福藏</dd>
+          <dt>產地</dt><dd>嘉義縣六腳鄉</dd>
+          <dt>材料</dt><dd>乾貴黍、貴黍稈、過水的濕貴黍、尼龍繩</dd>
+          <dt>工具</dt><dd>布袋針、鐮刀（香蕉刀）、剪刀、木槌</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>貴黍，又稱為「掃把草」，外觀貌似高粱與玉米，每年春天播種，兩個月就能採收，果實成熟時大小與稻米差不多，呈現紫黑色，曬乾可做為飼料，莖稈日曬乾燥可綁成掃帚。貴黍掃帚是日本榻榻米空間文化衍生的重要元素，承載日本傳統祭儀、婚喪喜慶的文化象徵意義。隨著日本本土栽種成本提高，日本人遂將貴黍引進台灣，一度成為嘉南平原大量栽種的經濟作物。</p>
+          <p>據嘉義六腳地區的楊福藏表示，大約在一九七〇年代，日本人將貴黍種子引進台灣，看中的是台灣合適的氣候與地理環境。因為獲利高，六腳農民紛紛改種。「最盛時期，全庄都在，隔壁庄也種，大概有幾百公頃。」楊福藏是當時的收購商，專門收購農民採收、曬乾後的貴黍，再將它轉運出口到日本。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>手作師傅呂春梅製作貴黍掃帚是使用脫穀後曬乾的貴黍，綁一支的時間大概一個小時，工序十分繁複。製帚時，師傅需坐在一張低矮的小板凳上，右腳抵住另一張倒置的長板凳，長板凳的椅腳上繞了一捲黑色尼龍繩，透過長板凳與匠人的來回拉扯將掃毛束緊。</p>
+          <p>成品掃帚的掃毛上端呈現不對稱設計，一邊有配色鮮明的平紋花樣，一邊則根據掃帚尺寸，為二至三個球型。如此精緻的造型來自於掃帚師傅的巧手，精巧地將三種材料——乾貴黍、經過裁剪的貴黍稈，以及過水的濕貴黍——編織在一起。</p>
+          <p>在製作平紋花樣的掃毛束時，師傅以乾貴黍為經，尼龍繩為緯，一邊計算黍稈的單、雙數，「跳目」進行編織。製作球型掃毛束時，則以裁剪過的貴黍稈包覆乾貴黍，再以尼龍繩束緊，製造出玲瓏有致的腰身。掃毛固定完成後，接著修剪掉上端多餘的貴黍稈，將外圈往下折，再以「香蕉刀」俐落地削除內圈貴黍稈，將斷口修成圓弧狀，聚攏後束緊成為掃柄。最後以紅色尼龍繩在掃毛上編出一圈具有裝飾及固定功能的編結，貴黍掃帚就此大功告成。</p>
         </div>
       </div>
     </div>
