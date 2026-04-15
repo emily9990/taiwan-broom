@@ -804,9 +804,8 @@
     <div class="broom-entry" id="broom3">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1509.JPG" class="active" alt="高粱掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1525.JPG" alt="高粱掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/IMG_1530.JPG" alt="高粱掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/1植物_高粱.JPG"   class="active" alt="高粱植物" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/2展示_高粱1.JPG"  alt="高粱掃帚展示" />
         </div>
       </div>
       <div class="broom-text">
@@ -817,6 +816,7 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>臺東縣東河鄉 / 金門烈嶼</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>林統山、黃貴明、黃新玉 / 莊扶</p>
+          <button class="card-open-btn" onclick="openCard('card-sorghum')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
@@ -825,9 +825,9 @@
     <div class="broom-entry reverse" id="broom4">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/展示_地膚草1.jpg" class="active" alt="地膚草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/04地膚草掃把成品_4181468.jpg" alt="地膚草掃帚成品" />
-          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/08材料01堆放屋外曬乾的地膚草_4181244.jpg" alt="地膚草材料" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/1植物_地膚草.JPG"  class="active" alt="地膚草植物" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/2展示_地膚草1.jpg" alt="地膚草掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/3掃把_地膚草.jpg"  alt="地膚草掃帚成品" />
         </div>
       </div>
       <div class="broom-text">
@@ -838,6 +838,7 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>彰化縣福興鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>林振棟、黃張環</p>
+          <button class="card-open-btn" onclick="openCard('card-kochia')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
@@ -994,6 +995,47 @@
     </div>
   </div>
 
+  <!-- ─── MODAL: 高粱掃帚 ─── -->
+  <div class="card-overlay" id="card-sorghum" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-sorghum')" aria-label="關閉">&#x2715;</button>
+
+      <!-- Left: Image Gallery -->
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/小卡_高粱掃帚/1場景.JPG" alt="高粱掃帚" id="sorghum-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-sorghum',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-sorghum', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/小卡_高粱掃帚/1場景.JPG"  alt="" class="card-thumb active" onclick="switchImg(this,'sorghum-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/小卡_高粱掃帚/２師傅.JPG"  alt="" class="card-thumb"        onclick="switchImg(this,'sorghum-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/3高粱掃帚/小卡_高粱掃帚/3.JPG"       alt="" class="card-thumb"        onclick="switchImg(this,'sorghum-main')" />
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="card-info">
+        <h2 class="card-title">高粱掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>（臺東）林統山、黃貴明、黃新玉 /（金門）莊扶</dd>
+          <dt>產地</dt><dd>臺東縣東河鄉 / 金門烈嶼</dd>
+          <dt>材料</dt><dd>（臺東）高粱、塑膠打包帶 /（金門）北掃紅高粱、尼龍繩</dd>
+          <dt>工具</dt><dd>（臺東）剪刀、小把鐮刀 /（金門）棉繩、木樁、木棍</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>高粱，禾本科的經濟作物，原產於非洲，耐乾旱、耐炎熱，是世界主要穀類作物之一。在臺灣每每提到高粱，就會想到金門高粱酒，事實上，高粱不只可以釀酒，也可提供食用、藥用及製作掃帚。</p>
+          <p>釀酒與製帚的高粱不盡相同，由於高粱的品種多元，近年來為了大面積耕作及收割，農民喜好種植低矮植株，不僅耐風，結穗量高且飽滿，適合用來釀酒。相較之下，傳統品種——植株高且結穗量少，則多用於製作掃帚，種植的人不多。</p>
+          <h3 class="card-subtitle">製作方式（以金門手作師傅經驗為例）</h3>
+          <p>金門的手作師傅莊扶製作掃帚的材料是脫粒、曬乾、剝殼後的北掃紅高粱，掃毛及掃柄是用粉紅色的尼龍繩綑綁而成，呈現樸實的手感。掃毛由三束高粱、三次綑綁而成，呈現略微傾斜的扇形，以符合掃除使用時，手臂、掃帚與地面的角度；掃柄則是一體成型，可根據需求調整長短。</p>
+          <p>匠人所使用的工具十分特別，一條棉繩一端綁在較粗的木樁上，一端則是一根十幾公分長的木棍。雙腳抵在木樁上，一邊將木棍當成把手，用以拉緊棉繩，將高粱束束得緊實堅固，再用尼龍繩固定。最後將掃柄頂端修剪整齊，就完成一支純手工的高粱掃帚了。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── MODAL: 稻草掃帚 ─── -->
   <div class="card-overlay" id="card-ricestraw" onclick="closeCardOutside(event)">
     <div class="card-panel">
@@ -1032,6 +1074,52 @@
           <h3 class="card-subtitle">製作方式</h3>
           <p>宜蘭縣冬山鄉珍珠社區的手作師傅林秋女、藍豐穆，製作掃帚先以鐵絲或麻繩將稻草綑成數束，每束約十餘支。稻草掃帚是一體成型的，脫掉稻粒後的稻草前端為掃毛，沿著稻稈取一節一節綁成綑紮成掃柄。為了避免掃柄過粗，需修剪掉約二分之一的稻稈，調整成適合手握的寬度，再將五束稻草綑成一把，並將掃毛整理成扇狀，即成掃帚雛形。</p>
           <p>接著，將麻繩一端固定在柱子上，一端則固定在方才綑好的稻草束上，雙手用力拉緊，再藉著柱子穩定的拉力，以掃毛上端為起點，將麻繩一圈一圈地綑上掃柄。綑的圈數越多，掃柄則越長，可根據使用者身高或需求彈性調整。最後再將掃柄頂端、掃毛末端分別修剪整齊，掃帚就大功告成。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: 地膚草掃帚 ─── -->
+  <div class="card-overlay" id="card-kochia" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-kochia')" aria-label="關閉">&#x2715;</button>
+
+      <!-- Left: Image Gallery -->
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/1場景.JPG" alt="地膚草掃帚" id="kochia-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-kochia',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-kochia', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/1場景.JPG"                     alt="" class="card-thumb active" onclick="switchImg(this,'kochia-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/2師傅林.jpg"                   alt="" class="card-thumb"        onclick="switchImg(this,'kochia-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/2師傅黃.jpg"                   alt="" class="card-thumb"        onclick="switchImg(this,'kochia-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/3工具.jpg"                     alt="" class="card-thumb"        onclick="switchImg(this,'kochia-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/4材料堆放屋外曬乾的地膚草jpg.jpg" alt="" class="card-thumb"        onclick="switchImg(this,'kochia-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/5工藝.jpg"                     alt="" class="card-thumb"        onclick="switchImg(this,'kochia-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/4地膚草掃帚/小卡_地膚草掃帚/6成品JPG.JPG"                  alt="" class="card-thumb"        onclick="switchImg(this,'kochia-main')" />
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="card-info">
+        <h2 class="card-title">地膚草掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>林振棟、黃張環</dd>
+          <dt>產地</dt><dd>彰化縣福興鄉</dd>
+          <dt>材料</dt><dd>地膚草、草稈、紅色尼龍繩</dd>
+          <dt>工具</dt><dd>剪刀、短木棍、棉繩、墊地布、坐墊</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>地膚，一年生的草本植物，常生長於田邊、路旁或荒地，是一種生命力強韌的植物。有些人會食用它的莖枝，但更多時候是將它曬乾、綁成掃帚，提供日常清掃使用，因此，地膚草又被稱作掃帚苗、掃帚草。</p>
+          <p>在彰化福興鄉西勢村，因為靠海且氣候乾燥、土壤鹽化，無法種植一般糧食作物，農民為了謀求生路，將海邊、旱地長出的地膚草曬乾、紮綁成掃把到各地兜售，逐漸形成產業，支撐經濟命脈，進而獲得「掃帚之鄉」之美名。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>地膚草收成後，須先將地膚草直接紮成束，立在田裡曬乾，大概需要四到七天，且須時常翻面，讓草束均勻曝曬。曬乾後的地膚草並不是直接用來綁掃帚，得先「取籽」留待第二次種植。過去是將地膚草甩打在長板凳上，而今改以貨車碾壓，使其種籽脫落。接著，師傅們會費心處理乾草，汰除雜枝蔓生的、長短不一的部分，才算完成第一階段的材料整理。</p>
+          <p>手作師傅黃張環綁地膚草掃帚時是席地而坐的，並將一端繫有短木棍的白色棉繩固定在柱子或穩定的椅腳上，過程中得借助柱子的拉力來綑緊草束。就定位後，師傅先用棉繩將第一束地膚草束緊，再用紅色尼龍繩綁好，反覆同樣的工序四次，綁繩不重疊。接著再將草稈分三到五段綑緊，做成掃柄，過程中會視情況再添加草稈，加強掃柄的強度。</p>
+          <p>接著，用剪刀修剪掉旁生的雜枝及掃毛，再以鍘刀將掃柄頂端、掃毛末段修齊，最後用手把掃毛梳理平整，一把地膚帚就完成了。</p>
         </div>
       </div>
     </div>
