@@ -891,9 +891,9 @@
     <div class="broom-entry" id="broom7">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/展示_山棕嫩葉1.jpg" class="active" alt="山棕嫩葉掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/IMG_7829.JPG" alt="山棕嫩葉掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/掃把完成品.jpg" alt="山棕嫩葉掃帚完成品" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/1.JPG"             class="active" alt="山棕嫩葉掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/2展示_山棕嫩葉1.jpg" alt="山棕嫩葉掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/3掃把完成品.jpg"     alt="山棕嫩葉掃帚完成品" />
         </div>
       </div>
       <div class="broom-text">
@@ -904,6 +904,7 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>南投縣信義鄉</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>Sa Vungaz（伍阿現）</p>
+          <button class="card-open-btn" onclick="openCard('card-tendershanzong')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
@@ -912,9 +913,9 @@
     <div class="broom-entry reverse" id="broom8">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/展示_蘆竹1.jpg" class="active" alt="蘆竹掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹掃把.jpg" alt="蘆竹掃帚成品" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/蘆竹工具.jpg" alt="蘆竹掃帚工具" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/1植物_蘆竹.jpg"  class="active" alt="蘆竹植物" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/2展示_蘆竹1.jpg" alt="蘆竹掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/3蘆竹掃把.jpg"  alt="蘆竹掃帚成品" />
         </div>
       </div>
       <div class="broom-text">
@@ -925,6 +926,7 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>桃園縣平鎮區</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>曾宏凱、曾義深</p>
+          <button class="card-open-btn" onclick="openCard('card-arundo')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
@@ -1112,6 +1114,93 @@
           <h3 class="card-subtitle">製作方式</h3>
           <p>宜蘭縣冬山鄉珍珠社區的手作師傅林秋女、藍豐穆，製作掃帚先以鐵絲或麻繩將稻草綑成數束，每束約十餘支。稻草掃帚是一體成型的，脫掉稻粒後的稻草前端為掃毛，沿著稻稈取一節一節綁成綑紮成掃柄。為了避免掃柄過粗，需修剪掉約二分之一的稻稈，調整成適合手握的寬度，再將五束稻草綑成一把，並將掃毛整理成扇狀，即成掃帚雛形。</p>
           <p>接著，將麻繩一端固定在柱子上，一端則固定在方才綑好的稻草束上，雙手用力拉緊，再藉著柱子穩定的拉力，以掃毛上端為起點，將麻繩一圈一圈地綑上掃柄。綑的圈數越多，掃柄則越長，可根據使用者身高或需求彈性調整。最後再將掃柄頂端、掃毛末端分別修剪整齊，掃帚就大功告成。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: 山棕嫩葉掃帚 ─── -->
+  <div class="card-overlay" id="card-tendershanzong" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-tendershanzong')" aria-label="關閉">&#x2715;</button>
+
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/小卡_山棕嫩葉掃帚/1場景.JPG" alt="山棕嫩葉掃帚" id="tendershanzong-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-tendershanzong',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-tendershanzong', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/小卡_山棕嫩葉掃帚/1場景.JPG"      alt="" class="card-thumb active" onclick="switchImg(this,'tendershanzong-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/小卡_山棕嫩葉掃帚/2師傅.JPG"      alt="" class="card-thumb"        onclick="switchImg(this,'tendershanzong-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/小卡_山棕嫩葉掃帚/3材料與工具.jpg" alt="" class="card-thumb"        onclick="switchImg(this,'tendershanzong-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/小卡_山棕嫩葉掃帚/4掃把完成品.jpg" alt="" class="card-thumb"        onclick="switchImg(this,'tendershanzong-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/7山棕嫩葉掃帚/小卡_山棕嫩葉掃帚/5工藝.JPG"      alt="" class="card-thumb"        onclick="switchImg(this,'tendershanzong-main')" />
+        </div>
+      </div>
+
+      <div class="card-info">
+        <h2 class="card-title">山棕嫩葉掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>Sa Vungaz（伍阿現）</dd>
+          <dt>產地</dt><dd>南投縣信義鄉</dd>
+          <dt>材料</dt><dd>山棕嫩葉、細尼龍繩</dd>
+          <dt>工具</dt><dd>剪刀</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>山棕嫩葉有外鞘包覆，製帚前需費心處理，因此工序更顯繁瑣；且嫩葉數量相對稀少，材料取得不若成葉容易，嫩葉掃帚因而難以大量生產。</p>
+          <p>山棕嫩葉為一桿狀物，從外觀上難以「驗明正身」，需經過甩打使葉片出鞘，才能取得製帚的主要材料。取下葉片後再沿著脈絡撕開，並汰除太細、太小的嫩葉，再經數日曝曬後，葉片由嫩綠色轉為咖啡色，原料的準備才到一段落。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>南投縣信義鄉的手作師傅布農族 Sa Vungaz（伍阿現），製作山棕嫩葉掃帚前準備的程序繁複，工具卻相當簡單。</p>
+          <p>「用山棕嫩葉綁製掃帚，只需一捲細繩和一把剪刀就夠了，用不到鐵絲，也不必動用老虎鉗。」Sa Vungaz 一邊說一邊將曬乾後的嫩葉暫時紮綁成束固定，再將成束的葉片一綹一綹分開，取一段較長的尼龍繩，做成環圈將葉片一一圈套收束，透過繩結將一綹一綹的葉片拉緊，最後形成一個完整扇面。</p>
+          <p>接著拆除頂端暫時固定的綁繩，再取另一段較長的尼龍繩重新紮綁，繩索環繞數十圈後，固定好就成為了掃帚柄；最後再以剪刀將尾端修剪整齊，即完成一把短柄且一體成型的山棕嫩葉掃帚。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: 蘆竹掃帚 ─── -->
+  <div class="card-overlay" id="card-arundo" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-arundo')" aria-label="關閉">&#x2715;</button>
+
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/1場景.jpg" alt="蘆竹掃帚" id="arundo-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-arundo',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-arundo', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/1場景.jpg"   alt="" class="card-thumb active" onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/2師傅.jpg"   alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/3蘆竹工具.jpg" alt="" class="card-thumb"      onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/4.jpg"       alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/5.jpg"       alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/6.jpg"       alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/7成品.jpg"   alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+        </div>
+      </div>
+
+      <div class="card-info">
+        <h2 class="card-title">蘆竹掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>曾宏凱、曾義深</dd>
+          <dt>產地</dt><dd>桃園縣平鎮區</dd>
+          <dt>材料</dt><dd>蘆竹、自製月桃葉綁繩、自製竹籤</dd>
+          <dt>工具</dt><dd>柴刀、木樁</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>蘆竹，台灣特有種，葉子長得像竹葉，喜好生長在岩壁、斜坡或石縫間，莖稈可長到一到二公尺高，海拔一千八百公尺以下地區都可見它的蹤影。蘆竹的纖維強韌，可用於造紙、編織、搭蓋屋頂等，或可綁製成掃帚，取材容易、用途廣泛。</p>
+          <p>相傳，東勢的掃帚傳奇是無心插柳，一位專事樟腦提煉、名叫張火石的人，順手將山上四處叢生的蘆竹綁成掃把，用來打掃工寮，沒想到蘆竹帚實惠耐用，因而在鄉里間流傳開來，紮綁掃帚遂成東勢一帶農閒時期的主要副業，後來發展出一波繁景，東勢成了「掃把庄」，蘆竹也因此被冠上「掃把草」之名。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>不同於其他地方用竹篾或鐵絲做為綁繩，東勢的蘆竹掃帚師傅曾義深是以月桃製成綁繩。月桃是農村常見的植物，紮綁掃帚所使用的部位是「葉鞘纖維」——先除去月桃葉子，再用木槌敲打葉鞘，將鞘皮纖維撕開之後曬乾，就成了用來綁掃帚的繩子了。</p>
+          <p>除了蘆竹及月桃，還要砍竹子、削製「竹籤」，每支掃帚需要二支不同長短的竹籤，寬約二公分，一端尖一端平，長的約三十五公分，用來加強掃柄強度；短的約十公分，插進綁紮處，用來增加掃帚撐持硬度。</p>
+          <p>蘆竹及月桃都需經過三日的曝曬才能進行掃帚綁製，蘆竹曬乾後先摘除老葉，葉桿做為掃柄，尾端嫩葉則成掃毛。師傅先取長度相當的蘆竹，以月桃捻繩綁成束，一共五束。接著，用柴刀刀背將兩把蘆竹束敲緊，以月桃繩綁緊，再加入一把，重複工序，直到五把蘆竹束被固定在一起，即完成掃毛。</p>
+          <p>然後將葉桿平均間隔，以月桃繩綑綁五段，做成掃柄。再以柴刀削齊柄端，將掃毛修剪成圓弧扇形。最後將長竹籤敲入掃柄，短竹籤敲進掃毛紮綁處，成為支撐的骨架，一把蘆竹掃帚就此大功告成。</p>
         </div>
       </div>
     </div>
