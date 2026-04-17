@@ -39,7 +39,7 @@ This project documents 9 types of handcrafted natural brooms from across Taiwan 
 | 06 | 山棕掃帚 | 高雄市美濃區 | 羅元鴻、蔡佳蓉 | ✓ |
 | 07 | 山棕嫩葉掃帚 | 南投縣信義鄉 | Sa Vungaz（伍阿現） | ✓ |
 | 08 | 蘆竹掃帚 | 桃園縣平鎮區 | 曾宏凱、曾義深 | ✓ |
-| 09 | 芒草掃帚 | 嘉義縣樟樹湖 | 簡黃秀切 | |
+| 09 | 芒草掃帚 | 嘉義縣樟樹湖 | 簡黃秀切 | ✓ |
 
 ---
 

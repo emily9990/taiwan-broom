@@ -935,9 +935,9 @@
     <div class="broom-entry" id="broom9">
       <div class="broom-image">
         <div class="slideshow">
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/展示_芒草1.jpg" class="active" alt="芒草掃帚" />
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/芒草掃把.jpg" alt="芒草掃帚成品" />
-          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/IMG_0997.JPG" alt="芒草掃帚" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/1植物.JPG"        class="active" alt="芒草植物" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/2展示_芒草1.jpg"  alt="芒草掃帚展示" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/3芒草掃把.jpg"    alt="芒草掃帚成品" />
         </div>
       </div>
       <div class="broom-text">
@@ -948,11 +948,54 @@
         <div class="broom-meta">
           <p class="broom-meta-item"><span class="broom-meta-label">產地</span>嘉義縣樟樹湖</p>
           <p class="broom-meta-item"><span class="broom-meta-label">手作師傅</span>簡黃秀切</p>
+          <button class="card-open-btn" onclick="openCard('card-miscanthus')">詳細介紹 &#8599;</button>
         </div>
       </div>
     </div>
 
   </section>
+
+  <!-- ─── MODAL: 芒草掃帚 ─── -->
+  <div class="card-overlay" id="card-miscanthus" onclick="closeCardOutside(event)">
+    <div class="card-panel">
+      <button class="card-close" onclick="closeCard('card-miscanthus')" aria-label="關閉">&#x2715;</button>
+
+      <div class="card-gallery">
+        <div class="card-main-img">
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/小卡_芒草嫩葉掃帚/1.JPG" alt="芒草掃帚" id="miscanthus-main" />
+          <button class="card-img-nav prev" onclick="stepImg('card-miscanthus',-1)" aria-label="上一張">&#8592;</button>
+          <button class="card-img-nav next" onclick="stepImg('card-miscanthus', 1)" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="card-thumbs">
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/小卡_芒草嫩葉掃帚/1.JPG"      alt="" class="card-thumb active" onclick="switchImg(this,'miscanthus-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/小卡_芒草嫩葉掃帚/2師傅.JPG"  alt="" class="card-thumb"        onclick="switchImg(this,'miscanthus-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/小卡_芒草嫩葉掃帚/3細部&apos;.JPG" alt="" class="card-thumb" onclick="switchImg(this,'miscanthus-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/小卡_芒草嫩葉掃帚/4場景.JPG"  alt="" class="card-thumb"        onclick="switchImg(this,'miscanthus-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/9芒草掃帚/小卡_芒草嫩葉掃帚/5細部.JPG"  alt="" class="card-thumb"        onclick="switchImg(this,'miscanthus-main')" />
+        </div>
+      </div>
+
+      <div class="card-info">
+        <h2 class="card-title">芒草掃帚</h2>
+        <div class="card-rule"></div>
+        <dl class="card-meta-grid">
+          <dt>手作師傅</dt><dd>簡黃秀切</dd>
+          <dt>產地</dt><dd>嘉義縣樟樹湖</dd>
+          <dt>材料</dt><dd>芒草、芒草葉鞘</dd>
+          <dt>工具</dt><dd>剪刀、槌子</dd>
+        </dl>
+        <div class="card-rule"></div>
+        <div class="card-body">
+          <p>芒草，好長於乾燥的坡地，常見的品種有兩種，大約在十一月前後開花，開花結果後會呈現一片白茫茫的「白背芒」，與端午節前後開花的「五節芒」。在早期農業時代，芒草可用來圍籬笆、做建材、編織、入藥、綁掃把等，渾身都是寶。</p>
+          <p>然而，市面上卻少見芒草掃帚，過去趁農閒手工紮綁的掃帚多做為家用，或分送親朋好友，鮮少進入市場；工業化時代來臨，塑膠製品氾濫，費時費工的芒草掃帚也就更加珍貴、難尋了。</p>
+          <h3 class="card-subtitle">製作方式</h3>
+          <p>剛採割的芒草，花穗呈現白色、莖稈則是綠色，曬乾後則整株轉為黃褐色。嘉義縣樟樹湖的手作師傅簡黃秀切強調，芒草一定要曬到乾透才能綁。</p>
+          <p>紮綁時需挑選長短相當的芒草，先綁成四束，再分別將芒草束兩兩一組，綁成兩大束，過程中可用槌子將芒草束敲緊，最後再將兩大束收攏綁緊，完成掃毛部分。</p>
+          <p>接著再用葉鞘綁繩，將芒草稈綁成掃柄，視長短而定，分成四到五節綑綁，掃柄寬度以手掌可以圈握為準，可視情況修剪掉中央的芒草稈，以免掃柄太粗、不易握持。最後用刀子將柄端削齊，掃毛整理平順後，芒草掃帚就完成了。</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ─── MODAL: 槺榔掃帚 ─── -->
   <div class="card-overlay" id="card-kanlang" onclick="closeCardOutside(event)">
