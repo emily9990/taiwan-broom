@@ -698,6 +698,9 @@
     @media (max-width: 860px) {
       .lang-switcher { top: 10px; right: 10px; transform: scale(0.9); transform-origin: top right; }
       
+      #section1 { height: auto; aspect-ratio: 5000 / 2617; }
+      #section1 img { object-fit: contain; }
+
       #section2 { padding: 60px 24px; }
       #section2 h1 { margin-bottom: 32px; }
 
@@ -740,9 +743,10 @@
 
     @media (max-width: 500px) {
       .gallery-item { flex: 0 0 80vw; width: 80vw; }
-      .hero-caption { left: 24px; bottom: 24px; font-size: 9px; }
+      .hero-caption { left: 16px; bottom: 16px; font-size: 8px; letter-spacing: 0.15em; }
       .gif-grid { grid-template-columns: 1fr; }
     }
+
 
 
   </style>
