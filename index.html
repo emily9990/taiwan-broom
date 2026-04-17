@@ -678,6 +678,73 @@
       background: var(--black);
       color: var(--off-white);
     }
+
+    /* ─── SECTION 5: Craftsmanship ─── */
+    #section5 { padding: 100px 0 140px; background: var(--off-white); }
+    .gif-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 0 4px; }
+    .gif-item { position: relative; overflow: hidden; background: #000; }
+    .gif-item img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.8s ease, transform 0.8s ease; opacity: 0.8; }
+    .gif-item:hover img { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+    .gif-label { position: absolute; bottom: 20px; left: 20px; font-size: 10px; color: #fff; letter-spacing: 0.15em; text-transform: uppercase; transition: opacity 0.4s; pointer-events: none; }
+    
+    /* ─── RESPONSIVE DESIGN (RWD) ─── */
+
+    @media (max-width: 1024px) {
+      #section2 { padding: 40px 40px; }
+      .broom-text { padding: 60px 40px; }
+      .footer-col { gap: 40px; }
+    }
+
+    @media (max-width: 860px) {
+      .lang-switcher { top: 10px; right: 10px; transform: scale(0.9); transform-origin: top right; }
+      
+      #section2 { padding: 60px 24px; }
+      #section2 h1 { margin-bottom: 32px; }
+
+      .gallery-item { flex: 0 0 50vw; width: 50vw; }
+      
+      .broom-entry { display: block; }
+      .broom-entry.reverse .broom-image { order: 1; }
+      .broom-entry.reverse .broom-text  { order: 2; }
+      
+      .broom-image { min-height: 50vh; }
+      .broom-text { padding: 48px 24px 60px; }
+      .broom-desc { max-width: 100%; }
+
+      /* Section 5 RWD */
+      #section5 { padding: 60px 0 80px; }
+      .gif-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; padding: 0 2px; }
+
+      footer {
+        flex-direction: column;
+        padding: 48px 24px;
+        gap: 40px;
+      }
+      .footer-right { text-align: left; max-width: 100%; }
+
+      /* Modal RWD */
+      .card-overlay { padding: 0; }
+      .card-panel {
+        flex-direction: column;
+        max-height: 100vh;
+        height: 100%;
+        border-radius: 0;
+      }
+      .card-gallery { flex: 0 0 40vh; }
+      .card-info { padding: 40px 24px; }
+      .card-close { top: 10px; right: 10px; background: rgba(244,242,237,0.8); border-radius: 50%; }
+      .card-meta-grid { grid-template-columns: 1fr; gap: 4px; }
+      .card-meta-grid dt { margin-top: 12px; }
+      .card-meta-grid dt:first-child { margin-top: 0; }
+    }
+
+    @media (max-width: 500px) {
+      .gallery-item { flex: 0 0 80vw; width: 80vw; }
+      .hero-caption { left: 24px; bottom: 24px; font-size: 9px; }
+      .gif-grid { grid-template-columns: 1fr; }
+    }
+
+
   </style>
 </head>
 <body>
@@ -1380,7 +1447,32 @@
     </div>
   </div>
 
+
+  <!-- ─── SECTION 5: Craftsmanship ─── -->
+  <section id="section5">
+    <span class="eyebrow" id="s5-eyebrow">工藝展示 &mdash; Craftsmanship</span>
+    <div class="gif-grid">
+      <div class="gif-item">
+        <img src="區段5_工藝展示/工藝_地膚草.gif" alt="地膚草工藝" />
+        <span class="gif-label">地膚草 &mdash; Kochia</span>
+      </div>
+      <div class="gif-item">
+        <img src="區段5_工藝展示/工藝_山棕嫩葉.gif" alt="山棕嫩葉工藝" />
+        <span class="gif-label">山棕嫩葉 &mdash; Tender Leaf</span>
+      </div>
+      <div class="gif-item">
+        <img src="區段5_工藝展示/工藝_蘆竹.gif" alt="蘆竹工藝" />
+        <span class="gif-label">蘆竹 &mdash; Arundo</span>
+      </div>
+      <div class="gif-item">
+        <img src="區段5_工藝展示/工藝_貴黍.gif" alt="貴黍工藝" />
+        <span class="gif-label">貴黍 &mdash; Millet</span>
+      </div>
+    </div>
+  </section>
+
 <footer>
+
     <div class="footer-col">
       <span class="footer-label">臺灣掃帚 &mdash; Taiwan Broom</span>
 
@@ -1549,6 +1641,10 @@
         g1: '01 &mdash; 槺榔掃帚', g2: '02 &mdash; 稻草掃帚', g3: '03 &mdash; 高粱掃帚',
         g4: '04 &mdash; 地膚草掃帚', g5: '05 &mdash; 貴黍掃帚', g6: '06 &mdash; 山棕掃帚',
         g7: '07 &mdash; 山棕嫩葉掃帚', g8: '08 &mdash; 蘆竹掃帚', g9: '09 &mdash; 芒草掃帚',
+        s5Title: '工藝展示 &mdash; Craftsmanship',
+        g5_1: '地膚草 &mdash; Kochia', g5_2: '山棕嫩葉 &mdash; Tender Leaf',
+        g5_3: '蘆竹 &mdash; Arundo', g5_4: '貴黍 &mdash; Millet',
+
         // Modal card bodies (full innerHTML of .card-body)
         cbKanlang: `<p>槺榔是一種台灣原生的棕櫚科植物，本名為「臺灣海棗」。全臺多處留有以槺榔為名的地方，在日本時期的《臺灣樹木誌》中亦曾記載，槺榔是「臺灣全島低地皆屬常見」的植物，可窺見槺榔深入常民生活的痕跡。</p><p>槺榔的用途廣泛，幾乎全身上下都能充分利用，不僅可做景觀樹，木材可製作各類器皿，嫩芽及果實亦可加工食用，葉片曬乾後再經匠人巧手則成為一支支具有清潔及避邪意涵的掃帚。</p><p>槺榔掃帚又稱「天地掃」，顧名思義，天掃掃天，地掃掃地，天地掃需成對出現且不可混用。在臺灣習俗中，農曆十二月二十四日為送神日，也是「清屯日」——一年一度打掃神龕及祖先牌位的日子——天地掃即在此時發揮最大效用。</p><p>早在清朝時期，臺灣人就以槺榔葉製帚，《重修臺灣府志》（一七四七年）中有記載：「槺榔：幹直無枝，其顛生葉不過數十，結子作穗生木端，其葉臺人以為帚。」直到一九六〇年代，臺灣各地仍有不少村莊以綁槺榔掃帚為業。</p><h3 class="card-subtitle">製作方式</h3><p>嘉義縣朴子市的手作師傅涂梅花所製作的槺榔掃帚有三層結構，掃毛由槺榔葉主要擔當，以竹子做為骨架，再以乾稻草包覆製成掃柄。槺榔樹莖幹高大，有些能長到七、八公尺高，加上葉片有刺，採割並不容易。槺榔葉採割下來後必須曝曬多日風乾後，才能進行掃帚的製作。</p><p>製作槺榔掃帚的工具相當簡要：一捲鐵絲線、一把老虎鉗、一支鐵釘製成的鐵梳，再加上經歲月磨蝕的鍛造柴刀。散落一地的槺榔葉在涂梅花的揀選、收緊、綑綁、修剪之下，逐漸有了掃毛的樣子；接著，再將一根筆直的竹竿固定在掃毛上，以稻草包覆，一節一節地以鐵絲線圈綁固定，做成掃帚柄。最後，用柴刀將掃毛修剪整齊，再以鐵梳梳理，一把純手工打造的槺榔掃帚才算大功告成。</p>`,
         cbRicestraw: `<p>稻米，是養活臺灣千萬人口的主要作物，也是出口外銷的重要農產品，曾讓臺灣獲得「稻米王國」的美稱。稻米餵飽了臺灣人，稻草則搖身一變成為農業社會裡，家家戶戶再利用的重要材料。</p><p>收割後的農田常見一束一束呈錐形站立的稻草束，這是農民「掌草」後的景觀，再經過大約二到五天的曝曬，等稻草曬乾後，堆成草垺做為儲備，形成另一幅農村風景。這些稻草的用途廣泛，不僅可以當作燃料、鋪設屋頂，或化身成守護農田的稻草人；也可以用來編織成草繩、草蓆、草鞋等生活用品，亦能綁成掃帚，成為居家必備的清掃工具。</p><h3 class="card-subtitle">製作方式</h3><p>宜蘭縣冬山鄉珍珠社區的手作師傅林秋女、藍豐穆，製作掃帚先以鐵絲或麻繩將稻草綑成數束，每束約十餘支。稻草掃帚是一體成型的，脫掉稻粒後的稻草前端為掃毛，沿著稻稈取一節一節綁成綑紮成掃柄。為了避免掃柄過粗，需修剪掉約二分之一的稻稈，調整成適合手握的寬度，再將五束稻草綑成一把，並將掃毛整理成扇狀，即成掃帚雛形。</p><p>接著，將麻繩一端固定在柱子上，一端則固定在方才綑好的稻草束上，雙手用力拉緊，再藉著柱子穩定的拉力，以掃毛上端為起點，將麻繩一圈一圈地綑上掃柄。綑的圈數越多，掃柄則越長，可根據使用者身高或需求彈性調整。最後再將掃柄頂端、掃毛末端分別修剪整齊，掃帚就大功告成。</p>`,
@@ -1597,6 +1693,10 @@
         g4: '04 &mdash; Kochia', g5: '05 &mdash; Millet', g6: '06 &mdash; Arenga engleri',
         g7: '07 &mdash; Arenga engleri Tender Leaf', g8: '08 &mdash; Arundo donax',
         g9: '09 &mdash; Miscanthus',
+        s5Title: 'Craftsmanship &mdash; 工藝展示',
+        g5_1: 'Kochia &mdash; 地膚草', g5_2: 'Tender Leaf &mdash; 山棕嫩葉',
+        g5_3: 'Arundo &mdash; 蘆竹', g5_4: 'Millet &mdash; 貴黍',
+
         cbKanlang: `<p>The date palm (Phoenix hanceana) is a native Taiwanese palm. Place names echoing "Kanlang" are found throughout Taiwan, marking former habitats. The Japanese-era <em>Record of Taiwan's Trees</em> described it as "commonly found in lowlands across the entire island," reflecting how deeply it was woven into everyday life.</p><p>Almost every part of the date palm can be used: it serves as an ornamental tree, its wood crafted into utensils, its shoots and fruit processed for food, and its sun-dried leaves transformed by skilled artisans into brooms with both cleansing and protective symbolism.</p><p>Date palm brooms are also called "Heaven and Earth Sweepers": the heavenly broom sweeps above, the earthly sweeps below — they must always come in pairs and never be interchanged. In Taiwanese custom, the 24th day of the 12th lunar month — the day for seeing off the gods and the annual cleaning of shrines and ancestor tablets — is when these brooms are put to their greatest use.</p><p>As early as the Qing Dynasty, Taiwanese were making brooms from date palm leaves. The 1747 <em>Revised Gazetteer of Taiwan Prefecture</em> records: "Kanlang: its trunk grows straight without branches, crowned with dozens of leaves, bearing clustered fruit at the top — its leaves used by Taiwanese as brooms." Until the 1960s, many villages across Taiwan still made a living crafting date palm brooms.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisan Tu Meihua of Puzi City, Chiayi County creates brooms with three layers: date palm leaves form the sweep head, bamboo serves as the inner frame, and dry rice straw wraps around to form the handle. The palm trunk can reach seven or eight meters, and its spiny leaves make harvesting a challenge. After cutting, the leaves must be sun-dried for several days before broom-making begins.</p><p>The tools are minimal: a coil of wire, pliers, a nail-fashioned comb, and a well-worn forged chopper. Tu Meihua selects, tightens, bundles, and trims the scattered leaves into a sweep head; a straight bamboo rod is fixed to it, wrapped with straw and coil-by-coil bound with wire to form the handle. Finally, the sweep head is trimmed and combed smooth — the fully handcrafted date palm broom is complete.</p>`,
         cbRicestraw: `<p>Rice is the primary crop that has fed Taiwan's population and once earned the island the title "Kingdom of Rice." After harvest, rice straw transforms into an important material reused in every agricultural household.</p><p>The cone-shaped straw bundles standing in harvested fields — the result of "stacking grass" — are a familiar rural landscape. After two to five days of drying, straw is stacked for storage. Its uses are wide: fuel, roofing, scarecrows, woven ropes, mats, sandals — and brooms, an indispensable household cleaning tool.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisans Lin Qiunü and Lan Fengmu of Zhenzhu Community, Dongshan Township, Yilan begin by bundling straw into groups of about ten stalks each, tied with wire or hemp rope. The broom is one continuous piece: the threshed straw ends become the sweep head, while sections of stalk are bundled into the handle. Half the stalks are trimmed away to achieve a handle thin enough to grip; five bundles are then bound together and the sweep head arranged into a fan shape.</p><p>One end of a hemp rope is fixed to a post, the other to the straw bundle; pulling the rope taut, the artisan winds it round and round up the handle — more wraps means a longer handle, adjustable to the user's height. Finally, the handle top and sweep end are trimmed neat, and the broom is complete.</p>`,
         cbSorghum: `<p>Sorghum, an economic crop of the grass family originating in Africa, tolerates drought and heat — one of the world's major grain crops. In Taiwan, sorghum is synonymous with Kinmen's famed sorghum liquor, but it also yields food, medicine, and brooms.</p><p>The sorghum varieties for brewing and for broom-making differ. Modern farming favors compact, high-yield, wind-resistant varieties suited for distilling. The traditional tall variety — bearing fewer seeds — is used for brooms, though fewer farmers grow it now.</p><h3 class="card-subtitle">How It's Made (based on Kinmen artisan experience)</h3><p>Kinmen artisan Zhuang Fu uses threshed, sun-dried, husked "North-sweep Red Sorghum" for his brooms. The sweep head and handle are bound with pink nylon rope, giving a simple, tactile quality. Three bunches of sorghum, bound three times, form a slightly angled fan shape — matching the angle of arm, broom, and ground when sweeping. The handle is one piece, adjustable in length as needed.</p><p>The tools are distinctive: a cotton rope tied at one end to a wooden post, at the other to a short wooden rod. Feet braced against the post, the artisan uses the rod as a lever to pull the rope tight, securing the sorghum bundle firmly, then fixing it with nylon rope. The handle top is trimmed even — a pure handmade sorghum broom is complete.</p>`,
@@ -1642,6 +1742,10 @@
         g1: '01 &mdash; カンラン', g2: '02 &mdash; 稲わら', g3: '03 &mdash; モロコシ',
         g4: '04 &mdash; ホウキグサ', g5: '05 &mdash; キビ', g6: '06 &mdash; クロツグ',
         g7: '07 &mdash; クロツグ若葉', g8: '08 &mdash; ダンチク', g9: '09 &mdash; ススキ',
+        s5Title: '工芸の美 &mdash; Craftsmanship',
+        g5_1: 'ホウキグサ &mdash; Kochia', g5_2: 'クロツグ若葉 &mdash; Tender Leaf',
+        g5_3: 'ダンチク &mdash; Arundo', g5_4: 'キビ &mdash; Millet',
+
         cbKanlang: `<p>カンラン（台湾海棗、学名 Phoenix hanceana）は台湾固有のヤシ科植物です。台湾各地に同音の地名が残り、かつてこの植物が生育していた場所を示しています。日本統治時代の『台湾樹木誌』にも「台湾全島の低地に普遍的に見られる」と記されており、人々の暮らしに深く根ざしていたことがうかがえます。</p><p>カンランはほぼ全ての部位を活用できます。景観樹としての役割に加え、木材は各種器具に、新芽と果実は食用に加工でき、乾燥させた葉は職人の手によって清掃と魔除けの意味を持つ箒へと変えられます。</p><p>カンラン箒は「天地掃（ティエンディサオ）」とも呼ばれ、天用は上を、地用は下を掃く——必ず二本一組で、用途を混ぜてはなりません。台湾の風習では、旧暦12月24日は「送神日」であり、年に一度神棚と先祖位牌を清める日——このときカンラン箒が最も活躍します。</p><p>清朝時代からカンランの葉で箒が作られてきました。1747年の『重修台湾府志』には「カンラン：幹は真っ直ぐで枝なく、頂に数十枚の葉があり、穂状の実が生り、台湾人はその葉を箒として用いる」と記されています。1960年代まで、台湾各地の多くの村でカンラン箒作りが生業となっていました。</p><h3 class="card-subtitle">制作方法</h3><p>嘉義県朴子市の職人・涂梅花（トウ・メイファ）が作るカンラン箒は三層構造です。箒穂の主役はカンランの葉、竹が骨格となり、乾稲わらで包んで柄を作ります。カンランの幹は高く7〜8メートルに達するものもあり、葉には棘があるため収穫は容易ではありません。切り取った後は数日間天日干しにしてから制作が始まります。</p><p>道具はシンプルです——鉄線一巻き、ペンチ、釘で作った鉄製の梳き具、そして年季の入った鍛造の薪割り包丁。涂梅花は葉を選別し、締め、束ね、整えて箒穂を形作ります。真っ直ぐな竹竿を穂に固定し、稲わらで包みながら一節ずつ鉄線で巻き固め、柄を作ります。最後に穂先を切り揃え、梳き具で整えれば、完全手作りのカンラン箒の完成です。</p>`,
         cbRicestraw: `<p>稲は台湾の主要作物であり、かつて「稲米王国」と称されるほど重要な農産品でした。稲が人々を養い、稲わらは農業社会における再利用の重要な素材となりました。</p><p>収穫後の田に円錐形に立てられた稲わら束——「掌草」と呼ばれるこの風景は、台湾農村の原風景のひとつです。2〜5日の天日干しの後、稲わらは積み上げて保管されます。燃料・屋根材・かかし・縄・蓆・草鞋、そして箒など、用途は多岐にわたります。</p><h3 class="card-subtitle">制作方法</h3><p>宜蘭県冬山郷珍珠コミュニティの職人・林秋女（リン・チウニュ）と藍豐穆（ラン・フォンム）は、まず鉄線または麻縄で稲わらを束ねます（1束約10本余り）。箒は一体成形で、脱穀後の稲わらの先端が箒穂となり、稈を節ごとに束ねて柄を形成します。柄が太くなりすぎないよう約半分の稈を取り除き、握りやすい太さに調整。5束を一まとめにして穂を扇形に整えます。</p><p>麻縄の一端を柱に、もう一端を稲わら束に固定し、柱の張力を利用しながら穂の上端から柄へと縄を巻き上げていきます。巻く回数が多いほど柄が長くなり、使用者の身長に合わせて調整できます。最後に柄の先端と穂の末端をそれぞれ切り揃えれば完成です。</p>`,
         cbSorghum: `<p>モロコシはアフリカ原産のイネ科の経済作物で、乾燥・高温に強く、世界の主要穀物のひとつです。台湾では金門の高粱酒が有名ですが、食用・薬用・箒の素材としても利用されます。</p><p>醸造用と箒用のモロコシは品種が異なります。現代農業では低背・高収量・耐風性の品種が好まれ、醸造に向いています。一方、丈が高く穂の少ない伝統品種が箒に使われますが、栽培農家は少なくなっています。</p><h3 class="card-subtitle">制作方法（金門の職人の経験を例に）</h3><p>金門の職人・莊扶（ジョアン・フー）は脱粒・天日干し・脱穀した「北掃紅高粱」を使います。箒穂と柄はピンク色のナイロン縄で束ねられ、素朴な手触りが生まれます。3束のモロコシを3回束ねて、やや斜めの扇形を作ります——腕・箒・地面の角度を考慮した形です。柄は一体成形で、必要に応じて長さを調節できます。</p><p>道具はユニークです——一端を木杭に、もう一端を短い木棒に結んだ綿縄。両足で木杭を押さえ、木棒をレバーとして縄を引っ張り、モロコシ束を堅くしっかりと締め、ナイロン縄で固定します。柄の先端を切り揃えれば、純手作りのモロコシ箒の完成です。</p>`,
@@ -1751,6 +1855,14 @@
       setCard('card-tendershanzong','b7Title', null,null,null,null, 'cbTendershanzong');
       setCard('card-arundo',        'b8Title', null,null,null,null, 'cbArundo');
       setCard('card-miscanthus',    'b9Title', null,null,null,null, 'cbMiscanthus');
+      
+      // Section 5
+      const s5e = $('#s5-eyebrow'); if (s5e) s5e.innerHTML = t.s5Title;
+      const gifLabels = $$('.gif-label');
+      if (gifLabels[0]) gifLabels[0].innerHTML = t.g5_1;
+      if (gifLabels[1]) gifLabels[1].innerHTML = t.g5_2;
+      if (gifLabels[2]) gifLabels[2].innerHTML = t.g5_3;
+      if (gifLabels[3]) gifLabels[3].innerHTML = t.g5_4;
 
       // Footer
       const fl = $('.footer-label'); if (fl) fl.innerHTML = t.footerLabel;
