@@ -769,8 +769,8 @@
   <!-- ─── SECTION 1: Hero Banner ─── -->
   <section id="section1">
     <img src="區段1_大福橫幅BN/掃把主視覺圖(橫)_.jpg" alt="臺灣掃帚主視覺" />
-    <p class="hero-caption">Taiwan Broom — Tokyo Exhibition</p>
   </section>
+
 
   <!-- ─── SECTION 2: Text Introduction ─── -->
   <section id="section2">
@@ -1625,8 +1625,8 @@
     // ── i18n ──────────────────────────────────────────────────────────────────
     const T = {
       zh: {
-        heroCaption: 'Taiwan Broom — Tokyo Exhibition',
         s2Title: '臺灣掃帚所述說的故事',
+
         s2P1: '這個臺灣掃帚的蒐集計畫，源自於我們長期在臺灣各地作田野，突然發現許多鄉鎮不使用都市中便宜耐用的塑膠掃帚，而是會就地取材用當地盛產植物，做出「不那麼耐用」的「自然掃帚」：有的曾經是當地產業；更多是自用或送人的簡單日用品。',
         s2P2: '無論是否有商業價值，這些掃帚都能說出很多當地故事，我們這些外地人，可以騎著這些掃帚飛進當地的脈絡，一窺當地的植物、人文、歷史各種面向。因為這樣，所以我們展開了全臺掃帚蒐集，並藉著這些掃帚展開當地故事，成為進入各個鄉村的藉口。',
         s2P3: '這個在2017年提出的構想，沉澱多年之後被日本知名的採購人山田遊先生提出邀請去他在東京所經營的畫廊——<a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>展出。很感謝因為這個邀約，我們重訪了所有掃帚師傅。許多師傅其實都已經不再製作，但因為這次非常特別的邀請而重新拿出工具、重新步入山林採集植物、再次為展覽製作掃帚。讓這些原本只存在於臺灣鄉間、生命短暫、簡單但美麗的日用品重新被人看見。',
@@ -1675,8 +1675,8 @@
       },
 
       en: {
-        heroCaption: 'Taiwan Broom — Tokyo Exhibition',
         s2Title: 'Stories Told by Taiwan\'s Brooms',
+
         s2P1: 'This broom collection project began during our long-term fieldwork across Taiwan, when we discovered that many towns and villages prefer not to use cheap, durable plastic brooms common in cities. Instead, people source local plants to craft "natural brooms" — some once formed local industries; more often they were simple household items made for personal use or given as gifts.',
         s2P2: 'Regardless of commercial value, each broom tells rich local stories. As outsiders, we could "ride" these brooms into the fabric of each community — glimpsing its plants, people, culture, and history. This led us to embark on a broom-collecting journey across Taiwan, using brooms as an excuse to enter and explore each village.',
         s2P3: 'This idea, first proposed in 2017, eventually led to an invitation from renowned Japanese buyer Yu Yamada to exhibit at his Tokyo gallery — <a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>. Thanks to this invitation, we revisited all the broom artisans. Many had already stopped making brooms, but this very special occasion prompted them to pick up their tools again, return to the forests to harvest plants, and once again create brooms for the exhibition — giving these short-lived, simple yet beautiful everyday objects from Taiwan\'s countryside a chance to be seen anew.',
@@ -1726,8 +1726,8 @@
       },
 
       ja: {
-        heroCaption: '台湾の箒 — 東京展覧会',
         s2Title: '台湾の箒が語る物語',
+
         s2P1: 'この台湾の箒収集プロジェクトは、台湾各地での長年のフィールドワークがきっかけで生まれました。都市部で普及する安価で丈夫なプラスチック製の箒を使わず、地元の植物を素材に「自然の箒」を作る町や村が各地に残っていることを発見したのです。かつて地域産業として栄えたものもあれば、自家用や贈り物としての日用品として続いているものもあります。',
         s2P2: '商業的価値の有無にかかわらず、これらの箒はそれぞれの土地の物語を語ります。よそ者である私たちは、箒に乗るようにして地域の脈絡に入り込み、植物・人文・歴史のさまざまな側面を垣間見ることができました。こうして台湾全土で箒を収集し、箒を通じて地域の物語を広げ、各地の農村へ入り込む口実としていきました。',
         s2P3: '2017年に提唱したこの構想は、長い歳月を経て、日本の著名なバイヤー山田遊氏から東京のギャラリー——<a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>での展示へのご招待という形で実を結びました。このご招待のおかげで、すべての職人を再訪することができました。多くの職人はすでに制作をやめていましたが、この特別な招待を受けて再び道具を手に取り、山へ分け入って植物を採取し、展覧会のために箒を作ってくれました。台湾の農村にひっそりと存在し、短命でありながら素朴で美しいこれらの日用品を、再び人々の目に触れさせることができました。',
@@ -1792,7 +1792,8 @@
       document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
 
       // Section 1
-      const cap = $('.hero-caption'); if (cap) cap.textContent = t.heroCaption;
+      // (Hero caption removed)
+
 
       // Section 2
       const s2 = $('#section2');
