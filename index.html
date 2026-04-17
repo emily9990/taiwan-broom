@@ -642,9 +642,52 @@
       letter-spacing: 0.08em;
       margin: 24px 0 14px;
     }
+
+    /* ─── Language Switcher ─── */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 28px;
+      z-index: 3000;
+      display: flex;
+      gap: 2px;
+      background: rgba(244,242,237,0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid var(--light-gray);
+      border-radius: 2px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--mid-gray);
+      padding: 5px 10px;
+      border-radius: 1px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .lang-btn:hover { color: var(--black); }
+
+    .lang-btn.active {
+      background: var(--black);
+      color: var(--off-white);
+    }
   </style>
 </head>
 <body>
+
+  <!-- ─── Language Switcher ─── -->
+  <div class="lang-switcher" role="navigation" aria-label="Language">
+    <button class="lang-btn active" onclick="setLang('zh')" lang="zh-TW">繁中</button>
+    <button class="lang-btn" onclick="setLang('en')" lang="en">EN</button>
+    <button class="lang-btn" onclick="setLang('ja')" lang="ja">日本語</button>
+  </div>
 
   <!-- ─── SECTION 1: Hero Banner ─── -->
   <section id="section1">
@@ -1476,6 +1519,257 @@
         document.body.style.overflow = '';
       }
     });
+
+    // ── i18n ──────────────────────────────────────────────────────────────────
+    const T = {
+      zh: {
+        heroCaption: 'Taiwan Broom — Tokyo Exhibition',
+        s2Title: '臺灣掃帚所述說的故事',
+        s2P1: '這個臺灣掃帚的蒐集計畫，源自於我們長期在臺灣各地作田野，突然發現許多鄉鎮不使用都市中便宜耐用的塑膠掃帚，而是會就地取材用當地盛產植物，做出「不那麼耐用」的「自然掃帚」：有的曾經是當地產業；更多是自用或送人的簡單日用品。',
+        s2P2: '無論是否有商業價值，這些掃帚都能說出很多當地故事，我們這些外地人，可以騎著這些掃帚飛進當地的脈絡，一窺當地的植物、人文、歷史各種面向。因為這樣，所以我們展開了全臺掃帚蒐集，並藉著這些掃帚展開當地故事，成為進入各個鄉村的藉口。',
+        s2P3: '這個在2017年提出的構想，沉澱多年之後被日本知名的採購人山田遊先生提出邀請去他在東京所經營的畫廊——<a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>展出。很感謝因為這個邀約，我們重訪了所有掃帚師傅。許多師傅其實都已經不再製作，但因為這次非常特別的邀請而重新拿出工具、重新步入山林採集植物、再次為展覽製作掃帚。讓這些原本只存在於臺灣鄉間、生命短暫、簡單但美麗的日用品重新被人看見。',
+        distLabel: '地理分佈 &mdash; Distribution',
+        distTitle: '臺灣傳統手工掃帚分佈',
+        distDesc: '清掃是家家戶戶的日常工事，臺灣各地都曾有以天然植物製成的傳統清潔用品，因地緣、歷史與植物分布，使得全臺各地製作出各式各樣不同植物的掃帚，這些天然清潔用具雖然只是生活的「枝微末節」，但它們的「技藝」與「記憶」都值得被認真看待。',
+        lbArtisan: '手作師傅', lbOrigin: '產地', lbMaterial: '材料', lbTool: '工具',
+        btnDetail: '詳細介紹 &#8599;',
+        cardSubtitle: '製作方式',
+        b1Title: '槺榔掃帚', b2Title: '稻草掃帚', b3Title: '高粱掃帚', b4Title: '地膚草掃帚',
+        b5Title: '貴黍掃帚', b6Title: '山棕掃帚', b7Title: '山棕嫩葉掃帚',
+        b8Title: '蘆竹掃帚',  b9Title: '芒草掃帚',
+        b1Desc: '槺榔是臺灣特有種，據稱可以追溯自冰河時期，臺灣各地都有同音或類似發音的地名，都是因為槺榔這種植物的生長地。這種植物做出來的掃帚，都被視為有法力，可以清除不好的東西。臺灣各地廟內的清潔、神明出巡、神明護體都會用槺榔掃帚。',
+        b2Desc: '臺灣農村文化象徵，全臺各地只要有生產稻米，都會在農閒時用無用的稻桿製作成掃帚。稻草掃帚主要用在曬稻穀的「埕」，不是為了清除乾淨、一塵不染，而是為了將石頭、雜草、稻殼與有價值的稻穀區分開——說是為了清潔，不如說是用於分類。',
+        b3Desc: '高粱掃帚是臺灣金門與東部的特產，只要有高粱產地總會見到，顯示「就地取材」製作生活用品的核心生活法則。有趣的是，東部臺灣原住民愛用色彩鮮艷的紙箱束帶組成掃帚，金門來自中國大陸的移民喜歡採用更常見的塑膠繩，展現兩個族群不同的美學觀。',
+        b4Desc: '一度為彰化西勢一地從日本時代就存在的主要產業，跟其他大部分只限當地使用的掃帚不同。從書籍出版到來日本展覽不到五年時間，這個村落世代相傳的產業幾乎已經消失，完全被更便宜的人工或工業塑膠掃帚所取代。',
+        b5Desc: '也是來自日本的掃帚，不只技術甚至連植物都是，據稱是一位來自茨城的商人帶著技術與種子，要將整個掃帚生產基地帶來臺灣，因此訓練了一批專業師傅。這種掃帚技術偏向細緻編織，主要用於榻榻米空間，是一個全然的代工代表。',
+        b6Desc: '山棕廣泛分布於臺灣全島平地至低海拔山區，跟臺灣原住民以及鄉村文化都密切相關。幾乎各民族都會充分利用山棕莖幹上所包覆的黑褐色纖維（棕毛），是臺灣文化中雨具的主要材料；有些地方則直接用巨大的葉柄製成掃帚，用來清潔大而廣的公共空間。',
+        b7Desc: '山棕嫩葉掃帚屬於山棕掃帚的子類，師傅不取全植物、成熟植物製作，而是只取剛拔出的嫩葉，是田野調查中無意發現的獨特精緻路線。雖然用同樣植物，嫩葉較難取得，但成果使用更順手，也需要較細緻的手工。目前只發現一位具備各種原住民文化技藝、語言的老師傅在製作。',
+        b8Desc: '蘆竹也是臺灣常見植物，全臺各地都有。蘆竹掃帚則是以前東勢庄（現在的桃園平鎮）的主要產業，甚至因此曾被稱為「掃把庄」。雖然這個產業已經沒落，師傅仍堅持讓掃帚送到日本時色澤、型態都要維持「好看」——這才讓我們知道師傅並不是將掃帚當作用過即丟的工具，而是一個本身具有美感的物件。',
+        b9Desc: '到了冬天，臺灣山邊海邊，甚至河川邊都會出現芒草以及衍生出來的芒花觀賞活動，芒草掃帚也是這些芒草產地的重要產物。從漢人、客家人到原住民，這地方的住民都受自然啟發，忍不住動手讓芒草變成家中用品。',
+        g1: '01 &mdash; 槺榔掃帚', g2: '02 &mdash; 稻草掃帚', g3: '03 &mdash; 高粱掃帚',
+        g4: '04 &mdash; 地膚草掃帚', g5: '05 &mdash; 貴黍掃帚', g6: '06 &mdash; 山棕掃帚',
+        g7: '07 &mdash; 山棕嫩葉掃帚', g8: '08 &mdash; 蘆竹掃帚', g9: '09 &mdash; 芒草掃帚',
+        // Modal card bodies (full innerHTML of .card-body)
+        cbKanlang: `<p>槺榔是一種台灣原生的棕櫚科植物，本名為「臺灣海棗」。全臺多處留有以槺榔為名的地方，在日本時期的《臺灣樹木誌》中亦曾記載，槺榔是「臺灣全島低地皆屬常見」的植物，可窺見槺榔深入常民生活的痕跡。</p><p>槺榔的用途廣泛，幾乎全身上下都能充分利用，不僅可做景觀樹，木材可製作各類器皿，嫩芽及果實亦可加工食用，葉片曬乾後再經匠人巧手則成為一支支具有清潔及避邪意涵的掃帚。</p><p>槺榔掃帚又稱「天地掃」，顧名思義，天掃掃天，地掃掃地，天地掃需成對出現且不可混用。在臺灣習俗中，農曆十二月二十四日為送神日，也是「清屯日」——一年一度打掃神龕及祖先牌位的日子——天地掃即在此時發揮最大效用。</p><p>早在清朝時期，臺灣人就以槺榔葉製帚，《重修臺灣府志》（一七四七年）中有記載：「槺榔：幹直無枝，其顛生葉不過數十，結子作穗生木端，其葉臺人以為帚。」直到一九六〇年代，臺灣各地仍有不少村莊以綁槺榔掃帚為業。</p><h3 class="card-subtitle">製作方式</h3><p>嘉義縣朴子市的手作師傅涂梅花所製作的槺榔掃帚有三層結構，掃毛由槺榔葉主要擔當，以竹子做為骨架，再以乾稻草包覆製成掃柄。槺榔樹莖幹高大，有些能長到七、八公尺高，加上葉片有刺，採割並不容易。槺榔葉採割下來後必須曝曬多日風乾後，才能進行掃帚的製作。</p><p>製作槺榔掃帚的工具相當簡要：一捲鐵絲線、一把老虎鉗、一支鐵釘製成的鐵梳，再加上經歲月磨蝕的鍛造柴刀。散落一地的槺榔葉在涂梅花的揀選、收緊、綑綁、修剪之下，逐漸有了掃毛的樣子；接著，再將一根筆直的竹竿固定在掃毛上，以稻草包覆，一節一節地以鐵絲線圈綁固定，做成掃帚柄。最後，用柴刀將掃毛修剪整齊，再以鐵梳梳理，一把純手工打造的槺榔掃帚才算大功告成。</p>`,
+        cbRicestraw: `<p>稻米，是養活臺灣千萬人口的主要作物，也是出口外銷的重要農產品，曾讓臺灣獲得「稻米王國」的美稱。稻米餵飽了臺灣人，稻草則搖身一變成為農業社會裡，家家戶戶再利用的重要材料。</p><p>收割後的農田常見一束一束呈錐形站立的稻草束，這是農民「掌草」後的景觀，再經過大約二到五天的曝曬，等稻草曬乾後，堆成草垺做為儲備，形成另一幅農村風景。這些稻草的用途廣泛，不僅可以當作燃料、鋪設屋頂，或化身成守護農田的稻草人；也可以用來編織成草繩、草蓆、草鞋等生活用品，亦能綁成掃帚，成為居家必備的清掃工具。</p><h3 class="card-subtitle">製作方式</h3><p>宜蘭縣冬山鄉珍珠社區的手作師傅林秋女、藍豐穆，製作掃帚先以鐵絲或麻繩將稻草綑成數束，每束約十餘支。稻草掃帚是一體成型的，脫掉稻粒後的稻草前端為掃毛，沿著稻稈取一節一節綁成綑紮成掃柄。為了避免掃柄過粗，需修剪掉約二分之一的稻稈，調整成適合手握的寬度，再將五束稻草綑成一把，並將掃毛整理成扇狀，即成掃帚雛形。</p><p>接著，將麻繩一端固定在柱子上，一端則固定在方才綑好的稻草束上，雙手用力拉緊，再藉著柱子穩定的拉力，以掃毛上端為起點，將麻繩一圈一圈地綑上掃柄。綑的圈數越多，掃柄則越長，可根據使用者身高或需求彈性調整。最後再將掃柄頂端、掃毛末端分別修剪整齊，掃帚就大功告成。</p>`,
+        cbSorghum: `<p>高粱，禾本科的經濟作物，原產於非洲，耐乾旱、耐炎熱，是世界主要穀類作物之一。在臺灣每每提到高粱，就會想到金門高粱酒，事實上，高粱不只可以釀酒，也可提供食用、藥用及製作掃帚。</p><p>釀酒與製帚的高粱不盡相同，由於高粱的品種多元，近年來為了大面積耕作及收割，農民喜好種植低矮植株，不僅耐風，結穗量高且飽滿，適合用來釀酒。相較之下，傳統品種——植株高且結穗量少，則多用於製作掃帚，種植的人不多。</p><h3 class="card-subtitle">製作方式（以金門手作師傅經驗為例）</h3><p>金門的手作師傅莊扶製作掃帚的材料是脫粒、曬乾、剝殼後的北掃紅高粱，掃毛及掃柄是用粉紅色的尼龍繩綑綁而成，呈現樸實的手感。掃毛由三束高粱、三次綑綁而成，呈現略微傾斜的扇形，以符合掃除使用時，手臂、掃帚與地面的角度；掃柄則是一體成型，可根據需求調整長短。</p><p>匠人所使用的工具十分特別，一條棉繩一端綁在較粗的木樁上，一端則是一根十幾公分長的木棍。雙腳抵在木樁上，一邊將木棍當成把手，用以拉緊棉繩，將高粱束束得緊實堅固，再用尼龍繩固定。最後將掃柄頂端修剪整齊，就完成一支純手工的高粱掃帚了。</p>`,
+        cbKochia: `<p>地膚，一年生的草本植物，常生長於田邊、路旁或荒地，是一種生命力強韌的植物。有些人會食用它的莖枝，但更多時候是將它曬乾、綁成掃帚，提供日常清掃使用，因此，地膚草又被稱作掃帚苗、掃帚草。</p><p>在彰化福興鄉西勢村，因為靠海且氣候乾燥、土壤鹽化，無法種植一般糧食作物，農民為了謀求生路，將海邊、旱地長出的地膚草曬乾、紮綁成掃把到各地兜售，逐漸形成產業，支撐經濟命脈，進而獲得「掃帚之鄉」之美名。</p><h3 class="card-subtitle">製作方式</h3><p>地膚草收成後，須先將地膚草直接紮成束，立在田裡曬乾，大概需要四到七天，且須時常翻面，讓草束均勻曝曬。曬乾後的地膚草並不是直接用來綁掃帚，得先「取籽」留待第二次種植。過去是將地膚草甩打在長板凳上，而今改以貨車碾壓，使其種籽脫落。接著，師傅們會費心處理乾草，汰除雜枝蔓生的、長短不一的部分，才算完成第一階段的材料整理。</p><p>手作師傅黃張環綁地膚草掃帚時是席地而坐的，並將一端繫有短木棍的白色棉繩固定在柱子或穩定的椅腳上，過程中得借助柱子的拉力來綑緊草束。就定位後，師傅先用棉繩將第一束地膚草束緊，再用紅色尼龍繩綁好，反覆同樣的工序四次，綁繩不重疊。接著再將草稈分三到五段綑緊，做成掃柄，過程中會視情況再添加草稈，加強掃柄的強度。</p><p>接著，用剪刀修剪掉旁生的雜枝及掃毛，再以鍘刀將掃柄頂端、掃毛末段修齊，最後用手把掃毛梳理平整，一把地膚帚就完成了。</p>`,
+        cbGuishu: `<p>貴黍，又稱為「掃把草」，外觀貌似高粱與玉米，每年春天播種，兩個月就能採收，果實成熟時大小與稻米差不多，呈現紫黑色，曬乾可做為飼料，莖稈日曬乾燥可綁成掃帚。貴黍掃帚是日本榻榻米空間文化衍生的重要元素，承載日本傳統祭儀、婚喪喜慶的文化象徵意義。隨著日本本土栽種成本提高，日本人遂將貴黍引進台灣，一度成為嘉南平原大量栽種的經濟作物。</p><p>據嘉義六腳地區的楊福藏表示，大約在一九七〇年代，日本人將貴黍種子引進台灣，看中的是台灣合適的氣候與地理環境。因為獲利高，六腳農民紛紛改種。「最盛時期，全庄都在，隔壁庄也種，大概有幾百公頃。」楊福藏是當時的收購商，專門收購農民採收、曬乾後的貴黍，再將它轉運出口到日本。</p><h3 class="card-subtitle">製作方式</h3><p>手作師傅呂春梅製作貴黍掃帚是使用脫穀後曬乾的貴黍，綁一支的時間大概一個小時，工序十分繁複。製帚時，師傅需坐在一張低矮的小板凳上，右腳抵住另一張倒置的長板凳，長板凳的椅腳上繞了一捲黑色尼龍繩，透過長板凳與匠人的來回拉扯將掃毛束緊。</p><p>成品掃帚的掃毛上端呈現不對稱設計，一邊有配色鮮明的平紋花樣，一邊則根據掃帚尺寸，為二至三個球型。如此精緻的造型來自於掃帚師傅的巧手，精巧地將三種材料——乾貴黍、經過裁剪的貴黍稈，以及過水的濕貴黍——編織在一起。</p><p>在製作平紋花樣的掃毛束時，師傅以乾貴黍為經，尼龍繩為緯，一邊計算黍稈的單、雙數，「跳目」進行編織。製作球型掃毛束時，則以裁剪過的貴黍稈包覆乾貴黍，再以尼龍繩束緊，製造出玲瓏有致的腰身。掃毛固定完成後，接著修剪掉上端多餘的貴黍稈，將外圈往下折，再以「香蕉刀」俐落地削除內圈貴黍稈，將斷口修成圓弧狀，聚攏後束緊成為掃柄。最後以紅色尼龍繩在掃毛上編出一圈具有裝飾及固定功能的編結，貴黍掃帚就此大功告成。</p>`,
+        cbShanzong: `<p>山棕是一種叢生的棕櫚科灌木植物，生長在潮濕溫暖的山麓或溪谷，因為常見且容易取材，與早期台灣的常民生活息息相關。山棕的嫩芽可入菜，葉柄可製糖；樹葉呈羽狀，成葉葉片多且葉面大，曬乾後可用來製作刷子或掃帚。</p><p>山棕掃帚是戶外掃除時常用的工具，以山棕葉製作的掃帚可分兩種：曬乾的成葉以及未出鞘的嫩葉。以成葉製作的山棕掃帚，長度約莫兩公尺，掃面也寬大，適合用在戶外清掃；以嫩葉製作的山棕掃帚，則顯得短小精幹，適合用在居家掃除。山棕掃帚需倒立收存，並保持乾燥通風，妥善保存的話，一把可用上三至五年。</p>`,
+        cbTendershanzong: `<p>山棕嫩葉有外鞘包覆，製帚前需費心處理，因此工序更顯繁瑣；且嫩葉數量相對稀少，材料取得不若成葉容易，嫩葉掃帚因而難以大量生產。</p><p>山棕嫩葉為一桿狀物，從外觀上難以「驗明正身」，需經過甩打使葉片出鞘，才能取得製帚的主要材料。取下葉片後再沿著脈絡撕開，並汰除太細、太小的嫩葉，再經數日曝曬後，葉片由嫩綠色轉為咖啡色，原料的準備才到一段落。</p><h3 class="card-subtitle">製作方式</h3><p>南投縣信義鄉的手作師傅布農族 Sa Vungaz（伍阿現），製作山棕嫩葉掃帚前準備的程序繁複，工具卻相當簡單。</p><p>「用山棕嫩葉綁製掃帚，只需一捲細繩和一把剪刀就夠了，用不到鐵絲，也不必動用老虎鉗。」Sa Vungaz 一邊說一邊將曬乾後的嫩葉暫時紮綁成束固定，再將成束的葉片一綹一綹分開，取一段較長的尼龍繩，做成環圈將葉片一一圈套收束，透過繩結將一綹一綹的葉片拉緊，最後形成一個完整扇面。</p><p>接著拆除頂端暫時固定的綁繩，再取另一段較長的尼龍繩重新紮綁，繩索環繞數十圈後，固定好就成為了掃帚柄；最後再以剪刀將尾端修剪整齊，即完成一把短柄且一體成型的山棕嫩葉掃帚。</p>`,
+        cbArundo: `<p>蘆竹，台灣特有種，葉子長得像竹葉，喜好生長在岩壁、斜坡或石縫間，莖稈可長到一到二公尺高，海拔一千八百公尺以下地區都可見它的蹤影。蘆竹的纖維強韌，可用於造紙、編織、搭蓋屋頂等，或可綁製成掃帚，取材容易、用途廣泛。</p><p>相傳，東勢的掃帚傳奇是無心插柳，一位專事樟腦提煉、名叫張火石的人，順手將山上四處叢生的蘆竹綁成掃把，用來打掃工寮，沒想到蘆竹帚實惠耐用，因而在鄉里間流傳開來，紮綁掃帚遂成東勢一帶農閒時期的主要副業，後來發展出一波繁景，東勢成了「掃把庄」，蘆竹也因此被冠上「掃把草」之名。</p><h3 class="card-subtitle">製作方式</h3><p>不同於其他地方用竹篾或鐵絲做為綁繩，東勢的蘆竹掃帚師傅曾義深是以月桃製成綁繩。月桃是農村常見的植物，紮綁掃帚所使用的部位是「葉鞘纖維」——先除去月桃葉子，再用木槌敲打葉鞘，將鞘皮纖維撕開之後曬乾，就成了用來綁掃帚的繩子了。</p><p>除了蘆竹及月桃，還要砍竹子、削製「竹籤」，每支掃帚需要二支不同長短的竹籤，寬約二公分，一端尖一端平，長的約三十五公分，用來加強掃柄強度；短的約十公分，插進綁紮處，用來增加掃帚撐持硬度。</p><p>蘆竹及月桃都需經過三日的曝曬才能進行掃帚綁製，蘆竹曬乾後先摘除老葉，葉桿做為掃柄，尾端嫩葉則成掃毛。師傅先取長度相當的蘆竹，以月桃捻繩綁成束，一共五束。接著，用柴刀刀背將兩把蘆竹束敲緊，以月桃繩綁緊，再加入一把，重複工序，直到五把蘆竹束被固定在一起，即完成掃毛。</p><p>然後將葉桿平均間隔，以月桃繩綑綁五段，做成掃柄。再以柴刀削齊柄端，將掃毛修剪成圓弧扇形。最後將長竹籤敲入掃柄，短竹籤敲進掃毛紮綁處，成為支撐的骨架，一把蘆竹掃帚就此大功告成。</p>`,
+        cbMiscanthus: `<p>芒草，好長於乾燥的坡地，常見的品種有兩種，大約在十一月前後開花，開花結果後會呈現一片白茫茫的「白背芒」，與端午節前後開花的「五節芒」。在早期農業時代，芒草可用來圍籬笆、做建材、編織、入藥、綁掃把等，渾身都是寶。</p><p>然而，市面上卻少見芒草掃帚，過去趁農閒手工紮綁的掃帚多做為家用，或分送親朋好友，鮮少進入市場；工業化時代來臨，塑膠製品氾濫，費時費工的芒草掃帚也就更加珍貴、難尋了。</p><h3 class="card-subtitle">製作方式</h3><p>剛採割的芒草，花穗呈現白色、莖稈則是綠色，曬乾後則整株轉為黃褐色。嘉義縣樟樹湖的手作師傅簡黃秀切強調，芒草一定要曬到乾透才能綁。</p><p>紮綁時需挑選長短相當的芒草，先綁成四束，再分別將芒草束兩兩一組，綁成兩大束，過程中可用槌子將芒草束敲緊，最後再將兩大束收攏綁緊，完成掃毛部分。</p><p>接著再用葉鞘綁繩，將芒草稈綁成掃柄，視長短而定，分成四到五節綑綁，掃柄寬度以手掌可以圈握為準，可視情況修剪掉中央的芒草稈，以免掃柄太粗、不易握持。最後用刀子將柄端削齊，掃毛整理平順後，芒草掃帚就完成了。</p>`,
+        footerLabel: '臺灣掃帚 &mdash; Taiwan Broom',
+        footerThanks: '特別感謝',
+        footerNamesIntro: '臺灣在地師傅（依臺灣地理從北到南，從西到東，開頭字筆畫排序）',
+        footerTeam: '企劃團隊',
+        footerTeamBody: '支流有限公司<br>採訪　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>攝影　劉鎮豪、曾雅鈺<br>特約撰文　林雅雯<br>美術設計　黃瑪琍<br>總編輯　周易正<br>展覽企劃籌備　鄭湘榆',
+        footerGrant: '2018年文化部推動國家文化記憶庫計畫補助專案',
+        footerExhibition: '東京展覽 &mdash; Tokyo Exhibition',
+      },
+
+      en: {
+        heroCaption: 'Taiwan Broom — Tokyo Exhibition',
+        s2Title: 'Stories Told by Taiwan\'s Brooms',
+        s2P1: 'This broom collection project began during our long-term fieldwork across Taiwan, when we discovered that many towns and villages prefer not to use cheap, durable plastic brooms common in cities. Instead, people source local plants to craft "natural brooms" — some once formed local industries; more often they were simple household items made for personal use or given as gifts.',
+        s2P2: 'Regardless of commercial value, each broom tells rich local stories. As outsiders, we could "ride" these brooms into the fabric of each community — glimpsing its plants, people, culture, and history. This led us to embark on a broom-collecting journey across Taiwan, using brooms as an excuse to enter and explore each village.',
+        s2P3: 'This idea, first proposed in 2017, eventually led to an invitation from renowned Japanese buyer Yu Yamada to exhibit at his Tokyo gallery — <a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>. Thanks to this invitation, we revisited all the broom artisans. Many had already stopped making brooms, but this very special occasion prompted them to pick up their tools again, return to the forests to harvest plants, and once again create brooms for the exhibition — giving these short-lived, simple yet beautiful everyday objects from Taiwan\'s countryside a chance to be seen anew.',
+        distLabel: 'Geographic Distribution',
+        distTitle: 'Distribution of Traditional Handmade Brooms in Taiwan',
+        distDesc: 'Sweeping is a daily task in every household. Across Taiwan, traditional cleaning tools made from natural plants were once found in every region. Due to geography, history, and local plant life, a remarkable variety of brooms emerged from different areas. These humble everyday tools carry with them craft traditions and memories that deserve to be taken seriously.',
+        lbArtisan: 'Artisan', lbOrigin: 'Origin', lbMaterial: 'Materials', lbTool: 'Tools',
+        btnDetail: 'Learn More &#8599;',
+        cardSubtitle: 'How It\'s Made',
+        b1Title: 'Date Palm Broom', b2Title: 'Rice Straw Broom', b3Title: 'Sorghum Broom',
+        b4Title: 'Kochia Broom', b5Title: 'Millet Broom', b6Title: 'Arenga engleri Broom',
+        b7Title: 'Arenga engleri Tender Leaf Broom', b8Title: 'Arundo donax Broom',
+        b9Title: 'Miscanthus Broom',
+        b1Desc: 'The date palm (Phoenix hanceana, locally called Kanlang) is native to Taiwan, said to trace back to the Ice Age. Place names echoing its sound are found throughout the island, each marking a former habitat. Brooms made from its leaves are believed to hold spiritual power, used in temple cleaning, divine processions, and protective rituals across Taiwan.',
+        b2Desc: 'A symbol of Taiwan\'s farming culture: wherever rice is grown, artisans use leftover straw to craft brooms during agricultural downtime. Rice straw brooms are used primarily on threshing floors — not to clean them spotless, but to sort stones, weeds, husks, and precious grain. Less about cleaning, more about classification.',
+        b3Desc: 'Sorghum brooms are a specialty of Kinmen Island and eastern Taiwan, found wherever sorghum grows — reflecting the core principle of using what the land provides. Notably, indigenous peoples of eastern Taiwan favor colorful strapping tape, while Kinmen\'s mainland immigrants prefer plastic twine, reflecting the distinct aesthetics of two communities.',
+        b4Desc: 'Once a major industry of Xishi, Changhua County, dating back to the Japanese colonial era — unlike most brooms that remained purely local. In less than five years since the source book\'s publication and this Tokyo exhibition, the village\'s generations-old trade has nearly vanished, completely replaced by cheaper handmade or industrial plastic brooms.',
+        b5Desc: 'Both the technique and the plant itself were introduced from Japan. A merchant from Ibaraki is said to have brought seeds and know-how to Taiwan, training skilled artisans here. The craft involves delicate weaving rather than simple bundling, and is primarily used in tatami spaces — a quintessential example of contracted craft production.',
+        b6Desc: 'Arenga engleri is widely distributed from lowlands to low-altitude mountain areas across Taiwan, closely tied to indigenous and rural cultures. The dark brown trunk fibers (palm fiber) were used by almost every ethnic group — the primary material for traditional rainwear. In some areas, the large leaf stalks are fashioned directly into brooms for sweeping wide public spaces.',
+        b7Desc: 'The Arenga engleri tender leaf broom is a refined subcategory: the artisan uses only freshly pulled young leaves — a uniquely delicate approach discovered by chance during fieldwork. Though from the same plant, young leaves are harder to obtain but produce a more comfortable broom requiring finer craftsmanship. Only one elder artisan with extensive indigenous cultural knowledge still makes them.',
+        b8Desc: 'Arundo donax is common throughout Taiwan. Its broom was the main industry of old Dongshi village (now Pingzhen, Taoyuan), which earned the nickname "Broom Village." Though the industry has declined, the artisan still insists brooms sent to Japan must maintain a pleasing appearance — revealing that he views them not as disposable tools, but as objects with inherent aesthetic value.',
+        b9Desc: 'In winter, Miscanthus appears along Taiwan\'s hillsides, coastlines, and riverbanks, giving rise to the beloved "silver grass viewing" season. Miscanthus brooms are an important product of these regions. From Hoklo and Hakka to indigenous peoples, all residents of these areas have been inspired by nature to transform Miscanthus into household items.',
+        g1: '01 &mdash; Date Palm', g2: '02 &mdash; Rice Straw', g3: '03 &mdash; Sorghum',
+        g4: '04 &mdash; Kochia', g5: '05 &mdash; Millet', g6: '06 &mdash; Arenga engleri',
+        g7: '07 &mdash; Arenga engleri Tender Leaf', g8: '08 &mdash; Arundo donax',
+        g9: '09 &mdash; Miscanthus',
+        cbKanlang: `<p>The date palm (Phoenix hanceana) is a native Taiwanese palm. Place names echoing "Kanlang" are found throughout Taiwan, marking former habitats. The Japanese-era <em>Record of Taiwan's Trees</em> described it as "commonly found in lowlands across the entire island," reflecting how deeply it was woven into everyday life.</p><p>Almost every part of the date palm can be used: it serves as an ornamental tree, its wood crafted into utensils, its shoots and fruit processed for food, and its sun-dried leaves transformed by skilled artisans into brooms with both cleansing and protective symbolism.</p><p>Date palm brooms are also called "Heaven and Earth Sweepers": the heavenly broom sweeps above, the earthly sweeps below — they must always come in pairs and never be interchanged. In Taiwanese custom, the 24th day of the 12th lunar month — the day for seeing off the gods and the annual cleaning of shrines and ancestor tablets — is when these brooms are put to their greatest use.</p><p>As early as the Qing Dynasty, Taiwanese were making brooms from date palm leaves. The 1747 <em>Revised Gazetteer of Taiwan Prefecture</em> records: "Kanlang: its trunk grows straight without branches, crowned with dozens of leaves, bearing clustered fruit at the top — its leaves used by Taiwanese as brooms." Until the 1960s, many villages across Taiwan still made a living crafting date palm brooms.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisan Tu Meihua of Puzi City, Chiayi County creates brooms with three layers: date palm leaves form the sweep head, bamboo serves as the inner frame, and dry rice straw wraps around to form the handle. The palm trunk can reach seven or eight meters, and its spiny leaves make harvesting a challenge. After cutting, the leaves must be sun-dried for several days before broom-making begins.</p><p>The tools are minimal: a coil of wire, pliers, a nail-fashioned comb, and a well-worn forged chopper. Tu Meihua selects, tightens, bundles, and trims the scattered leaves into a sweep head; a straight bamboo rod is fixed to it, wrapped with straw and coil-by-coil bound with wire to form the handle. Finally, the sweep head is trimmed and combed smooth — the fully handcrafted date palm broom is complete.</p>`,
+        cbRicestraw: `<p>Rice is the primary crop that has fed Taiwan's population and once earned the island the title "Kingdom of Rice." After harvest, rice straw transforms into an important material reused in every agricultural household.</p><p>The cone-shaped straw bundles standing in harvested fields — the result of "stacking grass" — are a familiar rural landscape. After two to five days of drying, straw is stacked for storage. Its uses are wide: fuel, roofing, scarecrows, woven ropes, mats, sandals — and brooms, an indispensable household cleaning tool.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisans Lin Qiunü and Lan Fengmu of Zhenzhu Community, Dongshan Township, Yilan begin by bundling straw into groups of about ten stalks each, tied with wire or hemp rope. The broom is one continuous piece: the threshed straw ends become the sweep head, while sections of stalk are bundled into the handle. Half the stalks are trimmed away to achieve a handle thin enough to grip; five bundles are then bound together and the sweep head arranged into a fan shape.</p><p>One end of a hemp rope is fixed to a post, the other to the straw bundle; pulling the rope taut, the artisan winds it round and round up the handle — more wraps means a longer handle, adjustable to the user's height. Finally, the handle top and sweep end are trimmed neat, and the broom is complete.</p>`,
+        cbSorghum: `<p>Sorghum, an economic crop of the grass family originating in Africa, tolerates drought and heat — one of the world's major grain crops. In Taiwan, sorghum is synonymous with Kinmen's famed sorghum liquor, but it also yields food, medicine, and brooms.</p><p>The sorghum varieties for brewing and for broom-making differ. Modern farming favors compact, high-yield, wind-resistant varieties suited for distilling. The traditional tall variety — bearing fewer seeds — is used for brooms, though fewer farmers grow it now.</p><h3 class="card-subtitle">How It's Made (based on Kinmen artisan experience)</h3><p>Kinmen artisan Zhuang Fu uses threshed, sun-dried, husked "North-sweep Red Sorghum" for his brooms. The sweep head and handle are bound with pink nylon rope, giving a simple, tactile quality. Three bunches of sorghum, bound three times, form a slightly angled fan shape — matching the angle of arm, broom, and ground when sweeping. The handle is one piece, adjustable in length as needed.</p><p>The tools are distinctive: a cotton rope tied at one end to a wooden post, at the other to a short wooden rod. Feet braced against the post, the artisan uses the rod as a lever to pull the rope tight, securing the sorghum bundle firmly, then fixing it with nylon rope. The handle top is trimmed even — a pure handmade sorghum broom is complete.</p>`,
+        cbKochia: `<p>Kochia (Bassia scoparia) is an annual herb that grows vigorously along field edges, roadsides, and waste ground. Some people eat its stems, but more often it is dried and bound into brooms — hence its common names "broom seedling" and "broom grass."</p><p>In Xishi Village, Fuxing Township, Changhua, the coastal climate, dry weather, and saline soil made conventional crop farming impossible. Farmers dried and bundled Kochia from the shoreline and upland fields and sold brooms across the region — gradually building an industry that supported local livelihoods and earned the village the name "Hometown of Brooms."</p><h3 class="card-subtitle">How It's Made</h3><p>After harvest, Kochia bundles stand in the field to sun-dry for four to seven days, turned regularly for even exposure. Dried Kochia is first "de-seeded" — seeds saved for the next crop. Formerly done by beating against a bench, today a truck rolls over the bundles to shake seeds loose. Artisans then carefully sort the dried grass, removing stray branches and uneven-length pieces — completing the first stage of material preparation.</p><p>Artisan Huang Zhanghuan sits on the ground, tying one end of a white cotton rope (with a short stick) to a post or chair leg, borrowing the tension to cinch each bundle tight. She secures the first bundle with cotton rope, then nylon, repeating the process four times without overlapping. Three to five sections of stalk are then bundled to form the handle, with extra stalks added as needed for strength.</p><p>Finally, stray side branches and sweep fibers are trimmed with scissors; a chopper squares off the handle top and sweep end; the sweep fibers are smoothed by hand — and a Kochia broom is done.</p>`,
+        cbGuishu: `<p>Millet (locally called Guishu, or "broom grass") resembles sorghum and corn in appearance. Planted each spring and harvested within two months, its ripe seeds — about the size of rice grains, deep purple-black — can be dried for animal feed, while the dried stalks are bound into brooms. The millet broom is a key element of Japanese tatami culture, carrying symbolic meaning in traditional rites, weddings, and funerals. As domestic cultivation costs rose in Japan, the crop was introduced to Taiwan, becoming an important cash crop on the Chiayi-Tainan plain.</p><p>According to Yang Fuzang of Liujiao, Chiayi, Japanese introduced millet seeds to Taiwan in the 1970s, drawn by Taiwan's suitable climate and geography. With high profits, Liujiao farmers rapidly switched to millet. "At peak times, the whole village was growing it — neighboring villages too, probably hundreds of hectares." Yang Fuzang was then a buyer, purchasing dried millet from farmers and shipping it to Japan.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisan Lü Chunmei makes brooms using threshed, sun-dried millet. Each broom takes about an hour — an intricate process. The artisan sits on a low stool, right foot bracing an upturned bench from which a coil of black nylon rope hangs; by pulling against the bench, she cinches the sweep fibers tight.</p><p>The finished broom's sweep top is asymmetric: one side displays a vibrant twill pattern, the other features two or three spherical knobs depending on size — all achieved by skillfully weaving three materials: dry millet, trimmed millet stalks, and water-dampened millet.</p><p>For the twill section, dry millet serves as warp and nylon rope as weft, the artisan counting single and double stalks to create an over-under weave. For the spherical sections, trimmed stalks wrap around dry millet and are cinched with nylon rope to create a rounded waist. Once the sweep fibers are set, excess upper stalks are trimmed, the outer ring folded down, and the inner stalks removed with a "banana knife" to form a rounded cross-section — gathered and bound into the handle. Finally, a decorative red nylon knot is woven around the sweep for both ornament and reinforcement.</p>`,
+        cbShanzong: `<p>Arenga engleri is a clustering palm shrub that grows in moist, warm foothills and valleys. Common and easy to source, it was closely tied to early Taiwanese everyday life. Its young shoots can be cooked, its leaf stalks processed into sugar; its pinnate leaves, large and numerous, are dried and used to make brushes or brooms.</p><p>Arenga engleri brooms — a common outdoor cleaning tool — come in two types: dried mature leaves and unsheathed young leaves. Mature-leaf brooms measure about two meters long, with a broad sweep surface ideal for outdoor use; young-leaf brooms are shorter and more nimble, suited for household sweeping. To store, the broom is kept upside down in a dry, ventilated space; properly maintained, one broom can last three to five years.</p>`,
+        cbTendershanzong: `<p>Arenga engleri young leaves are encased in a sheath, requiring careful processing before broom-making — adding to an already elaborate workflow. Young leaves are relatively scarce compared to mature ones, making large-scale production impractical.</p><p>A young Arenga engleri leaf looks like a rod — its identity hard to discern by sight. It must be shaken and beaten to release the leaf from its sheath, yielding the primary broom material. Leaves are then split along their veins; overly thin or small ones are discarded; after several days of sun-drying, the pale green leaves turn brown — only then is the material ready.</p><h3 class="card-subtitle">How It's Made</h3><p>Bunun artisan Sa Vungaz (Wu Axian) of Xinyi Township, Nantou County goes through an elaborate preparation process, yet uses remarkably simple tools.</p><p>"To make a broom from young Arenga engleri leaves, all you need is a coil of thin rope and a pair of scissors — no wire, no pliers," Sa Vungaz says, as she temporarily bundles the dried leaves, then separates them strand by strand, using a long nylon loop to gather and draw each strand tight into a full fan shape.</p><p>The temporary binding at the top is then removed; a new, longer nylon rope is wrapped dozens of times to form the handle. A final trim with scissors evens the base — a short-handled, one-piece Arenga engleri tender leaf broom is complete.</p>`,
+        cbArundo: `<p>Arundo donax, a plant native to Taiwan, resembles bamboo in leaf but thrives on rocky slopes, cliffs, and crevices, growing one to two meters tall at elevations below 1,800 meters. With strong, durable fibers, it is used for papermaking, weaving, roofing, and brooms — easy to source and broadly useful.</p><p>Dongshi's broom legend, so the story goes, began by accident: a camphor distiller named Zhang Huoshi casually bundled some roadside Arundo donax to sweep his work shed — and found it impressively practical. Word spread through the village; broom-binding became the main off-season side trade of the Dongshi area. Eventually the area flourished as "Broom Village," and Arundo donax itself earned the nickname "broom grass."</p><h3 class="card-subtitle">How It's Made</h3><p>Unlike artisans elsewhere who use bamboo strips or wire, Dongshi artisan Zeng Yishen binds with alpinia (shell ginger) rope. Alpinia is common in farming villages; the leaf-sheath fibers used for binding are prepared by stripping leaves, beating the sheath with a wooden mallet to separate fibers, then sun-drying — yielding natural broom-binding rope.</p><p>Beyond Arundo donax and alpinia, bamboo skewers are needed: two per broom, about two centimeters wide, one end pointed and one flat — the longer (~35 cm) reinforces the handle; the shorter (~10 cm) is inserted into the binding point to stiffen the sweep.</p><p>Both Arundo donax and alpinia must be sun-dried for three days before binding begins. Dried Arundo donax has old leaves stripped; the stem becomes the handle, the tender tip becomes the sweep. The artisan takes equal-length stalks, twists alpinia rope to bind them into five bundles. Using the back of a wood chopper to knock them tight, bundles are bound two by two until all five are secured into the sweep head.</p><p>Leaf stalks are then spaced evenly and bound in five sections with alpinia rope to form the handle. The handle end is trimmed with the chopper; the sweep is shaped into a curved fan. Finally the long skewer is driven into the handle and the short one into the binding point — forming the supporting skeleton. The Arundo donax broom is complete.</p>`,
+        cbMiscanthus: `<p>Miscanthus thrives on dry hillsides. Two common species are found in Taiwan: "white-backed Miscanthus" (Miscanthus sinensis), which blooms around November and turns white with seed-heads, and "five-jointed Miscanthus" (M. floridulus), which blooms around the Dragon Boat Festival. In early agricultural society, Miscanthus was used to make fences, building materials, woven goods, medicine, and brooms — a plant of many uses.</p><p>Yet Miscanthus brooms are rarely seen on the market. In the past, hand-bound brooms were mostly made for home use or given to friends and family, seldom entering commercial channels. As industrialization brought an abundance of plastic products, the time-consuming handmade Miscanthus broom became all the more precious and rare.</p><h3 class="card-subtitle">How It's Made</h3><p>Freshly cut Miscanthus has white plumes and green stems; once sun-dried, the entire plant turns golden-brown. Artisan Jian Huangxiuqie of Zhangshuhu, Chiayi County emphasizes that Miscanthus must be dried completely before binding.</p><p>Stalks of even length are selected, bound first into four bundles, then paired into two larger bundles — knocked tight with a mallet along the way — and finally drawn together and bound to complete the sweep head.</p><p>Leaf sheaths are then used as binding rope to secure the stalks into a handle, tied in four to five sections depending on length. The handle width is set to fit a hand's grip; central stalks may be trimmed if the handle is too thick. A knife squares off the handle end; the sweep fibers are smoothed — and the Miscanthus broom is done.</p>`,
+        footerLabel: 'Taiwan Broom &mdash; 臺灣掃帚',
+        footerThanks: 'Special Thanks',
+        footerNamesIntro: 'Artisans across Taiwan (ordered by geography, N to S, W to E, then stroke count)',
+        footerTeam: 'Project Team',
+        footerTeamBody: 'Tributary Co., Ltd.<br>Field Research &nbsp;Wang Weizhi, Chen Lingfang, Chen Peiyu, Zhong Renxian<br>Photography &nbsp;Liu Zhenhao, Zeng Yayue<br>Writing &nbsp;Lin Yawen<br>Art Direction &nbsp;Huang Mali<br>Editor-in-Chief &nbsp;Zhou Yizheng<br>Exhibition Coordination &nbsp;Zheng Xiangyu',
+        footerGrant: '2018 Ministry of Culture — National Cultural Memory Bank Project Grant',
+        footerExhibition: 'Tokyo Exhibition',
+      },
+
+      ja: {
+        heroCaption: '台湾の箒 — 東京展覧会',
+        s2Title: '台湾の箒が語る物語',
+        s2P1: 'この台湾の箒収集プロジェクトは、台湾各地での長年のフィールドワークがきっかけで生まれました。都市部で普及する安価で丈夫なプラスチック製の箒を使わず、地元の植物を素材に「自然の箒」を作る町や村が各地に残っていることを発見したのです。かつて地域産業として栄えたものもあれば、自家用や贈り物としての日用品として続いているものもあります。',
+        s2P2: '商業的価値の有無にかかわらず、これらの箒はそれぞれの土地の物語を語ります。よそ者である私たちは、箒に乗るようにして地域の脈絡に入り込み、植物・人文・歴史のさまざまな側面を垣間見ることができました。こうして台湾全土で箒を収集し、箒を通じて地域の物語を広げ、各地の農村へ入り込む口実としていきました。',
+        s2P3: '2017年に提唱したこの構想は、長い歳月を経て、日本の著名なバイヤー山田遊氏から東京のギャラリー——<a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>での展示へのご招待という形で実を結びました。このご招待のおかげで、すべての職人を再訪することができました。多くの職人はすでに制作をやめていましたが、この特別な招待を受けて再び道具を手に取り、山へ分け入って植物を採取し、展覧会のために箒を作ってくれました。台湾の農村にひっそりと存在し、短命でありながら素朴で美しいこれらの日用品を、再び人々の目に触れさせることができました。',
+        distLabel: '地理的分布',
+        distTitle: '台湾の伝統手工箒の分布',
+        distDesc: '掃除は家庭の日常的な営みです。台湾各地では、かつて天然の植物から作られた伝統的な清掃用具が各地で使われていました。地理・歴史・植物の分布により、各地域ごとに多種多様な素材の箒が生まれました。これらの天然の清掃道具は生活の「些細な一コマ」かもしれませんが、その「技」と「記憶」は真剣に向き合う価値があります。',
+        lbArtisan: '職人', lbOrigin: '産地', lbMaterial: '材料', lbTool: '道具',
+        btnDetail: '詳細 &#8599;',
+        cardSubtitle: '制作方法',
+        b1Title: 'カンラン箒', b2Title: '稲わら箒', b3Title: 'モロコシ箒',
+        b4Title: 'ホウキグサ箒', b5Title: 'キビ箒', b6Title: 'クロツグ箒',
+        b7Title: 'クロツグ若葉箒', b8Title: 'ダンチク箒', b9Title: 'ススキ箒',
+        b1Desc: 'カンランは台湾固有種で、氷河期から存在するとも言われています。台湾各地に同音の地名が残り、かつてこの植物が生育していた場所を示しています。カンランの葉で作られた箒は霊力を持つと信じられ、廟の清掃や神輿の巡行、御守りにも用いられます。',
+        b2Desc: '稲作が行われる台湾農村の文化的象徴。農閑期には使い道のない稲わらを活かして箒が作られます。稲わら箒は主に稲の乾燥場で使われ、石・雑草・もみ殻と貴重な籾を選り分けるためのもの——清潔のためというより、分類のための道具です。',
+        b3Desc: 'モロコシ箒は金門島と台湾東部の名産品で、モロコシが育つ地域には必ずあり、地元の素材を活かす生活の知恵を体現しています。台湾東部の原住民は鮮やかな梱包テープを好み、金門の移民はプラスチック紐を使うなど、二つのコミュニティの異なる美意識が現れています。',
+        b4Desc: '日本統治時代から彰化・西勢地区の主要産業でしたが、書籍出版から東京展まで5年も経たないうちに、代々受け継がれてきたこの村の産業はほぼ消滅し、より安価な工業用プラスチック箒に完全に取って代わられました。',
+        b5Desc: '技術だけでなく植物そのものも日本から伝わった箒です。茨城出身の商人が技術と種子を携えて台湾に箒の生産拠点を作ろうとしたと伝えられています。ただ束ねるのではなく細かな編みの技術を要し、主に畳の空間で使われます——典型的な受託生産の代表例です。',
+        b6Desc: 'クロツグは台湾全島の平地から低山帯に広く分布し、原住民や農村文化と深く結びついています。ほぼすべての民族が幹を覆う黒褐色の繊維（棕毛）を活用し、伝統的な雨具の主要素材として用いてきました。地域によっては大きな葉柄を直接箒に仕立て、広い公共空間の清掃に使います。',
+        b7Desc: 'クロツグ若葉箒はクロツグ箒の一種。植物全体ではなく摘みたての若葉だけを使う独特で精緻なアプローチは、フィールドワーク中に偶然発見されました。入手が難しい若葉を使いながら、より使いやすい箒となり、繊細な手仕事を必要とします。現在、この箒を作る職人はただ一人のみです。',
+        b8Desc: 'ダンチクは台湾全土に広く自生する植物です。ダンチク箒はかつての東勢庄（現在の桃園市平鎮区）の主要産業で、「箒村」とまで呼ばれました。産業は衰退しましたが、職人は今も日本へ届ける箒が美しい色と形を保つことにこだわります——箒を使い捨てではなく、美しさを持つ物として見ているのです。',
+        b9Desc: '冬になると台湾の山沿い・海沿い・川沿いにススキが広がり、「ススキ観賞」の季節を生み出します。ススキ箒はこれらの産地の重要な産物です。漢人・客家人・原住民を問わず、その地の住民たちは自然に触発され、ススキを生活道具へと変えてきました。',
+        g1: '01 &mdash; カンラン', g2: '02 &mdash; 稲わら', g3: '03 &mdash; モロコシ',
+        g4: '04 &mdash; ホウキグサ', g5: '05 &mdash; キビ', g6: '06 &mdash; クロツグ',
+        g7: '07 &mdash; クロツグ若葉', g8: '08 &mdash; ダンチク', g9: '09 &mdash; ススキ',
+        cbKanlang: `<p>カンラン（台湾海棗、学名 Phoenix hanceana）は台湾固有のヤシ科植物です。台湾各地に同音の地名が残り、かつてこの植物が生育していた場所を示しています。日本統治時代の『台湾樹木誌』にも「台湾全島の低地に普遍的に見られる」と記されており、人々の暮らしに深く根ざしていたことがうかがえます。</p><p>カンランはほぼ全ての部位を活用できます。景観樹としての役割に加え、木材は各種器具に、新芽と果実は食用に加工でき、乾燥させた葉は職人の手によって清掃と魔除けの意味を持つ箒へと変えられます。</p><p>カンラン箒は「天地掃（ティエンディサオ）」とも呼ばれ、天用は上を、地用は下を掃く——必ず二本一組で、用途を混ぜてはなりません。台湾の風習では、旧暦12月24日は「送神日」であり、年に一度神棚と先祖位牌を清める日——このときカンラン箒が最も活躍します。</p><p>清朝時代からカンランの葉で箒が作られてきました。1747年の『重修台湾府志』には「カンラン：幹は真っ直ぐで枝なく、頂に数十枚の葉があり、穂状の実が生り、台湾人はその葉を箒として用いる」と記されています。1960年代まで、台湾各地の多くの村でカンラン箒作りが生業となっていました。</p><h3 class="card-subtitle">制作方法</h3><p>嘉義県朴子市の職人・涂梅花（トウ・メイファ）が作るカンラン箒は三層構造です。箒穂の主役はカンランの葉、竹が骨格となり、乾稲わらで包んで柄を作ります。カンランの幹は高く7〜8メートルに達するものもあり、葉には棘があるため収穫は容易ではありません。切り取った後は数日間天日干しにしてから制作が始まります。</p><p>道具はシンプルです——鉄線一巻き、ペンチ、釘で作った鉄製の梳き具、そして年季の入った鍛造の薪割り包丁。涂梅花は葉を選別し、締め、束ね、整えて箒穂を形作ります。真っ直ぐな竹竿を穂に固定し、稲わらで包みながら一節ずつ鉄線で巻き固め、柄を作ります。最後に穂先を切り揃え、梳き具で整えれば、完全手作りのカンラン箒の完成です。</p>`,
+        cbRicestraw: `<p>稲は台湾の主要作物であり、かつて「稲米王国」と称されるほど重要な農産品でした。稲が人々を養い、稲わらは農業社会における再利用の重要な素材となりました。</p><p>収穫後の田に円錐形に立てられた稲わら束——「掌草」と呼ばれるこの風景は、台湾農村の原風景のひとつです。2〜5日の天日干しの後、稲わらは積み上げて保管されます。燃料・屋根材・かかし・縄・蓆・草鞋、そして箒など、用途は多岐にわたります。</p><h3 class="card-subtitle">制作方法</h3><p>宜蘭県冬山郷珍珠コミュニティの職人・林秋女（リン・チウニュ）と藍豐穆（ラン・フォンム）は、まず鉄線または麻縄で稲わらを束ねます（1束約10本余り）。箒は一体成形で、脱穀後の稲わらの先端が箒穂となり、稈を節ごとに束ねて柄を形成します。柄が太くなりすぎないよう約半分の稈を取り除き、握りやすい太さに調整。5束を一まとめにして穂を扇形に整えます。</p><p>麻縄の一端を柱に、もう一端を稲わら束に固定し、柱の張力を利用しながら穂の上端から柄へと縄を巻き上げていきます。巻く回数が多いほど柄が長くなり、使用者の身長に合わせて調整できます。最後に柄の先端と穂の末端をそれぞれ切り揃えれば完成です。</p>`,
+        cbSorghum: `<p>モロコシはアフリカ原産のイネ科の経済作物で、乾燥・高温に強く、世界の主要穀物のひとつです。台湾では金門の高粱酒が有名ですが、食用・薬用・箒の素材としても利用されます。</p><p>醸造用と箒用のモロコシは品種が異なります。現代農業では低背・高収量・耐風性の品種が好まれ、醸造に向いています。一方、丈が高く穂の少ない伝統品種が箒に使われますが、栽培農家は少なくなっています。</p><h3 class="card-subtitle">制作方法（金門の職人の経験を例に）</h3><p>金門の職人・莊扶（ジョアン・フー）は脱粒・天日干し・脱穀した「北掃紅高粱」を使います。箒穂と柄はピンク色のナイロン縄で束ねられ、素朴な手触りが生まれます。3束のモロコシを3回束ねて、やや斜めの扇形を作ります——腕・箒・地面の角度を考慮した形です。柄は一体成形で、必要に応じて長さを調節できます。</p><p>道具はユニークです——一端を木杭に、もう一端を短い木棒に結んだ綿縄。両足で木杭を押さえ、木棒をレバーとして縄を引っ張り、モロコシ束を堅くしっかりと締め、ナイロン縄で固定します。柄の先端を切り揃えれば、純手作りのモロコシ箒の完成です。</p>`,
+        cbKochia: `<p>ホウキグサ（地膚、学名 Bassia scoparia）は一年草で、田の畔・路傍・荒地に旺盛に育ちます。茎を食べることもありますが、多くの場合は乾燥させて箒に仕立てます。そのため「ほうき苗」「ほうき草」とも呼ばれます。</p><p>彰化県福興郷西勢村は海沿いで気候が乾燥し、土壌が塩分を含むため通常の作物栽培が困難でした。農民たちは海辺や旱地に生えるホウキグサを乾燥・束ね・各地で行商し、産業を形成。地域経済を支え「箒の里」の美名を得ました。</p><h3 class="card-subtitle">制作方法</h3><p>収穫後のホウキグサは束のまま田に立てて4〜7日間天日干しし、均一に乾燥するよう定期的に裏返します。乾燥後はすぐに箒にするのではなく、まず「採種」して次の栽培用に保存します。かつては長椅子に叩きつけて種を落としていましたが、現在はトラックで踏みつけて脱落させます。その後、職人は丁寧に乾草を選別し、不要な枝や長さの揃わないものを取り除きます。</p><p>職人・黃張環（ファン・ジャンファン）は床に座り、短い木棒をつけた白い綿縄の一端を柱や椅子の脚に固定し、その張力を利用して草束を締めていきます。まず棉縄で第一束を固定し、次に赤いナイロン縄で縛る——この工程を4回繰り返し、縄が重ならないようにします。続いて稈を3〜5段に束ねて柄を作り、必要に応じて稈を追加して強度を高めます。</p><p>最後にはみ出した枝や穂先をはさみで切り揃え、裁断機で柄の先端と穂の末端を整え、手で穂をなめらかに梳いて完成です。</p>`,
+        cbGuishu: `<p>キビ（貴黍、別名「箒草」）はモロコシやトウモロコシに似た外見を持ちます。春に播種し2ヶ月で収穫、熟した実は米粒ほどの大きさで深紫色——乾燥させると飼料になり、稈は天日干しにして箒の素材となります。キビ箒は日本の畳文化に根ざした重要な要素で、伝統的な祭礼・冠婚葬祭の文化的象徴を担います。日本国内の栽培コストが上昇するにつれ、台湾への導入が進み、かつては嘉南平原の主要換金作物となりました。</p><p>嘉義県六脚の楊福藏（ヤン・フーザン）によれば、1970年代頃に日本人が台湾の気候・地理的条件に目をつけてキビ種子を持ち込みました。高収益のため六脚の農家は次々と転作。「最盛期には村中、隣の村も全部植えていて、数百ヘクタールはあったかな」。楊福藏は当時の買い付け業者で、農家から乾燥済みのキビを買い取り日本へ輸出していました。</p><h3 class="card-subtitle">制作方法</h3><p>職人・呂春梅（ルウ・チュンメイ）は脱穀・乾燥済みのキビを使って箒を作ります。1本に約1時間、工程は非常に複雑です。低い腰掛けに座り、右足で逆さにした長椅子を押さえ、椅子の脚に巻いた黒いナイロン縄を椅子との引き合いで穂束を締め上げます。</p><p>完成した箒の穂上部は非対称デザイン——一方は鮮やかな平織り模様、もう一方は2〜3個の球形の突起（サイズによる）。この精巧な造形は、3種の素材——乾キビ、裁断済みキビ稈、水で湿らせたキビ——を巧みに編み合わせることで生まれます。</p><p>平織り部分では乾キビを経糸、ナイロン縄を緯糸とし、稈の本数の奇偶を数えながら「飛び目」で編んでいきます。球形部分では裁断した稈で乾キビを包み、ナイロン縄で締めて丸みのあるくびれを作ります。穂が固定できたら上部の余分な稈を切り落とし、外周の稈を下に折り曲げ、「バナナナイフ」で内周の稈を削り取って断面を丸く整え、束ねて柄を作ります。最後に赤いナイロン縄で装飾兼補強の編み結びを施して完成です。</p>`,
+        cbShanzong: `<p>クロツグは湿潤で温暖な山麓や渓谷に生育するヤシ科の低木植物です。入手しやすく身近な植物として、かつての台湾の庶民生活と深く結びついていました。新芽は食用に、葉柄は砂糖の製造に使われます。羽状の葉は大きく多く、乾燥させて刷毛や箒を作ります。</p><p>クロツグ箒は屋外清掃の定番道具です。葉の種類によって二種類——乾燥した成葉と、まだ鞘から出ていない若葉。成葉の箒は全長約2メートル、穂も広く屋外向き。若葉の箒は短くて扱いやすく、室内掃除向きです。収納は逆さ吊りで、乾燥した風通しのよい場所に保管すれば、適切にケアすることで3〜5年使えます。</p>`,
+        cbTendershanzong: `<p>クロツグの若葉は外鞘に包まれており、箒作りの前に丁寧な処理が必要で、工程はさらに繁雑になります。若葉の数は成葉より少なく入手も難しいため、大量生産には向きません。</p><p>クロツグの若葉は棒状で、外見からは判別しにくく、振り打ちして鞘から葉を出す必要があります。取り出した葉は葉脈に沿って裂き、細すぎる・小さすぎるものを除き、数日の天日干しで嫩緑色からこげ茶色に変わって、ようやく素材の準備が整います。</p><h3 class="card-subtitle">制作方法</h3><p>南投県信義郷のブヌン族の職人・Sa Vungaz（伍阿現）は、準備の工程は複雑でも、道具は驚くほどシンプルです。</p><p>「クロツグ若葉で箒を作るのに必要なのは、細い縄一巻きとはさみ一丁だけ。鉄線もペンチも不要」とSa Vungazは語りながら、乾燥させた若葉を仮に束ねて固定し、束から葉を一綹ずつほぐして、長いナイロン縄で輪を作りながら葉を一つひとつ収束させ、縄の結びで引き締め、最終的に完全な扇面を作ります。</p><p>仮固定の縄を解いた後、新たに長いナイロン縄を数十回巻いて柄を固定します。最後にはさみで末端を切り揃えれば、短柄で一体成形のクロツグ若葉箒の完成です。</p>`,
+        cbArundo: `<p>ダンチクは台湾固有種で、竹に似た葉を持ち、岩壁・斜面・石の隙間を好んで生育します。稈は1〜2メートルに達し、標高1800メートル以下で見られます。繊維が強靱で製紙・織物・屋根材・箒など用途が広く、採取も容易です。</p><p>東勢の箒伝説は偶然の産物と伝えられます——樟脳の蒸留を業としていた張火石という人物が、山にあふれるダンチクをふと束ねて作業小屋を掃いたところ、実用的だとわかり村中に広まりました。箒縛りは東勢地区の農閑期の主な副業となり、東勢は「箒村」と呼ばれ、ダンチクは「箒草」の名を得ました。</p><h3 class="card-subtitle">制作方法</h3><p>他の地域が竹ひごや鉄線を使うのに対し、東勢の職人・曾義深（ツン・イーシェン）は月桃（シェルジンジャー）で縛り縄を作ります。農村に普及した植物・月桃の「葉鞘繊維」を使います——葉を取り除き、木槌で葉鞘を叩いて繊維を裂き、天日干しにすれば縛り縄の完成です。</p><p>ダンチクと月桃のほか、竹の楔（くさび）も必要です——各箒に長短2本、幅約2センチで一端が尖り一端が平ら。長いもの（約35センチ）は柄の強度補強に、短いもの（約10センチ）は縛り目に差し込んで硬さを出します。</p><p>ダンチクと月桃はともに3日間天日干しが必要です。乾燥後のダンチクは古葉を取り除き、稈を柄に、尾端の若葉を穂にします。同じ長さの稈を選び、月桃縄で5束に束ねます。柴刀の背で2束ずつ叩いて締め、月桃縄で縛り、1束ずつ加えて繰り返し、5束すべてを固定して穂の完成です。</p><p>続いて葉柄を均等な間隔で配し、月桃縄を5段に縛って柄を作ります。柴刀で柄の先端を整え、穂を円弧形の扇に刈り揃えます。最後に長い楔を柄に打ち込み、短い楔を穂の縛り目に打ち込んで骨格を完成させれば、ダンチク箒の出来上がりです。</p>`,
+        cbMiscanthus: `<p>ススキは乾燥した斜面を好む植物で、台湾には主に2種あります——11月頃に開花し白く染まる「白背芒」と、端午節頃に咲く「五節芒」です。かつての農業社会では垣根・建材・織物・薬・箒など、ありとあらゆる用途に使われました。</p><p>しかし市場でススキ箒を見かけることは稀です。かつては農閑期に手縛りした箒を自家用にするか親しい人へ贈るもので、商取引に出ることはほとんどありませんでした。工業化が進みプラスチック製品が普及した現代、手間をかけたススキ箒はますます貴重で希少なものとなっています。</p><h3 class="card-subtitle">制作方法</h3><p>採り立てのススキは花穂が白く稈は緑色ですが、天日干しすると全体が黄褐色に変わります。嘉義県樟樹湖の職人・簡黃秀切（ジエン・ファン・シウジエ）は「必ず完全に乾かしてから縛ること」を強調します。</p><p>長さの揃ったススキを選び、まず4束に縛り、2束ずつペアにして2大束を作ります。途中、木槌で束を叩いて締め、最後に2大束をまとめて縛り、穂の部分が完成します。</p><p>次に葉鞘を縛り縄として稈を4〜5節に縛って柄を作ります。柄の太さは手で一周できる程度を目安とし、太すぎる場合は中央の稈を取り除きます。ナイフで柄の先端を平らに削り、穂を整えれば、ススキ箒の完成です。</p>`,
+        footerLabel: '台湾の箒 &mdash; Taiwan Broom',
+        footerThanks: '特別謝辞',
+        footerNamesIntro: '台湾各地の職人（台湾地理順：北から南、西から東、筆画数順）',
+        footerTeam: '制作チーム',
+        footerTeamBody: '支流有限公司<br>取材　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>写真　劉鎮豪、曾雅鈺<br>執筆　林雅雯<br>アートディレクション　黃瑪琍<br>編集長　周易正<br>展覧会企画　鄭湘榆',
+        footerGrant: '2018年 文化部 国家文化記憶庫プロジェクト助成',
+        footerExhibition: '東京展覧会',
+      }
+    };
+
+    let currentLang = 'zh';
+
+    function setLang(lang) {
+      if (!T[lang]) return;
+      currentLang = lang;
+      const t = T[lang];
+      const $ = s => document.querySelector(s);
+      const $$ = s => document.querySelectorAll(s);
+
+      // Lang buttons
+      $$('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+      // html lang attribute
+      document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
+
+      // Section 1
+      const cap = $('.hero-caption'); if (cap) cap.textContent = t.heroCaption;
+
+      // Section 2
+      const s2 = $('#section2');
+      if (s2) {
+        s2.querySelector('h1').textContent = t.s2Title;
+        const ps = s2.querySelectorAll('p');
+        if (ps[0]) ps[0].textContent = t.s2P1;
+        if (ps[1]) ps[1].textContent = t.s2P2;
+        if (ps[2]) ps[2].innerHTML = t.s2P3;
+      }
+
+      // Section 4 — distribution card
+      const b0 = $('#broom0');
+      if (b0) {
+        b0.querySelector('.broom-num').innerHTML  = t.distLabel;
+        b0.querySelector('.broom-title').textContent = t.distTitle;
+        b0.querySelector('.broom-desc').textContent  = t.distDesc;
+      }
+
+      // Section 4 — broom entries helper
+      const setBroom = (id, titleKey, descKey) => {
+        const el = $(`#${id}`);
+        if (!el) return;
+        el.querySelector('.broom-title').textContent = t[titleKey];
+        el.querySelector('.broom-desc').textContent  = t[descKey];
+        const labels = el.querySelectorAll('.broom-meta-label');
+        if (labels[0]) labels[0].textContent = t.lbOrigin;
+        if (labels[1]) labels[1].textContent = t.lbArtisan;
+        const btn = el.querySelector('.card-open-btn');
+        if (btn) btn.innerHTML = t.btnDetail;
+      };
+
+      setBroom('broom1','b1Title','b1Desc'); setBroom('broom2','b2Title','b2Desc');
+      setBroom('broom3','b3Title','b3Desc'); setBroom('broom4','b4Title','b4Desc');
+      setBroom('broom5','b5Title','b5Desc'); setBroom('broom6','b6Title','b6Desc');
+      setBroom('broom7','b7Title','b7Desc'); setBroom('broom8','b8Title','b8Desc');
+      setBroom('broom9','b9Title','b9Desc');
+
+      // Section 3 — gallery labels (original nodes only, not clones)
+      const origGalleryItems = Array.from($$('.gallery-item')).filter(el => el.style.pointerEvents !== 'none');
+      const gKeys = ['g1','g2','g3','g4','g5','g6','g7','g8','g9'];
+      origGalleryItems.forEach((el, i) => {
+        const lbl = el.querySelector('.gallery-item-label');
+        if (lbl && gKeys[i]) lbl.innerHTML = t[gKeys[i]];
+      });
+
+      // Modal card helper
+      const setCard = (overlayId, titleKey, artisan, origin, material, tool, bodyKey) => {
+        const ov = $(`#${overlayId}`);
+        if (!ov) return;
+        const info = ov.querySelector('.card-info');
+        info.querySelector('.card-title').textContent = t[titleKey];
+        const dts = info.querySelectorAll('dt');
+        const dds = info.querySelectorAll('dd');
+        if (dts[0]) dts[0].textContent = t.lbArtisan;
+        if (dts[1]) dts[1].textContent = t.lbOrigin;
+        if (dts[2]) dts[2].textContent = t.lbMaterial;
+        if (dts[3]) dts[3].textContent = t.lbTool;
+        // dd values stay as-is (proper nouns); material/tool are language-neutral
+        const body = info.querySelector('.card-body');
+        if (body) body.innerHTML = t[bodyKey];
+      };
+
+      setCard('card-kanlang',       'b1Title', null,null,null,null, 'cbKanlang');
+      setCard('card-ricestraw',     'b2Title', null,null,null,null, 'cbRicestraw');
+      setCard('card-sorghum',       'b3Title', null,null,null,null, 'cbSorghum');
+      setCard('card-kochia',        'b4Title', null,null,null,null, 'cbKochia');
+      setCard('card-guishu',        'b5Title', null,null,null,null, 'cbGuishu');
+      setCard('card-shanzong',      'b6Title', null,null,null,null, 'cbShanzong');
+      setCard('card-tendershanzong','b7Title', null,null,null,null, 'cbTendershanzong');
+      setCard('card-arundo',        'b8Title', null,null,null,null, 'cbArundo');
+      setCard('card-miscanthus',    'b9Title', null,null,null,null, 'cbMiscanthus');
+
+      // Footer
+      const fl = $('.footer-label'); if (fl) fl.innerHTML = t.footerLabel;
+      const ftitles = $$('.footer-section-title');
+      if (ftitles[0]) ftitles[0].textContent = t.footerThanks;
+      if (ftitles[1]) ftitles[1].textContent = t.footerTeam;
+      const fnames = $$('.footer-names');
+      if (fnames[0]) {
+        const artisanLine = fnames[0].querySelector('br') ? fnames[0].innerHTML.split('<br>').slice(1).join('<br>') : '';
+        fnames[0].innerHTML = t.footerNamesIntro + '<br>' + artisanLine;
+      }
+      if (fnames[1]) fnames[1].innerHTML = t.footerTeamBody;
+      if (fnames[2]) fnames[2].textContent = t.footerGrant;
+      const fright = $('.footer-right');
+      if (fright) {
+        const flabel = fright.querySelector('.footer-label');
+        if (flabel) flabel.innerHTML = t.footerExhibition + (lang === 'zh' ? ' &mdash; Tokyo Exhibition' : lang === 'en' ? ' &mdash; 東京展覽' : '');
+      }
+    }
   </script>
 
 </body>
