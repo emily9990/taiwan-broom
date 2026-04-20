@@ -30,7 +30,8 @@
 - **多語系支持 (i18n)**：完整支援 **繁體中文**、**English**、**日本語**，一鍵無縫切換。
 - **響應式設計 (RWD)**：針對手機與平板深度優化，提供流暢的行動端體驗。
 - **沉浸式視覺**：手機版首頁橫幅採用沉浸式全頻裁切設計，呈現極致的視覺張力。
-- **工藝展示**：新增 Section 5 專區，以動態 GIFs 呈現掃帚製作的職人工藝細節。
+- **工藝展示**：Section 5 以高畫質 MP4 影片呈現 6 種掃帚製作工藝，無限橫向輪播，含緩慢橫移視差效果與 hover 彩色切換。
+- **捲動動畫**：Section 2 文字進入視野時依序 fade-up 浮現。
 
 ---
 
@@ -42,8 +43,8 @@
 | **Section 2** | 計劃理念文字介紹 (Project Philosophy) |
 | **Section 3** | 9 種掃帚縮圖無縫輪播 (Seamless Marquee) |
 | **Section 4** | 掃帚詳細介紹與圖文故事 (Detailed Stories with Slideshow) |
-| **Section 5** | 工藝展現 (Craftsmanship / Artisan GIFs) |
-| **Modal** | 詳細介紹小卡與 10+ 張高解析影像藝廊 (Deep Dive Gallery) |
+| **Section 5** | 工藝展現 MP4 無限橫向輪播，6 種掃帚製作影片 (Craftsmanship Marquee) |
+| **Modal** | 詳細介紹小卡與高解析影像藝廊 (Deep Dive Gallery) |
 
 ---
 
@@ -58,7 +59,7 @@
 | 05 | **貴黍掃帚** / Millet / キビ | 嘉義六腳 |
 | 06 | **山棕掃帚** / Arenga / クロツグ | 高雄美濃 |
 | 07 | **山棕嫩葉掃帚** / Tender leaves / 若葉 | 南投信義 |
-| 08 | **蘆竹掃帚** / Arundo / ダンチク | 桃園平鎮 |
+| 08 | **蘆竹掃帚** / Arundodis / ダンチク | 桃園平鎮 |
 | 09 | **芒草掃帚** / Miscanthus / ススキ | 嘉義梅山 |
 
 ---
