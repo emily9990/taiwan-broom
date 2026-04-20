@@ -791,12 +791,13 @@
       #section5 .eyebrow { padding-left: 24px; }
       .gif-item { flex: 0 0 45vw; width: 45vw; }
 
-      footer {
-        flex-direction: column;
-        padding: 48px 24px;
-        gap: 40px;
-      }
-      .footer-right { text-align: left; max-width: 100%; }
+      footer { padding: 32px 24px 0; }
+      .footer-top { flex-direction: column; gap: 0; padding-bottom: 0; }
+      .footer-col .footer-section { margin-bottom: 16px; }
+      .footer-col .footer-section:last-child { margin-bottom: 0; }
+      .footer-names { font-size: 11px; line-height: 1.7; }
+      .footer-right { text-align: left; max-width: 100%; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+      .footer-bottom { padding: 14px 0 20px; }
 
       /* Modal RWD */
       .card-overlay { padding: 0; }
