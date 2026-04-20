@@ -346,14 +346,34 @@
     footer {
       background: #1c1c1c;
       border-top: none;
-      padding: 36px 60px 48px;
+      padding: 36px 60px 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      line-height: 2;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 60px;
-      font-size: 13px;
-      line-height: 2;
-      color: rgba(255,255,255,0.5);
+      padding-bottom: 8px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 20px 0 28px;
+    }
+
+    .footer-copyright {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
     }
 
     .footer-col { flex: 1; }
@@ -369,6 +389,9 @@
 
     .footer-section {
       margin-bottom: 28px;
+    }
+    .footer-section:last-child {
+      margin-bottom: 0;
     }
 
     .footer-section-title {
@@ -410,6 +433,9 @@
       line-height: 1.9;
       color: rgba(255,255,255,0.5);
     }
+
+    .footer-social a { display: inline-flex; opacity: 0.45; transition: opacity 0.2s; }
+    .footer-social a:hover { opacity: 0.9; }
 
     /* ─── BROOM LIST ─── */
     .broom-list {
@@ -702,6 +728,16 @@
 
     /* ─── SECTION 5: Craftsmanship ─── */
     #section5 { padding: 100px 0 140px; background: var(--off-white); }
+    #section5 .eyebrow { margin-bottom: 20px; }
+    #section5 .eyebrow::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--mid-gray);
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
     .gif-outer { overflow: hidden; position: relative; background: #000; padding: 40px 0; }
     @keyframes s5marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @keyframes s5PanR { 0% { object-position: 20% 50%; } 100% { object-position: 80% 50%; } }
@@ -752,6 +788,7 @@
 
       /* Section 5 RWD */
       #section5 { padding: 60px 0 80px; }
+      #section5 .eyebrow { padding-left: 24px; }
       .gif-item { flex: 0 0 45vw; width: 45vw; }
 
       footer {
@@ -1529,38 +1566,52 @@
 
 <footer>
 
-    <div class="footer-col">
-      <span class="footer-label">臺灣掃帚 &mdash; Taiwan Broom</span>
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="footer-label">臺灣掃帚 &mdash; Taiwan Broom</span>
 
-      <div class="footer-section">
-        <span class="footer-section-title">特別感謝</span>
-        <p class="footer-names">臺灣在地師傅（依臺灣地理從北到南，從西到東，開頭字筆畫排序）<br>
-        曾宏凱、曾義深、田俊雄、田煥禎、張煥金、Sa Vungaz（伍阿現）、林振棟、黃張環、呂保宜、呂春梅、涂梅花、楊福藏、簡黃秀切、林秋女、藍豐穆、羅元鴻、蔡佳蓉、林統山、黃貴明、黃新玉、莊扶</p>
+        <div class="footer-section">
+          <span class="footer-section-title">特別感謝</span>
+          <p class="footer-names">臺灣在地師傅（依臺灣地理從北到南，從西到東，開頭字筆畫排序）<br>
+          曾宏凱、曾義深、田俊雄、田煥禎、張煥金、Sa Vungaz（伍阿現）、林振棟、黃張環、呂保宜、呂春梅、涂梅花、楊福藏、簡黃秀切、林秋女、藍豐穆、羅元鴻、蔡佳蓉、林統山、黃貴明、黃新玉、莊扶</p>
+        </div>
+
+        <div class="footer-section">
+          <span class="footer-section-title">企劃團隊</span>
+          <p class="footer-names">
+            支流有限公司<br>
+            採訪　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>
+            攝影　劉鎮豪、曾雅鈺<br>
+            特約撰文　林雅雯<br>
+            美術設計　黃瑪琍<br>
+            總編輯　周易正<br>
+            展覽企劃籌備　鄭湘榆
+          </p>
+          <p class="footer-names" style="margin-top:12px; font-size:10px; letter-spacing:0.05em;">
+            2018年文化部推動國家文化記憶庫計畫補助專案
+          </p>
+        </div>
       </div>
 
-      <div class="footer-section">
-        <span class="footer-section-title">企劃團隊</span>
-        <p class="footer-names">
-          支流有限公司<br>
-          採訪　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>
-          攝影　劉鎮豪、曾雅鈺<br>
-          特約撰文　林雅雯<br>
-          美術設計　黃瑪琍<br>
-          總編輯　周易正<br>
-          展覽企劃籌備　鄭湘榆
-        </p>
-        <p class="footer-names" style="margin-top:12px; font-size:10px; letter-spacing:0.05em;">
-          2018年文化部推動國家文化記憶庫計畫補助專案
-        </p>
+      <div class="footer-right">
+        <span class="footer-label">東京展覽 &mdash; Tokyo Exhibition</span>
+        <p style="margin-bottom:10px; font-size:12px; letter-spacing:0.05em; color:rgba(255,255,255,0.9);">2026.5.7 (Fri) &ndash; 5.24 (Sun)<br>台湾の箒作り &mdash; 掃除する日常の風景 &mdash;</p>
+        <p><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a></p>
+        <p class="footer-address">〒150-0011<br>東京都渋谷区東1-3-1<br>カミニート14号</p>
       </div>
     </div>
 
-    <div class="footer-right">
-      <span class="footer-label">東京展覽 &mdash; Tokyo Exhibition</span>
-      <p style="margin-bottom:10px; font-size:12px; letter-spacing:0.05em; color:rgba(255,255,255,0.9);">2026.5.7 (Fri) &ndash; 5.24 (Sun)<br>台湾の箒作り &mdash; 掃除する日常の風景 &mdash;</p>
-      <p><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a></p>
-      <p class="footer-address">〒150-0011<br>東京都渋谷区東1-3-1<br>カミニート14号</p>
+    <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1ArKGjpXrW/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <span class="footer-copyright">&copy; 2026 fork work. All rights reserved.</span>
     </div>
+
   </footer>
 
   <script>
