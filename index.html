@@ -78,15 +78,23 @@
       font-size: clamp(26px, 3.5vw, 44px);
       font-weight: 700;
       letter-spacing: 0.1em;
-      margin-bottom: 56px;
+      margin-bottom: 32px;
       line-height: 1.5;
     }
 
     #section2 p {
       font-size: clamp(14px, 1.3vw, 17px);
-      line-height: 2.2;
+      line-height: 1.75;
       color: #444;
       margin-bottom: 22px;
+    }
+
+    #section2 a {
+      color: #444;
+      text-decoration: none;
+    }
+    #section2 a:hover {
+      color: #999;
     }
 
     /* ─── SECTION 3: Gallery ─── */
@@ -172,6 +180,7 @@
       letter-spacing: 0.2em;
       padding: 14px 4px 0;
       color: var(--black);
+      text-align: center;
     }
 
     /* ─── SECTION 4: Introductions ─── */
@@ -656,6 +665,7 @@
       z-index: 3000;
       display: flex;
       gap: 12px;
+      align-items: center;
     }
 
 
@@ -667,7 +677,7 @@
       font-size: 10px;
       letter-spacing: 0.2em;
       color: var(--mid-gray);
-      padding: 4px 0;
+      padding: 8px 0;
       transition: color 0.15s;
       border-bottom: 1px solid transparent;
     }
@@ -742,10 +752,11 @@
         height: 100%;
         border-radius: 0;
       }
-      .card-gallery { flex: 0 0 55vh; }
+      .card-gallery { flex: 0 0 53vh; }
       .card-info { padding: 48px 24px; }
       .card-close { top: 10px; right: 10px; background: rgba(244,242,237,0.8); border-radius: 50%; }
       .card-meta-grid { grid-template-columns: 1fr; gap: 4px; }
+
 
       .card-meta-grid dt { margin-top: 12px; }
       .card-meta-grid dt:first-child { margin-top: 0; }
@@ -754,7 +765,8 @@
     @media (max-width: 500px) {
       .gallery-item { flex: 0 0 80vw; width: 80vw; }
       .hero-caption { left: 16px; bottom: 16px; font-size: 8px; letter-spacing: 0.15em; }
-      .gif-grid { grid-template-columns: 1fr; }
+      .gif-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 2px; padding: 0 2px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+      .gif-grid .gif-item { flex: 0 0 80vw; scroll-snap-align: start; }
     }
 
 
@@ -1196,8 +1208,9 @@
         </dl>
         <div class="card-rule"></div>
         <div class="card-body">
-          <p>山棕是一種叢生的棕櫚科灌木植物，生長在潮濕溫暖的山麓或溪谷，因為常見且容易取材，與早期台灣的常民生活息息相關。山棕的嫩芽可入菜，葉柄可製糖；樹葉呈羽狀，成葉葉片多且葉面大，曬乾後可用來製作刷子或掃帚。</p>
+          <p>山棕是一種叢生的棕櫚科灌木植物，生長在潮濕溫溫暖的山麓或溪谷，因為常見且容易取材，與早期台灣的常民生活息息相關。山棕的嫩芽可入菜，葉柄可製糖；樹葉呈羽狀，成葉葉片多且葉面大，曬乾後可用來製作刷子或掃帚。</p>
           <p>山棕掃帚是戶外掃除時常用的工具，以山棕葉製作的掃帚可分兩種：曬乾的成葉以及未出鞘的嫩葉。以成葉製作的山棕掃帚，長度約莫兩公尺，掃面也寬大，適合用在戶外清掃；以嫩葉製作的山棕掃帚，則顯得短小精幹，適合用在居家掃除。山棕掃帚需倒立收存，並保持乾燥通風，妥善保存的話，一把可用上三至五年。</p>
+
         </div>
       </div>
     </div>
@@ -1336,22 +1349,21 @@
 
       <div class="card-gallery">
         <div class="card-main-img">
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/1植物_蘆竹.jpg" alt="蘆竹掃帚" id="arundo-main" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/1場景.jpg" alt="蘆竹掃帚" id="arundo-main" />
           <button class="card-img-nav prev" onclick="stepImg('card-arundo',-1)" aria-label="上一張">&#8592;</button>
           <button class="card-img-nav next" onclick="stepImg('card-arundo', 1)" aria-label="下一張">&#8594;</button>
         </div>
+
         <div class="card-thumbs">
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/1植物_蘆竹.jpg"           alt="" class="card-thumb active" onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/2展示_蘆竹1.jpg"         alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/3蘆竹掃把.jpg"         alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/1場景.jpg"     alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/2師傅.jpg"     alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/3蘆竹工具.jpg"   alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/4.jpg"         alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/5.jpg"         alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/6.jpg"         alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
-          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/7成品.jpg"     alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/1場景.jpg"   alt="" class="card-thumb active" onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/2師傅.jpg"   alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/3蘆竹工具.jpg" alt="" class="card-thumb"      onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/4.jpg"       alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/5.jpg"       alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/6.jpg"       alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
+          <img src="區段4_臺灣各類掃帚介紹/8蘆竹掃帚/小卡_蘆竹掃帚/7成品.jpg"   alt="" class="card-thumb"        onclick="switchImg(this,'arundo-main')" />
         </div>
+
 
       </div>
 
@@ -1480,7 +1492,7 @@
       </div>
       <div class="gif-item">
         <img src="區段5_工藝展示/工藝_蘆竹.gif" alt="蘆竹工藝" />
-        <span class="gif-label">蘆竹 &mdash; Arundo</span>
+        <span class="gif-label">蘆竹 &mdash; Arundodis</span>
       </div>
       <div class="gif-item">
         <img src="區段5_工藝展示/工藝_貴黍.gif" alt="貴黍工藝" />
@@ -1661,7 +1673,7 @@
         g7: '07 &mdash; 山棕嫩葉掃帚', g8: '08 &mdash; 蘆竹掃帚', g9: '09 &mdash; 芒草掃帚',
         s5Title: '工藝展示 &mdash; Craftsmanship',
         g5_1: '地膚草 &mdash; Kochia', g5_2: '山棕嫩葉 &mdash; Tender Leaf',
-        g5_3: '蘆竹 &mdash; Arundo', g5_4: '貴黍 &mdash; Millet',
+        g5_3: '蘆竹 &mdash; Arundodis', g5_4: '貴黍 &mdash; Millet',
 
         // Modal card bodies (full innerHTML of .card-body)
         cbKanlang: `<p>槺榔是一種台灣原生的棕櫚科植物，本名為「臺灣海棗」。全臺多處留有以槺榔為名的地方，在日本時期的《臺灣樹木誌》中亦曾記載，槺榔是「臺灣全島低地皆屬常見」的植物，可窺見槺榔深入常民生活的痕跡。</p><p>槺榔的用途廣泛，幾乎全身上下都能充分利用，不僅可做景觀樹，木材可製作各類器皿，嫩芽及果實亦可加工食用，葉片曬乾後再經匠人巧手則成為一支支具有清潔及避邪意涵的掃帚。</p><p>槺榔掃帚又稱「天地掃」，顧名思義，天掃掃天，地掃掃地，天地掃需成對出現且不可混用。在臺灣習俗中，農曆十二月二十四日為送神日，也是「清屯日」——一年一度打掃神龕及祖先牌位的日子——天地掃即在此時發揮最大效用。</p><p>早在清朝時期，臺灣人就以槺榔葉製帚，《重修臺灣府志》（一七四七年）中有記載：「槺榔：幹直無枝，其顛生葉不過數十，結子作穗生木端，其葉臺人以為帚。」直到一九六〇年代，臺灣各地仍有不少村莊以綁槺榔掃帚為業。</p><h3 class="card-subtitle">製作方式</h3><p>嘉義縣朴子市的手作師傅涂梅花所製作的槺榔掃帚有三層結構，掃毛由槺榔葉主要擔當，以竹子做為骨架，再以乾稻草包覆製成掃柄。槺榔樹莖幹高大，有些能長到七、八公尺高，加上葉片有刺，採割並不容易。槺榔葉採割下來後必須曝曬多日風乾後，才能進行掃帚的製作。</p><p>製作槺榔掃帚的工具相當簡要：一捲鐵絲線、一把老虎鉗、一支鐵釘製成的鐵梳，再加上經歲月磨蝕的鍛造柴刀。散落一地的槺榔葉在涂梅花的揀選、收緊、綑綁、修剪之下，逐漸有了掃毛的樣子；接著，再將一根筆直的竹竿固定在掃毛上，以稻草包覆，一節一節地以鐵絲線圈綁固定，做成掃帚柄。最後，用柴刀將掃毛修剪整齊，再以鐵梳梳理，一把純手工打造的槺榔掃帚才算大功告成。</p>`,
@@ -1696,7 +1708,7 @@
         cardSubtitle: 'How It\'s Made',
         b1Title: 'Date Palm Broom', b2Title: 'Rice Straw Broom', b3Title: 'Sorghum Broom',
         b4Title: 'Kochia Broom', b5Title: 'Millet Broom', b6Title: 'Arenga engleri Broom',
-        b7Title: 'Arenga engleri Tender Leaf Broom', b8Title: 'Arundo donax Broom',
+        b7Title: 'Arenga engleri Tender Leaf Broom', b8Title: 'Arundodis Broom',
         b9Title: 'Miscanthus Broom',
         b1Desc: 'The date palm (Phoenix hanceana, locally called Kanlang) is native to Taiwan, said to trace back to the Ice Age. Place names echoing its sound are found throughout the island, each marking a former habitat. Brooms made from its leaves are believed to hold spiritual power, used in temple cleaning, divine processions, and protective rituals across Taiwan.',
         b2Desc: 'A symbol of Taiwan\'s farming culture: wherever rice is grown, artisans use leftover straw to craft brooms during agricultural downtime. Rice straw brooms are used primarily on threshing floors — not to clean them spotless, but to sort stones, weeds, husks, and precious grain. Less about cleaning, more about classification.',
@@ -1705,15 +1717,15 @@
         b5Desc: 'Both the technique and the plant itself were introduced from Japan. A merchant from Ibaraki is said to have brought seeds and know-how to Taiwan, training skilled artisans here. The craft involves delicate weaving rather than simple bundling, and is primarily used in tatami spaces — a quintessential example of contracted craft production.',
         b6Desc: 'Arenga engleri is widely distributed from lowlands to low-altitude mountain areas across Taiwan, closely tied to indigenous and rural cultures. The dark brown trunk fibers (palm fiber) were used by almost every ethnic group — the primary material for traditional rainwear. In some areas, the large leaf stalks are fashioned directly into brooms for sweeping wide public spaces.',
         b7Desc: 'The Arenga engleri tender leaf broom is a refined subcategory: the artisan uses only freshly pulled young leaves — a uniquely delicate approach discovered by chance during fieldwork. Though from the same plant, young leaves are harder to obtain but produce a more comfortable broom requiring finer craftsmanship. Only one elder artisan with extensive indigenous cultural knowledge still makes them.',
-        b8Desc: 'Arundo donax is common throughout Taiwan. Its broom was the main industry of old Dongshi village (now Pingzhen, Taoyuan), which earned the nickname "Broom Village." Though the industry has declined, the artisan still insists brooms sent to Japan must maintain a pleasing appearance — revealing that he views them not as disposable tools, but as objects with inherent aesthetic value.',
+        b8Desc: 'Arundodis is common throughout Taiwan. Its broom was the main industry of old Dongshi village (now Pingzhen, Taoyuan), which earned the nickname "Broom Village." Though the industry has declined, the artisan still insists brooms sent to Japan must maintain a pleasing appearance — revealing that he views them not as disposable tools, but as objects with inherent aesthetic value.',
         b9Desc: 'In winter, Miscanthus appears along Taiwan\'s hillsides, coastlines, and riverbanks, giving rise to the beloved "silver grass viewing" season. Miscanthus brooms are an important product of these regions. From Hoklo and Hakka to indigenous peoples, all residents of these areas have been inspired by nature to transform Miscanthus into household items.',
         g1: '01 &mdash; Date Palm', g2: '02 &mdash; Rice Straw', g3: '03 &mdash; Sorghum',
         g4: '04 &mdash; Kochia', g5: '05 &mdash; Millet', g6: '06 &mdash; Arenga engleri',
-        g7: '07 &mdash; Arenga engleri Tender Leaf', g8: '08 &mdash; Arundo donax',
+        g7: '07 &mdash; Arenga engleri Tender Leaf', g8: '08 &mdash; Arundodis',
         g9: '09 &mdash; Miscanthus',
         s5Title: 'Craftsmanship &mdash; 工藝展示',
         g5_1: 'Kochia &mdash; 地膚草', g5_2: 'Tender Leaf &mdash; 山棕嫩葉',
-        g5_3: 'Arundo &mdash; 蘆竹', g5_4: 'Millet &mdash; 貴黍',
+        g5_3: 'Arundodis &mdash; 蘆竹', g5_4: 'Millet &mdash; 貴黍',
 
         cbKanlang: `<p>The date palm (Phoenix hanceana) is a native Taiwanese palm. Place names echoing "Kanlang" are found throughout Taiwan, marking former habitats. The Japanese-era <em>Record of Taiwan's Trees</em> described it as "commonly found in lowlands across the entire island," reflecting how deeply it was woven into everyday life.</p><p>Almost every part of the date palm can be used: it serves as an ornamental tree, its wood crafted into utensils, its shoots and fruit processed for food, and its sun-dried leaves transformed by skilled artisans into brooms with both cleansing and protective symbolism.</p><p>Date palm brooms are also called "Heaven and Earth Sweepers": the heavenly broom sweeps above, the earthly sweeps below — they must always come in pairs and never be interchanged. In Taiwanese custom, the 24th day of the 12th lunar month — the day for seeing off the gods and the annual cleaning of shrines and ancestor tablets — is when these brooms are put to their greatest use.</p><p>As early as the Qing Dynasty, Taiwanese were making brooms from date palm leaves. The 1747 <em>Revised Gazetteer of Taiwan Prefecture</em> records: "Kanlang: its trunk grows straight without branches, crowned with dozens of leaves, bearing clustered fruit at the top — its leaves used by Taiwanese as brooms." Until the 1960s, many villages across Taiwan still made a living crafting date palm brooms.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisan Tu Meihua of Puzi City, Chiayi County creates brooms with three layers: date palm leaves form the sweep head, bamboo serves as the inner frame, and dry rice straw wraps around to form the handle. The palm trunk can reach seven or eight meters, and its spiny leaves make harvesting a challenge. After cutting, the leaves must be sun-dried for several days before broom-making begins.</p><p>The tools are minimal: a coil of wire, pliers, a nail-fashioned comb, and a well-worn forged chopper. Tu Meihua selects, tightens, bundles, and trims the scattered leaves into a sweep head; a straight bamboo rod is fixed to it, wrapped with straw and coil-by-coil bound with wire to form the handle. Finally, the sweep head is trimmed and combed smooth — the fully handcrafted date palm broom is complete.</p>`,
         cbRicestraw: `<p>Rice is the primary crop that has fed Taiwan's population and once earned the island the title "Kingdom of Rice." After harvest, rice straw transforms into an important material reused in every agricultural household.</p><p>The cone-shaped straw bundles standing in harvested fields — the result of "stacking grass" — are a familiar rural landscape. After two to five days of drying, straw is stacked for storage. Its uses are wide: fuel, roofing, scarecrows, woven ropes, mats, sandals — and brooms, an indispensable household cleaning tool.</p><h3 class="card-subtitle">How It's Made</h3><p>Artisans Lin Qiunü and Lan Fengmu of Zhenzhu Community, Dongshan Township, Yilan begin by bundling straw into groups of about ten stalks each, tied with wire or hemp rope. The broom is one continuous piece: the threshed straw ends become the sweep head, while sections of stalk are bundled into the handle. Half the stalks are trimmed away to achieve a handle thin enough to grip; five bundles are then bound together and the sweep head arranged into a fan shape.</p><p>One end of a hemp rope is fixed to a post, the other to the straw bundle; pulling the rope taut, the artisan winds it round and round up the handle — more wraps means a longer handle, adjustable to the user's height. Finally, the handle top and sweep end are trimmed neat, and the broom is complete.</p>`,
@@ -1728,7 +1740,7 @@
         footerThanks: 'Special Thanks',
         footerNamesIntro: 'Artisans across Taiwan (ordered by geography, N to S, W to E, then stroke count)',
         footerTeam: 'Project Team',
-        footerTeamBody: 'Tributary Co., Ltd.<br>Field Research &nbsp;Wang Weizhi, Chen Lingfang, Chen Peiyu, Zhong Renxian<br>Photography &nbsp;Liu Zhenhao, Zeng Yayue<br>Writing &nbsp;Lin Yawen<br>Art Direction &nbsp;Huang Mali<br>Editor-in-Chief &nbsp;Zhou Yizheng<br>Exhibition Coordination &nbsp;Zheng Xiangyu',
+        footerTeamBody: '支流有限公司<br>Field Research &nbsp;王威智、陳玲芳、陳培瑜、鍾仁嫻<br>Photography &nbsp;劉鎮豪、曾雅鈺<br>Writing &nbsp;林雅雯<br>Art Direction &nbsp;黃瑪琍<br>Editor-in-Chief &nbsp;周易正<br>Exhibition Coordination &nbsp;鄭湘榆',
         footerGrant: '2018 Ministry of Culture — National Cultural Memory Bank Project Grant',
         footerExhibition: 'Tokyo Exhibition',
       },
@@ -1762,7 +1774,7 @@
         g7: '07 &mdash; クロツグ若葉', g8: '08 &mdash; ダンチク', g9: '09 &mdash; ススキ',
         s5Title: '工芸の美 &mdash; Craftsmanship',
         g5_1: 'ホウキグサ &mdash; Kochia', g5_2: 'クロツグ若葉 &mdash; Tender Leaf',
-        g5_3: 'ダンチク &mdash; Arundo', g5_4: 'キビ &mdash; Millet',
+        g5_3: 'ダンチク &mdash; Arundodis', g5_4: 'キビ &mdash; Millet',
 
         cbKanlang: `<p>カンラン（台湾海棗、学名 Phoenix hanceana）は台湾固有のヤシ科植物です。台湾各地に同音の地名が残り、かつてこの植物が生育していた場所を示しています。日本統治時代の『台湾樹木誌』にも「台湾全島の低地に普遍的に見られる」と記されており、人々の暮らしに深く根ざしていたことがうかがえます。</p><p>カンランはほぼ全ての部位を活用できます。景観樹としての役割に加え、木材は各種器具に、新芽と果実は食用に加工でき、乾燥させた葉は職人の手によって清掃と魔除けの意味を持つ箒へと変えられます。</p><p>カンラン箒は「天地掃（ティエンディサオ）」とも呼ばれ、天用は上を、地用は下を掃く——必ず二本一組で、用途を混ぜてはなりません。台湾の風習では、旧暦12月24日は「送神日」であり、年に一度神棚と先祖位牌を清める日——このときカンラン箒が最も活躍します。</p><p>清朝時代からカンランの葉で箒が作られてきました。1747年の『重修台湾府志』には「カンラン：幹は真っ直ぐで枝なく、頂に数十枚の葉があり、穂状の実が生り、台湾人はその葉を箒として用いる」と記されています。1960年代まで、台湾各地の多くの村でカンラン箒作りが生業となっていました。</p><h3 class="card-subtitle">制作方法</h3><p>嘉義県朴子市の職人・涂梅花（トウ・メイファ）が作るカンラン箒は三層構造です。箒穂の主役はカンランの葉、竹が骨格となり、乾稲わらで包んで柄を作ります。カンランの幹は高く7〜8メートルに達するものもあり、葉には棘があるため収穫は容易ではありません。切り取った後は数日間天日干しにしてから制作が始まります。</p><p>道具はシンプルです——鉄線一巻き、ペンチ、釘で作った鉄製の梳き具、そして年季の入った鍛造の薪割り包丁。涂梅花は葉を選別し、締め、束ね、整えて箒穂を形作ります。真っ直ぐな竹竿を穂に固定し、稲わらで包みながら一節ずつ鉄線で巻き固め、柄を作ります。最後に穂先を切り揃え、梳き具で整えれば、完全手作りのカンラン箒の完成です。</p>`,
         cbRicestraw: `<p>稲は台湾の主要作物であり、かつて「稲米王国」と称されるほど重要な農産品でした。稲が人々を養い、稲わらは農業社会における再利用の重要な素材となりました。</p><p>収穫後の田に円錐形に立てられた稲わら束——「掌草」と呼ばれるこの風景は、台湾農村の原風景のひとつです。2〜5日の天日干しの後、稲わらは積み上げて保管されます。燃料・屋根材・かかし・縄・蓆・草鞋、そして箒など、用途は多岐にわたります。</p><h3 class="card-subtitle">制作方法</h3><p>宜蘭県冬山郷珍珠コミュニティの職人・林秋女（リン・チウニュ）と藍豐穆（ラン・フォンム）は、まず鉄線または麻縄で稲わらを束ねます（1束約10本余り）。箒は一体成形で、脱穀後の稲わらの先端が箒穂となり、稈を節ごとに束ねて柄を形成します。柄が太くなりすぎないよう約半分の稈を取り除き、握りやすい太さに調整。5束を一まとめにして穂を扇形に整えます。</p><p>麻縄の一端を柱に、もう一端を稲わら束に固定し、柱の張力を利用しながら穂の上端から柄へと縄を巻き上げていきます。巻く回数が多いほど柄が長くなり、使用者の身長に合わせて調整できます。最後に柄の先端と穂の末端をそれぞれ切り揃えれば完成です。</p>`,
