@@ -744,7 +744,7 @@
     @keyframes s5PanR { 0% { object-position: 20% 50%; } 100% { object-position: 80% 50%; } }
     @keyframes s5PanL { 0% { object-position: 80% 50%; } 100% { object-position: 20% 50%; } }
     .gif-track { display: flex; width: max-content; animation: s5marquee 60s linear infinite; will-change: transform; }
-    .gif-track:hover { animation-play-state: paused; }
+    @media (hover: hover) { .gif-track:hover { animation-play-state: paused; } }
     .gif-item { flex: 0 0 28vw; width: 28vw; position: relative; overflow: hidden; background: #000; padding: 0 2px; }
     .gif-item video { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.8s ease, transform 0.8s ease; opacity: 0.8; }
     .gif-item:nth-child(odd)  video { animation: s5PanR 14s ease-in-out infinite alternate; }
