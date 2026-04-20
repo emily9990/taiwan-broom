@@ -90,11 +90,21 @@
     }
 
     #section2 a {
-      color: #444;
+      color: #999;
       text-decoration: none;
     }
-    #section2 a:hover {
-      color: #999;
+
+    @keyframes s2FadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    #section2 h1,
+    #section2 p {
+      opacity: 0;
+    }
+    #section2 h1.s2-visible,
+    #section2 p.s2-visible {
+      animation: s2FadeUp 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
     }
 
     /* ─── SECTION 3: Gallery ─── */
@@ -755,11 +765,10 @@
       .card-gallery { flex: 0 0 53vh; }
       .card-info { padding: 48px 24px; }
       .card-close { top: 10px; right: 10px; background: rgba(244,242,237,0.8); border-radius: 50%; }
-      .card-meta-grid { grid-template-columns: 1fr; gap: 4px; }
-
-
-      .card-meta-grid dt { margin-top: 12px; }
+      .card-meta-grid { grid-template-columns: 1fr; gap: 2px; }
+      .card-meta-grid dt { margin-top: 8px; }
       .card-meta-grid dt:first-child { margin-top: 0; }
+      .card-meta-grid dd { line-height: 1.5; }
     }
 
     @media (max-width: 500px) {
@@ -1538,6 +1547,23 @@
   </footer>
 
   <script>
+    // ── Section 2: Fade-up reveal ──
+    (function () {
+      const els = document.querySelectorAll('#section2 h1, #section2 p');
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const idx = Array.from(els).indexOf(el);
+            el.style.animationDelay = (idx * 0.35) + 's';
+            el.classList.add('s2-visible');
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+
     // ── Section 3: Infinite marquee — clone items for seamless loop ──
     const track = document.getElementById('galleryTrack');
     const origItems = Array.from(track.querySelectorAll('.gallery-item'));
