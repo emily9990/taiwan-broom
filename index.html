@@ -768,31 +768,17 @@
     /* ─── SECTION 6: Japan Exhibition ─── */
     #section6 { padding: 100px 60px; background: var(--off-white); }
     .s6-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; }
-    .s6-left { flex: 0 0 55%; max-width: 55%; }
-    .s6-left img { width: 100%; display: block; margin-bottom: 32px; }
-    .s6-venue-label {
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      display: block;
-      margin-bottom: 16px;
-    }
-    .s6-venue-label::after {
-      content: '';
-      display: block;
-      width: 36px;
-      height: 1px;
-      background: var(--mid-gray);
-      margin-top: 12px;
-      margin-bottom: 20px;
-    }
+    .s6-left { flex: 0 0 58%; display: flex; gap: 32px; align-items: flex-start; }
+    .s6-img-wrap { flex: 0 0 42%; }
+    .s6-img-wrap img { width: 100%; display: block; }
+    .s6-venue { flex: 1; }
+    .s6-title { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); margin-bottom: 20px; }
     .s6-date { font-size: 13px; line-height: 1.9; color: var(--charcoal); margin-bottom: 12px; }
     .s6-address { font-size: 12px; color: var(--mid-gray); line-height: 1.8; }
     .s6-address a { color: var(--mid-gray); text-decoration: none; }
     .s6-address a:hover { color: var(--charcoal); }
-    .s6-right { flex: 1; padding-top: 4px; }
-    .s6-name { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); margin-bottom: 24px; }
+    .s6-right { flex: 1; }
+    .s6-name { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); margin-bottom: 20px; }
     .s6-bio { font-size: 14px; line-height: 2; color: var(--charcoal); }
 
     /* ─── RESPONSIVE DESIGN (RWD) ─── */
@@ -838,7 +824,8 @@
 
       #section6 { padding: 60px 24px; }
       .s6-inner { flex-direction: column; gap: 40px; }
-      .s6-left { flex: none; max-width: 100%; width: 100%; }
+      .s6-left { flex: none; width: 100%; flex-direction: column; }
+      .s6-img-wrap { flex: none; width: 100%; }
 
       footer { padding: 32px 24px 0; }
       .footer-top { flex-direction: column; gap: 0; padding-bottom: 0; }
@@ -1620,9 +1607,11 @@
   <section id="section6">
     <div class="s6-inner">
       <div class="s6-left">
-        <img src="區段6_日本展覽/東京展覽視覺.png" alt="東京展覽視覺" />
+        <div class="s6-img-wrap">
+          <img src="區段6_日本展覽/東京展覽視覺.png" alt="東京展覽視覺" />
+        </div>
         <div class="s6-venue">
-          <span class="s6-venue-label">東京展覽 &mdash; Tokyo Exhibition</span>
+          <h2 class="s6-title">東京展覽</h2>
           <p class="s6-date">2026.5.7 (Fri) – 5.24 (Sun)<br>台湾の箒作り &mdash; 掃除する日常の風景 &mdash;</p>
           <p class="s6-address"><a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a><br>〒150-0011 東京都渋谷区東1-3-1 カミニート14号</p>
         </div>
