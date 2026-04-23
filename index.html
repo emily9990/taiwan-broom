@@ -2075,10 +2075,15 @@ footer { padding: 32px 24px 0; }
     }
 
     function alignYamada() {
-      const teamTitles = document.querySelectorAll('.footer-section-title');
-      const teamEl = teamTitles[1]; // 企劃團隊 is the second title
       const bottomEl = document.querySelector('.footer-right-bottom');
-      if (!teamEl || !bottomEl) return;
+      if (!bottomEl) return;
+      if (window.innerWidth <= 860) {
+        bottomEl.style.marginTop = '24px';
+        return;
+      }
+      const teamTitles = document.querySelectorAll('.footer-section-title');
+      const teamEl = teamTitles[1];
+      if (!teamEl) return;
       const teamTop = teamEl.getBoundingClientRect().top;
       const parentTop = bottomEl.parentElement.getBoundingClientRect().top;
       bottomEl.style.marginTop = Math.max(0, teamTop - parentTop) + 'px';
