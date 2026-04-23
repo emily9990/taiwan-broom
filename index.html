@@ -47,12 +47,25 @@
     }
 
     #section1 img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
       display: block;
     }
+
+    @keyframes heroFade {
+      0%    { opacity: 1; }
+      37.5% { opacity: 1; }
+      50%   { opacity: 0; }
+      87.5% { opacity: 0; }
+      100%  { opacity: 1; }
+    }
+
+    #hero1 { animation: heroFade 16s ease-in-out infinite 0s; }
+    #hero2 { animation: heroFade 16s ease-in-out infinite -8s; }
 
 
 
@@ -840,7 +853,8 @@
 
   <!-- ─── SECTION 1: Hero Banner ─── -->
   <section id="section1">
-    <img src="區段1_大福橫幅BN/掃把主視覺圖(橫)_.jpg" alt="臺灣掃帚主視覺" fetchpriority="high" />
+    <img src="區段1_大福橫幅BN/掃把主視覺圖(橫)_.jpg" alt="臺灣掃帚主視覺" fetchpriority="high" id="hero1" />
+    <img src="區段1_大福橫幅BN/2輪播.png" alt="臺灣掃帚" id="hero2" />
   </section>
 
 
