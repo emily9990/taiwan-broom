@@ -1616,7 +1616,8 @@ footer { padding: 32px 24px 0; }
         <span class="footer-label">東京展覽 &mdash; Tokyo Exhibition</span>
         <p style="margin-bottom:10px; font-size:12px; letter-spacing:0.05em; color:rgba(255,255,255,0.9);">2026.5.7 (Fri) &ndash; 5.24 (Sun)<br>台湾の箒作り &mdash; 掃除する日常の風景 &mdash;</p>
         <p><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a></p>
-        <p class="footer-address">〒150-0011<br>東京都渋谷区東1-3-1<br>カミニート14号</p>
+        <p style="margin-top:16px; font-size:11px; color:rgba(255,255,255,0.7); letter-spacing:0.05em;">method 代表董事 山田遊</p>
+        <p id="footer-yamada-bio" style="margin-top:6px; font-size:11px; line-height:1.8; color:rgba(255,255,255,0.55);">株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員。</p>
       </div>
     </div>
 
@@ -1832,6 +1833,7 @@ footer { padding: 32px 24px 0; }
         footerTeamBody: '支流有限公司<br>採訪　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>攝影　劉鎮豪、曾雅鈺<br>特約撰文　林雅雯<br>美術設計　黃瑪琍<br>總編輯　周易正<br>展覽企劃籌備　鄭湘榆',
         footerGrant: '2018年文化部推動國家文化記憶庫計畫補助專案',
         footerExhibition: '東京展覽 &mdash; Tokyo Exhibition',
+        footerYamadaBio: '株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員。',
         s6Bio: '株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員。',
       },
 
@@ -1885,6 +1887,7 @@ footer { padding: 32px 24px 0; }
         footerTeamBody: '支流有限公司<br>Field Research &nbsp;王威智、陳玲芳、陳培瑜、鍾仁嫻<br>Photography &nbsp;劉鎮豪、曾雅鈺<br>Writing &nbsp;林雅雯<br>Art Direction &nbsp;黃瑪琍<br>Editor-in-Chief &nbsp;周易正<br>Exhibition Coordination &nbsp;鄭湘榆',
         footerGrant: '2018 Ministry of Culture — National Cultural Memory Bank Project Grant',
         footerExhibition: 'Tokyo Exhibition',
+        footerYamadaBio: 'Representative Director of method Co., Ltd.; Visiting Professor, Department of Craft and Industrial Design, Musashino Art University; Judge, GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD.',
         s6Bio: 'Representative Director of method Co., Ltd.; Visiting Professor, Department of Craft and Industrial Design, Musashino Art University; Judge, GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD.',
       },
 
@@ -1936,6 +1939,7 @@ footer { padding: 32px 24px 0; }
         footerTeamBody: '支流有限公司<br>取材　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>写真　劉鎮豪、曾雅鈺<br>執筆　林雅雯<br>アートディレクション　黃瑪琍<br>編集長　周易正<br>展覧会企画　鄭湘榆',
         footerGrant: '2018年 文化部 国家文化記憶庫プロジェクト助成',
         footerExhibition: '東京展覧会',
+        footerYamadaBio: '株式会社メソッド代表取締役、武蔵野美術大学造形学部工芸工業デザイン学科客員教授、GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査員。',
         s6Bio: '株式会社メソッド代表取締役、武蔵野美術大学造形学部工芸工業デザイン学科客員教授、GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査員。',
       }
     };
@@ -2058,6 +2062,8 @@ footer { padding: 32px 24px 0; }
       if (fright) {
         const flabel = fright.querySelector('.footer-label');
         if (flabel) flabel.innerHTML = t.footerExhibition + (lang === 'zh' ? ' &mdash; Tokyo Exhibition' : lang === 'en' ? ' &mdash; 東京展覽' : '');
+        const fyb = fright.querySelector('#footer-yamada-bio');
+        if (fyb) fyb.textContent = t.footerYamadaBio;
       }
     }
   </script>
