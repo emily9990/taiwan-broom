@@ -765,6 +765,36 @@
     .gif-item:hover video { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
     .gif-label { position: absolute; bottom: 20px; left: 20px; font-size: 10px; color: #fff; letter-spacing: 0.15em; text-transform: uppercase; pointer-events: none; }
     
+    /* ─── SECTION 6: Japan Exhibition ─── */
+    #section6 { padding: 100px 60px; background: var(--off-white); }
+    .s6-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; }
+    .s6-left { flex: 0 0 55%; max-width: 55%; }
+    .s6-left img { width: 100%; display: block; margin-bottom: 32px; }
+    .s6-venue-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .s6-venue-label::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--mid-gray);
+      margin-top: 12px;
+      margin-bottom: 20px;
+    }
+    .s6-date { font-size: 13px; line-height: 1.9; color: var(--charcoal); margin-bottom: 12px; }
+    .s6-address { font-size: 12px; color: var(--mid-gray); line-height: 1.8; }
+    .s6-address a { color: var(--mid-gray); text-decoration: none; }
+    .s6-address a:hover { color: var(--charcoal); }
+    .s6-right { flex: 1; padding-top: 4px; }
+    .s6-name { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); margin-bottom: 24px; }
+    .s6-bio { font-size: 14px; line-height: 2; color: var(--charcoal); }
+
     /* ─── RESPONSIVE DESIGN (RWD) ─── */
 
     @media (max-width: 1024px) {
@@ -805,6 +835,10 @@
       #section5 { padding: 60px 0 80px; }
       #section5 .eyebrow { padding-left: 24px; }
       .gif-item { flex: 0 0 45vw; width: 45vw; }
+
+      #section6 { padding: 60px 24px; }
+      .s6-inner { flex-direction: column; gap: 40px; }
+      .s6-left { flex: none; max-width: 100%; width: 100%; }
 
       footer { padding: 32px 24px 0; }
       .footer-top { flex-direction: column; gap: 0; padding-bottom: 0; }
@@ -1582,6 +1616,24 @@
     </div>
   </section>
 
+  <!-- ─── SECTION 6: Japan Exhibition ─── -->
+  <section id="section6">
+    <div class="s6-inner">
+      <div class="s6-left">
+        <img src="區段6_日本展覽/東京展覽視覺.png" alt="東京展覽視覺" />
+        <div class="s6-venue">
+          <span class="s6-venue-label">東京展覽 &mdash; Tokyo Exhibition</span>
+          <p class="s6-date">2026.5.7 (Fri) – 5.24 (Sun)<br>台湾の箒作り &mdash; 掃除する日常の風景 &mdash;</p>
+          <p class="s6-address"><a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a><br>〒150-0011 東京都渋谷区東1-3-1 カミニート14号</p>
+        </div>
+      </div>
+      <div class="s6-right">
+        <h2 class="s6-name">山田遊</h2>
+        <p class="s6-bio" id="s6-bio">株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員。</p>
+      </div>
+    </div>
+  </section>
+
 <footer>
 
     <div class="footer-top">
@@ -1831,6 +1883,7 @@
         footerTeamBody: '支流有限公司<br>採訪　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>攝影　劉鎮豪、曾雅鈺<br>特約撰文　林雅雯<br>美術設計　黃瑪琍<br>總編輯　周易正<br>展覽企劃籌備　鄭湘榆',
         footerGrant: '2018年文化部推動國家文化記憶庫計畫補助專案',
         footerExhibition: '東京展覽 &mdash; Tokyo Exhibition',
+        s6Bio: '株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員。',
       },
 
       en: {
@@ -1883,6 +1936,7 @@
         footerTeamBody: '支流有限公司<br>Field Research &nbsp;王威智、陳玲芳、陳培瑜、鍾仁嫻<br>Photography &nbsp;劉鎮豪、曾雅鈺<br>Writing &nbsp;林雅雯<br>Art Direction &nbsp;黃瑪琍<br>Editor-in-Chief &nbsp;周易正<br>Exhibition Coordination &nbsp;鄭湘榆',
         footerGrant: '2018 Ministry of Culture — National Cultural Memory Bank Project Grant',
         footerExhibition: 'Tokyo Exhibition',
+        s6Bio: 'Representative Director of method Co., Ltd.; Visiting Professor, Department of Craft and Industrial Design, Musashino Art University; Judge, GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD.',
       },
 
       ja: {
@@ -1933,6 +1987,7 @@
         footerTeamBody: '支流有限公司<br>取材　王威智、陳玲芳、陳培瑜、鍾仁嫻<br>写真　劉鎮豪、曾雅鈺<br>執筆　林雅雯<br>アートディレクション　黃瑪琍<br>編集長　周易正<br>展覧会企画　鄭湘榆',
         footerGrant: '2018年 文化部 国家文化記憶庫プロジェクト助成',
         footerExhibition: '東京展覧会',
+        s6Bio: '株式会社メソッド代表取締役、武蔵野美術大学造形学部工芸工業デザイン学科客員教授、GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査員。',
       }
     };
 
@@ -2037,6 +2092,9 @@
       if (gifLabels[3]) gifLabels[3].innerHTML = t.g5_4;
       if (gifLabels[4]) gifLabels[4].innerHTML = t.g5_5;
       if (gifLabels[5]) gifLabels[5].innerHTML = t.g5_6;
+
+      // Section 6
+      const s6bio = $('#s6-bio'); if (s6bio) s6bio.textContent = t.s6Bio;
 
       // Footer
       const fl = $('.footer-label'); if (fl) fl.innerHTML = t.footerLabel;
