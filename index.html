@@ -765,23 +765,7 @@
     .gif-item:hover video { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
     .gif-label { position: absolute; bottom: 20px; left: 20px; font-size: 10px; color: #fff; letter-spacing: 0.15em; text-transform: uppercase; pointer-events: none; }
     
-    /* ─── SECTION 6: Japan Exhibition ─── */
-    #section6 { padding: 100px 60px; background: var(--off-white); }
-    .s6-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; }
-    .s6-left { flex: 0 0 58%; display: flex; gap: 32px; align-items: flex-start; }
-    .s6-img-wrap { flex: 0 0 42%; }
-    .s6-img-wrap img { width: 100%; display: block; }
-    .s6-venue { flex: 1; }
-    .s6-title { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); margin-bottom: 20px; }
-    .s6-date { font-size: 13px; line-height: 1.9; color: var(--charcoal); margin-bottom: 12px; }
-    .s6-address { font-size: 12px; color: var(--mid-gray); line-height: 1.8; }
-    .s6-address a { color: var(--mid-gray); text-decoration: none; }
-    .s6-address a:hover { color: var(--charcoal); }
-    .s6-right { flex: 1; }
-    .s6-name { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); margin-bottom: 20px; }
-    .s6-bio { font-size: 14px; line-height: 2; color: var(--charcoal); }
-
-    /* ─── RESPONSIVE DESIGN (RWD) ─── */
+/* ─── RESPONSIVE DESIGN (RWD) ─── */
 
     @media (max-width: 1024px) {
       #section2 { padding: 40px 40px; }
@@ -822,12 +806,7 @@
       #section5 .eyebrow { padding-left: 24px; }
       .gif-item { flex: 0 0 45vw; width: 45vw; }
 
-      #section6 { padding: 60px 24px; }
-      .s6-inner { flex-direction: column; gap: 40px; }
-      .s6-left { flex: none; width: 100%; flex-direction: column; }
-      .s6-img-wrap { flex: none; width: 100%; }
-
-      footer { padding: 32px 24px 0; }
+footer { padding: 32px 24px 0; }
       .footer-top { flex-direction: column; gap: 0; padding-bottom: 0; }
       .footer-col .footer-section { margin-bottom: 16px; }
       .footer-col .footer-section:last-child { margin-bottom: 0; }
@@ -1603,25 +1582,6 @@
     </div>
   </section>
 
-  <!-- ─── SECTION 6: Japan Exhibition ─── -->
-  <section id="section6">
-    <div class="s6-inner">
-      <div class="s6-left">
-        <div class="s6-img-wrap">
-          <img src="區段6_日本展覽/東京展覽視覺.png" alt="東京展覽視覺" />
-        </div>
-        <div class="s6-venue">
-          <h2 class="s6-title">東京展覽</h2>
-          <p class="s6-date">2026.5.7 (Fri) – 5.24 (Sun)<br>台湾の箒作り &mdash; 掃除する日常の風景 &mdash;</p>
-          <p class="s6-address"><a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a><br>〒150-0011 東京都渋谷区東1-3-1 カミニート14号</p>
-        </div>
-      </div>
-      <div class="s6-right">
-        <h2 class="s6-name">山田遊</h2>
-        <p class="s6-bio" id="s6-bio">株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員。</p>
-      </div>
-    </div>
-  </section>
 
 <footer>
 
@@ -2082,10 +2042,7 @@
       if (gifLabels[4]) gifLabels[4].innerHTML = t.g5_5;
       if (gifLabels[5]) gifLabels[5].innerHTML = t.g5_6;
 
-      // Section 6
-      const s6bio = $('#s6-bio'); if (s6bio) s6bio.textContent = t.s6Bio;
-
-      // Footer
+// Footer
       const fl = $('.footer-label'); if (fl) fl.innerHTML = t.footerLabel;
       const ftitles = $$('.footer-section-title');
       if (ftitles[0]) ftitles[0].textContent = t.footerThanks;
