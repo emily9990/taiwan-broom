@@ -29,7 +29,7 @@
 
 - **多語系支持 (i18n)**：完整支援 **繁體中文**、**English**、**日本語**，一鍵無縫切換。
 - **響應式設計 (RWD)**：針對手機與平板深度優化，提供流暢的行動端體驗。
-- **Hero 輪播**：Section 1 雙圖緩慢交叉淡入輪播（16 秒週期），手機版各自優化裁切位置。
+- **Hero 輪播**：Section 1 三圖緩慢交叉淡入輪播（24 秒週期），手機版各自優化裁切位置。
 - **工藝展示**：Section 5 以壓縮 MP4 影片呈現 6 種掃帚製作工藝，無限橫向輪播，含緩慢橫移視差效果；影片進入視野才載入播放，節省行動端頻寬。
 - **捲動動畫**：Section 2 文字進入視野時依序 fade-up 浮現。
 - **效能優化**：英雄圖壓縮至 935KB、Section 3/4 圖片壓縮、MP4 影片壓縮約 50%、影片懶載入、`preload="none"`、`fetchpriority="high"`。
@@ -41,11 +41,12 @@
 
 | 區段 Section | 內容 Description |
 | :--- | :--- |
-| **Section 1** | 雙圖緩慢交叉淡入輪播主視覺 (Hero Crossfade Slideshow) |
+| **Section 1** | 三圖緩慢交叉淡入輪播主視覺 (Hero Crossfade Slideshow) |
 | **Section 2** | 計劃理念文字介紹 (Project Philosophy) |
-| **Section 3** | 9 種掃帚縮圖無縫輪播 (Seamless Marquee) |
-| **Section 4** | 掃帚詳細介紹與圖文故事 (Detailed Stories with Slideshow) |
-| **Section 5** | 工藝展現 MP4 無限橫向輪播，6 種掃帚製作影片 (Craftsmanship Marquee) |
+| **Section 3** | 東京展覽引導：展期、地點、Google Maps 連結 (Tokyo Exhibition Guide) |
+| **Section 4** | 9 種掃帚縮圖無縫輪播 (Seamless Marquee) |
+| **Section 5** | 掃帚詳細介紹與圖文故事 (Detailed Stories with Slideshow) |
+| **Section 6** | 工藝展現 MP4 無限橫向輪播，6 種掃帚製作影片 (Craftsmanship Marquee) |
 | **Modal** | 詳細介紹小卡與高解析影像藝廊 (Deep Dive Gallery) |
 
 ---
@@ -82,6 +83,6 @@
 
 **企劃** 支流有限公司
 - **採訪/攝影/撰文**：王威智、陳玲芳、陳培瑜、鐘仁嫻、劉鎮豪、曾雅鈺、林雅雯
-- **美術設計**：黃瑪琍 | **總編輯**：周易正 | **展覽籌備**：鄭湘榆
+- **美術設計**：謝捲子（主視覺＆周邊）、黃瑪琍（書籍設計）| **總編輯**：周易正 | **展覽籌備**：鄭湘榆
 
 *2018年文化部推動國家文化記憶庫計畫補助專案*
