@@ -124,6 +124,51 @@
       animation: s2FadeUp 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
     }
 
+    /* ─── SECTION TOKYO: Exhibition Guide ─── */
+    #section-tokyo { background: #f6c9db; overflow: hidden; }
+    .tokyo-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: stretch; }
+    .tokyo-text {
+      flex: 1;
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .tokyo-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+    .tokyo-desc {
+      font-size: 14px;
+      line-height: 2;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    .tokyo-desc a { color: #666; text-decoration: underline; }
+    .tokyo-desc a:hover { color: #1a1a1a; }
+    .tokyo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: background 0.2s;
+    }
+    .tokyo-btn:hover { background: #333; }
+    .tokyo-image { flex: 0 0 45%; overflow: hidden; }
+    .tokyo-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
     /* ─── SECTION 3: Gallery ─── */
     #section3 {
       padding: 32px 0 60px;
@@ -797,6 +842,10 @@
       #section2 { padding: 60px 24px; }
       #section2 h1 { margin-bottom: 32px; }
 
+      .tokyo-inner { flex-direction: column-reverse; }
+      .tokyo-text { padding: 48px 24px; }
+      .tokyo-image { flex: none; width: 100%; height: 70vw; max-height: 420px; }
+
       .gallery-item { flex: 0 0 50vw; width: 50vw; }
       
       .broom-entry { display: block; }
@@ -871,6 +920,26 @@ footer { padding: 32px 24px 0; }
     <p>這個臺灣掃帚的蒐集計畫，源自於我們長期在臺灣各地作田野，突然發現許多鄉鎮不使用都市中便宜耐用的塑膠掃帚，而是會就地取材用當地盛產植物，做出「不那麼耐用」的「自然掃帚」：有的曾經是當地產業；更多是自用或送人的簡單日用品。</p>
     <p>無論是否有商業價值，這些掃帚都能說出很多當地故事，我們這些外地人，可以騎著這些掃帚飛進當地的脈絡，一窺當地的植物、人文、歷史各種面向。因為這樣，所以我們展開了全臺掃帚蒐集，並藉著這些掃帚展開當地故事，成為進入各個鄉村的藉口。</p>
     <p>這個在2017年提出的構想，沉澱多年之後被日本知名的採購山田遊先生提出邀請去他在東京所經營的畫廊——<a href="https://placebymethod.com/" target="_blank">(PLACE) by method</a>展出。很感謝因為這個邀約，我們重訪了所有掃帚師傅。許多師傅其實都已經不再製作，但因為這次非常特別的邀請而重新拿出工具、重新步入山林採集植物、再次為展覽製作掃帚。讓這些原本只存在於臺灣鄉間、生命短暫、簡單但美麗的日用品重新被人看見。</p>
+  </section>
+
+  <!-- ─── SECTION TOKYO: Exhibition Guide ─── -->
+  <section id="section-tokyo">
+    <div class="tokyo-inner">
+      <div class="tokyo-text">
+        <h2 class="tokyo-title" id="tokyo-title">東京展覽 &mdash; TOKYO EXHIBITION</h2>
+        <p class="tokyo-desc" id="tokyo-desc">台灣掃帚的製作－日常清掃的風景－<br>2026.5.8 (Fri) – 5.24 (Sun) / 12:00 – 19:00<br><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a></p>
+        <a href="https://placebymethod.com/pages/contact" target="_blank" rel="noopener" class="tokyo-btn" id="tokyo-btn">
+          Learn more
+          <svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true">
+            <line x1="0" y1="5" x2="18" y2="5" stroke="white" stroke-width="1.5"/>
+            <polyline points="14,1 18,5 14,9" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="tokyo-image">
+        <img src="區段3_展覽引導/東京展覽視覺.png" alt="東京展覽" />
+      </div>
+    </div>
   </section>
 
   <!-- ─── SECTION 3: Thumbnail Gallery ─── -->
@@ -1845,6 +1914,9 @@ footer { padding: 32px 24px 0; }
         footerExhibition: '東京展覽 &mdash; Tokyo Exhibition',
         footerYamadaBio: '株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員',
         s6Bio: '株式會社 method 代表董事、武藏野美術大學造形學部工藝工業設計學科客座教授，以及 GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査委員',
+        tokyoTitle: '東京展覽 &mdash; TOKYO EXHIBITION',
+        tokyoDesc: '台灣掃帚的製作－日常清掃的風景－<br>2026.5.8 (Fri) – 5.24 (Sun) / 12:00 – 19:00<br><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a>',
+        tokyoBtn: 'Learn more',
       },
 
       en: {
@@ -1899,6 +1971,9 @@ footer { padding: 32px 24px 0; }
         footerExhibition: 'Tokyo Exhibition',
         footerYamadaBio: 'Representative Director of method Co., Ltd.; Visiting Professor, Department of Craft and Industrial Design, Musashino Art University; Judge, GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD.',
         s6Bio: 'Representative Director of method Co., Ltd.; Visiting Professor, Department of Craft and Industrial Design, Musashino Art University; Judge, GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD.',
+        tokyoTitle: 'Tokyo Exhibition',
+        tokyoDesc: 'Taiwan Broom Making — Everyday Scenes of Sweeping —<br>2026.5.8 (Fri) – 5.24 (Sun) / 12:00 – 19:00<br><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a>',
+        tokyoBtn: 'Learn more',
       },
 
       ja: {
@@ -1951,6 +2026,9 @@ footer { padding: 32px 24px 0; }
         footerExhibition: '東京展覧会',
         footerYamadaBio: '株式会社メソッド代表取締役、武蔵野美術大学造形学部工芸工業デザイン学科客員教授、GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査員。',
         s6Bio: '株式会社メソッド代表取締役、武蔵野美術大学造形学部工芸工業デザイン学科客員教授、GOOD DESIGN AWARD 2026 LONG LIFE DESIGN AWARD 審査員。',
+        tokyoTitle: '東京展覧会',
+        tokyoDesc: '台湾箒の製作－日常清掃の風景－<br>2026.5.8 (Fri) – 5.24 (Sun) / 12:00 – 19:00<br><a href="https://placebymethod.com/" target="_blank" rel="noopener">(PLACE) by method</a>',
+        tokyoBtn: 'Learn more',
       }
     };
 
@@ -1983,6 +2061,11 @@ footer { padding: 32px 24px 0; }
         if (ps[1]) ps[1].textContent = t.s2P2;
         if (ps[2]) ps[2].innerHTML = t.s2P3;
       }
+
+      // Section Tokyo
+      const tTitle = $('#tokyo-title'); if (tTitle) tTitle.innerHTML = t.tokyoTitle;
+      const tDesc  = $('#tokyo-desc');  if (tDesc)  tDesc.innerHTML  = t.tokyoDesc;
+      const tBtn   = $('#tokyo-btn');   if (tBtn)   tBtn.childNodes[0].textContent = t.tokyoBtn + ' ';
 
       // Section 4 — distribution card
       const b0 = $('#broom0');
