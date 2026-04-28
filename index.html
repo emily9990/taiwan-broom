@@ -1743,12 +1743,15 @@ footer { padding: 32px 24px 0; }
         entries.forEach(function (entry) {
           const videos = section5.querySelectorAll('video');
           if (entry.isIntersecting) {
-            videos.forEach(function (v) { v.play(); });
+            videos.forEach(function (v) {
+              if (v.readyState === 0) { v.load(); }
+              v.play().catch(function () {});
+            });
           } else {
             videos.forEach(function (v) { v.pause(); });
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.05 });
       observer.observe(section5);
     })();
 
