@@ -32,7 +32,9 @@
 - **Hero 輪播**：Section 1 三圖緩慢交叉淡入輪播（24 秒週期），手機版各自優化裁切位置。
 - **工藝展示**：Section 5 以壓縮 MP4 影片呈現 6 種掃帚製作工藝，無限橫向輪播，含緩慢橫移視差效果；影片進入視野才載入播放，節省行動端頻寬。
 - **捲動動畫**：Section 2 文字進入視野時依序 fade-up 浮現。
-- **效能優化**：英雄圖壓縮至 935KB、Section 3/4 圖片壓縮、MP4 影片壓縮約 50%、影片懶載入、`preload="none"`、`fetchpriority="high"`。
+- **效能優化**：英雄圖壓縮至 935KB、Section 3/4 圖片壓縮、MP4 影片壓縮約 50%、影片懶載入、`preload="metadata"`、`fetchpriority="high"`。
+- **Open Graph**：完整 og:title / og:description / og:image，支援 Facebook 連結預覽卡片。
+- **AI 可讀**：提供 `llms.txt`（`/llms.txt`），供 AI 工具直接讀取網站內容摘要。
 - **Footer**：東京展覽欄位含山田遊三語簡介（JS 動態對齊）；Facebook 連結與版權列；手機版自動調整欄位順序。
 
 ---
@@ -43,7 +45,7 @@
 | :--- | :--- |
 | **Section 1** | 三圖緩慢交叉淡入輪播主視覺 (Hero Crossfade Slideshow) |
 | **Section 2** | 計劃理念文字介紹 (Project Philosophy) |
-| **Section 3** | 東京展覽引導：展期、地點、Google Maps 連結 (Tokyo Exhibition Guide) |
+| **Section 3** | 東京展覽引導：展期、地點、Learn more 連結 (Tokyo Exhibition Guide) |
 | **Section 4** | 9 種掃帚縮圖無縫輪播 (Seamless Marquee) |
 | **Section 5** | 掃帚詳細介紹與圖文故事 (Detailed Stories with Slideshow) |
 | **Section 6** | 工藝展現 MP4 無限橫向輪播，6 種掃帚製作影片 (Craftsmanship Marquee) |
@@ -57,7 +59,7 @@
 |:---:|:--- |:--- |
 | 01 | **槺榔掃帚** / Date palm / カンラン | 嘉義朴子 |
 | 02 | **稻草掃帚** / Straw / 稲わら | 宜蘭冬山／雲林莿桐 |
-| 03 | **高粱掃帚** / Sorghum / モロコシ | 臺東東河 |
+| 03 | **高粱掃帚** / Sorghum / モロコシ | 臺東東河／金門 |
 | 04 | **地膚草掃帚** / Kochia / ホウキグサ | 彰化福興 |
 | 05 | **貴黍掃帚** / Millet / キビ | 嘉義六腳 |
 | 06 | **山棕掃帚** / Arenga / クロツグ | 高雄美濃 |
